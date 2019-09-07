@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Escape Room</title>
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+  <div style="display:none">
+    <svg xmlns="http://www.w3.org/2000/svg">
+  <symbol width="24" height="24" viewbox="0 0 24 24" fill="none" id="icon-gps">
+    <path d="M12 22C6.48593 22 2 17.5141 2 12.0001C2 6.48599 6.48593 2 12 2C17.5141 2 22 6.48599 22 12.0001C22 17.5141 17.5141 22 12 22ZM12.6802 3.38646V7.51266C12.6802 7.88808 12.3757 8.19259 12 8.19259C11.6243 8.19259 11.3198 7.88815 11.3198 7.51266V3.38646C7.09698 3.71697 3.71734 7.09704 3.38709 11.3201H7.51063C7.88622 11.3201 8.19087 11.6245 8.19087 12C8.19087 12.3755 7.88622 12.6799 7.51063 12.6799H3.38709C3.71734 16.903 7.09698 20.283 11.3198 20.6135V16.4873C11.3198 16.1119 11.6243 15.8074 12 15.8074C12.3757 15.8074 12.6802 16.1119 12.6802 16.4873V20.6135C16.9031 20.283 20.2827 16.903 20.6129 12.6799H16.4894C16.1138 12.6799 15.8091 12.3755 15.8091 12C15.8091 11.6245 16.1137 11.3201 16.4894 11.3201H20.6129C20.2826 7.09697 16.903 3.71697 12.6802 3.38646Z" fill="#F2890F"></path>
+  </symbol>
+</svg>
+
+  </div>
+
+  <p><a href="#" class="city-link">Новосибирск</a></p>
+  <p><a href="#" class="question-link">Задать вопрос</a></p>
+
+  <section class="modal modal--city">
+      <div class="modal__title">
+        <h2>Ваш город:</h2>
+        <button class="modal__close"></button>
+      </div>
+      <a class="modal__action">
+        <svg width="25" height="25">
+          <use xlink:href="#icon-gps"></use>
+        </svg>
+        <span>Определить местоположение</span>
+      </a>
+      <p>... или выберите вручную</p>
+      <div class="modal__cities">
+        <ul>
+          <li class="active"><a href="#">Новосибирск</a></li>
+          <li><a href="#">Иркутск</a></li>
+          <li><a href="#">Смоленск</a></li>
+          <li><a href="#">Волгоград</a></li>
+          <li><a href="#">Комсомольск-на-Амуре</a></li>
+        </ul>
+      </div>
+  </section>
+
+  <section class="modal modal--question">
+    <div class="modal__title">
+      <h2>Задайте вопрос</h2>
+      <button class="modal__close"></button>
+    </div>
+    <form action="">
+      <label>
+        <span>Чтобы мы смогли обращаться к вам, оставьте ваше имя</span>
+        <p class="modal__input-wrapper modal__input-wrapper--name">
+          <span class="modal__tip modal__tip--name">Имя</span>
+          <input type="text" name="name" placeholder="Имя" required="">
+          <span class="modal__validation modal__validation--name">Введите имя</span>
+        </p>
+      </label>
+      <label>
+        <span>Чтобы вы получили ответ, оставьте ваш e-mail</span>
+        <p class="modal__input-wrapper modal__input-wrapper--email">
+          <span class="modal__tip modal__tip--email">E-mail</span>
+          <input type="email" name="email" placeholder="E-mail" required="">
+          <span class="modal__validation modal__validation--email">Введен некорректный e-mail, попробуйте заново</span>
+        </p>
+      </label>
+      <label>
+        <span>Ваш вопрос:</span>
+        <p class="modal__input-wrapper modal__input-wrapper--question">
+          <textarea name="question" rows="4" placeholder="Начните вводить ..." required=""></textarea>
+          <span class="modal__validation modal__validation--question">Введите вопрос</span>
+        </p>
+      </label>
+      <p class="modal__submit">
+        <button type="submit" name="button" disabled="">Отправить вопрос</button>
+      </p>
+      <label>
+        <input class="visually-hidden" type="checkbox" name="agreement" value="agree" required="">
+        <span class="checkbox-indicator"></span>
+        <span>Я согласен <a href="#">с правилами обработки персональных данных</a> и пользовательским соглашением</span>
+      </label>
+    </form>
+  </section>
+  <script src="js/app.min.js"></script>
+</body>
+</html>
