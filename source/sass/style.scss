@@ -1,0 +1,12 @@
+@import './abstracts/variables',
+          './abstracts/mixins';
+
+@import './base/normalize.scss',
+          './base/base.scss';
+
+@import './layout/page.scss';
+
+@import './blocks/header.scss',
+          './blocks/footer.scss';
+
+@import './components/social.scss';

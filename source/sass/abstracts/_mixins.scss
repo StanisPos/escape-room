@@ -1,0 +1,9 @@
+@mixin background($dir) {
+  background-image: url($dir);
+  background-repeat: no-repeat;
+}
+
+@mixin list-reset() {
+  margin: 0;
+  padding: 0;
+}
