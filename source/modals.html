@@ -8,9 +8,9 @@
   <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
-  <div style="display:none">
+  <template style="display:none">
     <include src="build/img/icons/sprite_auto.svg"></include>
-  </div>
+  </template>
 
   <p><a href="#" class="city-link md-trigger" data-modal="city">Новосибирск</a></p>
   <p><a href="#" class="question-link md-trigger" data-modal="question">Задать вопрос</a></p>
@@ -46,30 +46,26 @@
         <h2>Задайте вопрос</h2>
         <button class="modal__close md-close"></button>
       </div>
-      <form action="">
-        <label>
-          <span>Чтобы мы смогли обращаться к вам, оставьте ваше имя</span>
-          <p class="modal__input-wrapper modal__input-wrapper--name">
-            <span class="modal__tip modal__tip--name">Имя</span>
-            <input type="text" name="name" placeholder="Имя" required>
+      <form action="#">
+        <div class="modal__form-inner">
+          <label for="input-name">Чтобы мы смогли обращаться к вам, оставьте ваше имя</label>
+          <div class="modal__input-wrapper modal__input-wrapper--name">
+            <input class="js-input" type="text" name="name" placeholder="Имя" required id="input-name">
+            <span class="modal__prompt modal__prompt--name">Имя</span>
             <span class="modal__validation modal__validation--name">Введите имя</span>
-          </p>
-        </label>
-        <label>
-          <span>Чтобы вы получили ответ, оставьте ваш e-mail</span>
-          <p class="modal__input-wrapper modal__input-wrapper--email">
-            <span class="modal__tip modal__tip--email">E-mail</span>
-            <input type="email" name="email" placeholder="E-mail" required>
+          </div>
+          <label for="input-email">Чтобы вы получили ответ, оставьте ваш e-mail</label>
+          <div class="modal__input-wrapper modal__input-wrapper--email">
+            <input class="js-input" type="email" name="email" placeholder="E-mail" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" id="input-email">
+            <span class="modal__prompt modal__prompt--email">E-mail</span>
             <span class="modal__validation modal__validation--email">Введен некорректный e-mail, попробуйте заново</span>
-          </p>
-        </label>
-        <label>
-          <span>Ваш вопрос:</span>
-          <p class="modal__input-wrapper modal__input-wrapper--question">
-            <textarea name="question" rows="4" placeholder="Начните вводить ..." required></textarea>
+          </div>
+          <label for="input-question">Ваш вопрос:</label>
+          <div class="modal__input-wrapper modal__input-wrapper--question">
+            <textarea name="question" rows="4" placeholder="Начните вводить ..." required class="js-input" id="input-question"></textarea>
             <span class="modal__validation modal__validation--question">Введите вопрос</span>
-          </p>
-        </label>
+          </div>
+        </div>
         <p class="modal__submit">
           <button type="submit" name="button" disabled>Отправить вопрос</button>
         </p>
