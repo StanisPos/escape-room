@@ -105,13 +105,14 @@
 </symbol></svg>
   </div>
 
-  <p><a href="#" class="city-link">Новосибирск</a></p>
+  <p><a href="#" class="city-link ">Новосибирск</a></p>
   <p><a href="#" class="question-link">Задать вопрос</a></p>
 
   <section class="modal modal--city">
+    <div class="modal__inner">
       <div class="modal__title">
         <h2>Ваш город:</h2>
-        <button class="modal__close"></button>
+        <button class="modal__close js-close"></button>
       </div>
       <a class="modal__action">
         <svg width="25" height="25">
@@ -129,46 +130,49 @@
           <li><a href="#">Комсомольск-на-Амуре</a></li>
         </ul>
       </div>
+    </div>
   </section>
 
   <section class="modal modal--question">
-    <div class="modal__title">
-      <h2>Задайте вопрос</h2>
-      <button class="modal__close"></button>
+    <div class="modal__inner">
+      <div class="modal__title">
+        <h2>Задайте вопрос</h2>
+        <button class="modal__close js-close"></button>
+      </div>
+      <form action="">
+        <label>
+          <span>Чтобы мы смогли обращаться к вам, оставьте ваше имя</span>
+          <p class="modal__input-wrapper modal__input-wrapper--name">
+            <span class="modal__tip modal__tip--name">Имя</span>
+            <input type="text" name="name" placeholder="Имя" required="">
+            <span class="modal__validation modal__validation--name">Введите имя</span>
+          </p>
+        </label>
+        <label>
+          <span>Чтобы вы получили ответ, оставьте ваш e-mail</span>
+          <p class="modal__input-wrapper modal__input-wrapper--email">
+            <span class="modal__tip modal__tip--email">E-mail</span>
+            <input type="email" name="email" placeholder="E-mail" required="">
+            <span class="modal__validation modal__validation--email">Введен некорректный e-mail, попробуйте заново</span>
+          </p>
+        </label>
+        <label>
+          <span>Ваш вопрос:</span>
+          <p class="modal__input-wrapper modal__input-wrapper--question">
+            <textarea name="question" rows="4" placeholder="Начните вводить ..." required=""></textarea>
+            <span class="modal__validation modal__validation--question">Введите вопрос</span>
+          </p>
+        </label>
+        <p class="modal__submit">
+          <button type="submit" name="button" disabled="">Отправить вопрос</button>
+        </p>
+        <label>
+          <input class="visually-hidden" type="checkbox" name="agreement" value="agree" required="">
+          <span class="checkbox-indicator"></span>
+          <span>Я согласен <a href="#">с правилами обработки персональных данных</a> и пользовательским соглашением</span>
+        </label>
+      </form>
     </div>
-    <form action="">
-      <label>
-        <span>Чтобы мы смогли обращаться к вам, оставьте ваше имя</span>
-        <p class="modal__input-wrapper modal__input-wrapper--name">
-          <span class="modal__tip modal__tip--name">Имя</span>
-          <input type="text" name="name" placeholder="Имя" required="">
-          <span class="modal__validation modal__validation--name">Введите имя</span>
-        </p>
-      </label>
-      <label>
-        <span>Чтобы вы получили ответ, оставьте ваш e-mail</span>
-        <p class="modal__input-wrapper modal__input-wrapper--email">
-          <span class="modal__tip modal__tip--email">E-mail</span>
-          <input type="email" name="email" placeholder="E-mail" required="">
-          <span class="modal__validation modal__validation--email">Введен некорректный e-mail, попробуйте заново</span>
-        </p>
-      </label>
-      <label>
-        <span>Ваш вопрос:</span>
-        <p class="modal__input-wrapper modal__input-wrapper--question">
-          <textarea name="question" rows="4" placeholder="Начните вводить ..." required=""></textarea>
-          <span class="modal__validation modal__validation--question">Введите вопрос</span>
-        </p>
-      </label>
-      <p class="modal__submit">
-        <button type="submit" name="button" disabled="">Отправить вопрос</button>
-      </p>
-      <label>
-        <input class="visually-hidden" type="checkbox" name="agreement" value="agree" required="">
-        <span class="checkbox-indicator"></span>
-        <span>Я согласен <a href="#">с правилами обработки персональных данных</a> и пользовательским соглашением</span>
-      </label>
-    </form>
   </section>
   <script src="js/app.min.js"></script>
 </body>

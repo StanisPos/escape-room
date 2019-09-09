@@ -49,22 +49,30 @@ var createOverlay = function () {
   var overlay = document.createElement('div');
   overlay.classList.add('modal__overlay');
   document.body.appendChild(overlay);
+  overlay.classList.add('modal__overlay--show');
   return overlay;
 };
 
 var removeOverlay = function () {
-  document.querySelector('.modal__overlay').remove();
+  document.querySelector('.modal__overlay').classList.remove('modal__overlay--show');
 };
 
 if (modalCity) {
   cityLink.addEventListener('click', function (evt) {
     evt.preventDefault();
     modalCity.classList.add('modal--show');
-    var overlay = createOverlay();
-    overlay.addEventListener('click', function () {
-      modalCity.classList.remove('modal--show');
-      removeOverlay();
-    });
+
+    var overlay = document.querySelector('.modal__overlay');
+
+    if (overlay) {
+      overlay.classList.add('modal__overlay--show');
+    } else {
+      overlay = createOverlay();
+      overlay.addEventListener('click', function () {
+        modalCity.classList.remove('modal--show');
+        removeOverlay();
+      });
+    }
   });
 
   closeCityButton.addEventListener('click', function (evt) {
@@ -73,6 +81,12 @@ if (modalCity) {
     removeOverlay();
   });
 }
+
+window.addEventListener('click', function (evt) {
+  if (evt.target === modalCity) {
+    modalCity.classList.remove('modal--show');
+  }
+});
 
 if (modalQuestion) {
   questionLink.addEventListener('click', function (evt) {
@@ -86,19 +100,19 @@ if (modalQuestion) {
       nameInput.focus();
     }
 
-    var overlay = createOverlay();
-    overlay.addEventListener('click', function () {
-      questionForm.classList.remove('submit-focused');
-      modalQuestion.classList.remove('modal--show');
-      removeOverlay();
-    });
+    // var overlay = createOverlay();
+    // overlay.addEventListener('click', function () {
+    //   questionForm.classList.remove('submit-focused');
+    //   modalQuestion.classList.remove('modal--show');
+    //   removeOverlay();
+    // });
   });
 
   closeQuestionButton.addEventListener('click', function (evt) {
     evt.preventDefault();
     questionForm.classList.remove('submit-focused');
     modalQuestion.classList.remove('modal--show');
-    removeOverlay();
+    // removeOverlay();
   });
 
   agreementInput.addEventListener('input', function () {
@@ -161,7 +175,7 @@ window.addEventListener('keydown', function (evt) {
     if (modal) {
       questionForm.classList.remove('submit-focused');
       modal.classList.remove('modal--show');
-      removeOverlay();
+      // removeOverlay();
     }
   }
 });

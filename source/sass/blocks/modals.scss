@@ -1,13 +1,42 @@
 .modal {
-  min-width: 320px;
-  display: none;
-  z-index: 5;
-  position: absolute;
-  width: 480px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 3px;
+  // display: none;
+  // position: fixed;
+  // top: 0;
+  // right: 0;
+  // bottom: 0;
+  // left: 0;
+  // background-color: #3D3333;
+  // animation-name: fadeIn;
+  // animation-duration: 0.4s
+
+  position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 50%;
+	max-width: 630px;
+	min-width: 320px;
+	height: auto;
+	z-index: 2000;
+	visibility: hidden;
+	backface-visibility: hidden;
+	transform: translateX(-50%) translateY(-50%);
+}
+
+.modal__inner {
+  // display: flex;
+  // z-index: 5;
+  // position: absolute;
+  // width: 480px;
+  // left: 50%;
+  // top: 50%;
+  // transform: translate(-50%, -50%);
+  // border-radius: 3px;
+  // opacity: 0;
+  // transition: 0.3s;
+
+	transform: scale(0.7);
+	opacity: 0;
+	transition: all 0.3s;
 
   padding: 32px;
   background: linear-gradient(0deg, #141414 0%, #1F1D1D 100%);
@@ -16,8 +45,6 @@
 
   flex-direction: column;
   box-sizing: border-box;
-
-
 
   h2 {
     margin-top: 0;
@@ -39,8 +66,15 @@
   }
 }
 
+
 .modal--show {
-  display: flex;
+  // display: block;
+  visibility: visible;
+
+  .modal__inner {
+  	transform: scale(1);
+  	opacity: 1;
+  }
 }
 
 .modal__title {
@@ -58,6 +92,7 @@
   background-color: transparent;
   border: none;
   opacity: 0.5;
+  transition: 0.3s;
 
   &::before,
   &::after {
@@ -163,6 +198,7 @@
     border: 1px solid;
     border-color: rgba(255, 255, 255, 0.4);
     border-radius: 3px;
+    transition: border-color 0.3s;
 
     &:focus {
       border-color: rgba(255, 255, 255, 0.64);
@@ -222,6 +258,17 @@
     background-color: $brand-color;
     border-radius: 3px;
     opacity: 0.4;
+    transition: opacity 0.3s;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 2px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
   }
 
   input[type=checkbox]:checked + .checkbox-indicator {
@@ -233,11 +280,7 @@
     background-position: center;
 
     &::after {
-      content: "";
-      display: block;
-      position: absolute;
-      left: 0;
-      top: 2px;
+      opacity: 1;
     }
   }
 }
@@ -349,12 +392,23 @@
 
 .modal__overlay {
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	opacity: 0;
+	background: rgba(143,27,15,0.8);
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
   background-color: #3D3333;
-  opacity: 0.96;
+}
+
+.modal__overlay--show {
+	opacity: 1;
+	visibility: visible;
 }
 
 @media (max-width: 767px) {
@@ -362,3 +416,8 @@
     width: 100%;
   }
 }
+
+@keyframes fadeIn {
+  from {opacity: 0}
+  to {opacity: 1}
+};

@@ -12,6 +12,7 @@
   background-color: $brand-color;
   text-transform: uppercase;
   border: none;
+  transition: 0.3s;
 
   &:hover {
     background-color: $brand-color-light;
