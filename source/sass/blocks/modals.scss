@@ -389,9 +389,39 @@
 	visibility: visible;
 }
 
+@media (max-width: 1023px) {
+  .modal {
+    top: 80px;
+  }
+}
+
 @media (max-width: 767px) {
   .modal {
     width: 100%;
+    min-width: 320px;
+    top: 0;
+    left: 0;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 359px) {
+  .modal__action span {
+    font-size: 15px;
+  }
+
+  .modal__inner {
+    h2 {
+      font-size: 28px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+  }
+
+  .modal__cities a {
+    font-size: 22px;
   }
 }
 
