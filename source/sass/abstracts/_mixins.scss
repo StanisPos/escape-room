@@ -7,3 +7,9 @@
   margin: 0;
   padding: 0;
 }
+
+@mixin fixed-centering() {
+  margin: auto;
+  left: 0;
+  right: 0;
+}

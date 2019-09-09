@@ -1,14 +1,15 @@
 .footer {
+  position: fixed;
+  bottom: 0;
+  @include fixed-centering();
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  max-width: $desktop-width;
   min-height: 70px;
   padding: 0 32px;
-
-  position: fixed;
-  left: 0;
-  bottom: 0;
 }
 
 .footer__social {
@@ -25,6 +26,9 @@
   padding-bottom: 5px;
 
   border-bottom: 2px dashed $color-text-footer;
+
+  transform: translateZ(0);
+  transition: border, padding 200ms ease-out;
 
   &::before {
     content: "?";
