@@ -1,6 +1,10 @@
-@import "normalize.scss";
-@import "variables.scss";
-@import "general.scss";
-@import "mixins.scss";
-@import "font.scss";
-@import "blocks/modals.scss";
+@import './abstracts/variables',
+        './abstracts/mixins';
+
+@import './base/normalize.scss',
+        './base/base.scss',
+        './base/font.scss';
+
+@import './layout/page.scss';
+
+@import './blocks/modals.scss';

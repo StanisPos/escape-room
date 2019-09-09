@@ -1,0 +1,8 @@
+.wrapper {
+  height: 100vh;
+  padding: 0 32px;
+
+  @media (max-width: $mobile-width) {
+    padding: 0 16px;
+  }
+}

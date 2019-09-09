@@ -25,7 +25,7 @@
     font-family: $font;
     font-style: normal;
     font-weight: 800;
-    color: #ffffff;
+    color: $base-color-light;
     font-size: 32px;
     line-height: 38px;
   }
@@ -67,7 +67,7 @@
     left: -3px;
     width: 19.8px;
     height: 2px;
-    background-color: #ffffff;
+    background-color: $base-color-light;
   }
 
   &::before {
@@ -127,7 +127,7 @@
     font-weight: 600;
     font-size: 24px;
     line-height: 29px;
-    color: #ffffff;
+    color: $base-color-light;
     opacity: 0.32;
     text-decoration: none;
 
