@@ -19,12 +19,8 @@ var ESC_KEYCODE = 27;
 
 // Модальные окна
 
-var cityLink = document.querySelector('.city-link');
-var questionLink = document.querySelector('.question-link');
 var modalCity = document.querySelector('.modal--city');
 var modalQuestion = document.querySelector('.modal--question');
-var closeCityButton = modalCity.querySelector('.modal__close');
-var closeQuestionButton = modalQuestion.querySelector('.modal__close');
 var nameInput = modalQuestion.querySelector('[name=name]');
 var emailInput = modalQuestion.querySelector('[name=email]');
 var questionInput = modalQuestion.querySelector('[name=question]');
@@ -39,6 +35,8 @@ var questionSubmitButton = modalQuestion.querySelector('[type=submit]');
 var isStorageSupport = true;
 var storage = '';
 
+var mdTriggers = document.querySelectorAll('.md-trigger');
+
 try {
   storage = localStorage.getItem('login');
 } catch (err) {
@@ -49,7 +47,10 @@ var createOverlay = function () {
   var overlay = document.createElement('div');
   overlay.classList.add('modal__overlay');
   document.body.appendChild(overlay);
-  overlay.classList.add('modal__overlay--show');
+  overlay.addEventListener('click', function () {
+    document.querySelector('.modal--show').classList.remove('modal--show');
+    removeOverlay();
+  });
   return overlay;
 };
 
@@ -57,63 +58,46 @@ var removeOverlay = function () {
   document.querySelector('.modal__overlay').classList.remove('modal__overlay--show');
 };
 
-if (modalCity) {
-  cityLink.addEventListener('click', function (evt) {
+var overlay = createOverlay();
+
+// var closeModal = function () {
+//   document.querySelector('.modal--show').classList.remove('modal--show');
+//   removeOverlay();
+// };
+
+mdTriggers.forEach(function (el) {
+  var modal = document.querySelector('.modal--' + el.getAttribute('data-modal'));
+  var close = modal.querySelector('.md-close');
+
+  function removeModal() {
+    modal.classList.remove('modal--show', 'submit-focused');
+    removeOverlay();
+  }
+
+  el.addEventListener('click', function (evt) {
     evt.preventDefault();
-    modalCity.classList.add('modal--show');
+    overlay.classList.add('modal__overlay--show');
+    modal.classList.add('modal--show');
+    overlay.addEventListener('click', removeModal);
 
-    var overlay = document.querySelector('.modal__overlay');
-
-    if (overlay) {
-      overlay.classList.add('modal__overlay--show');
-    } else {
-      overlay = createOverlay();
-      overlay.addEventListener('click', function () {
-        modalCity.classList.remove('modal--show');
-        removeOverlay();
-      });
+    if (modal.classList.contains('.modal--question')) {
+      if (storage) {
+        nameInput.value = storage;
+        emailInput.focus();
+      } else {
+        nameInput.focus();
+      }
     }
   });
 
-  closeCityButton.addEventListener('click', function (evt) {
+  close.addEventListener('click', function (evt) {
     evt.preventDefault();
-    modalCity.classList.remove('modal--show');
-    removeOverlay();
+    removeModal();
   });
-}
-
-window.addEventListener('click', function (evt) {
-  if (evt.target === modalCity) {
-    modalCity.classList.remove('modal--show');
-  }
 });
 
+
 if (modalQuestion) {
-  questionLink.addEventListener('click', function (evt) {
-    evt.preventDefault();
-    modalQuestion.classList.add('modal--show');
-
-    if (storage) {
-      nameInput.value = storage;
-      emailInput.focus();
-    } else {
-      nameInput.focus();
-    }
-
-    // var overlay = createOverlay();
-    // overlay.addEventListener('click', function () {
-    //   questionForm.classList.remove('submit-focused');
-    //   modalQuestion.classList.remove('modal--show');
-    //   removeOverlay();
-    // });
-  });
-
-  closeQuestionButton.addEventListener('click', function (evt) {
-    evt.preventDefault();
-    questionForm.classList.remove('submit-focused');
-    modalQuestion.classList.remove('modal--show');
-    // removeOverlay();
-  });
 
   agreementInput.addEventListener('input', function () {
     if (agreementInput.checked === true) {
@@ -175,7 +159,7 @@ window.addEventListener('keydown', function (evt) {
     if (modal) {
       questionForm.classList.remove('submit-focused');
       modal.classList.remove('modal--show');
-      // removeOverlay();
+      removeOverlay();
     }
   }
 });

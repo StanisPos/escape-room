@@ -12,14 +12,14 @@
     <include src="build/img/icons/sprite_auto.svg"></include>
   </div>
 
-  <p><a href="#" class="city-link ">Новосибирск</a></p>
-  <p><a href="#" class="question-link">Задать вопрос</a></p>
+  <p><a href="#" class="city-link md-trigger" data-modal="city">Новосибирск</a></p>
+  <p><a href="#" class="question-link md-trigger" data-modal="question">Задать вопрос</a></p>
 
   <section class="modal modal--city">
     <div class="modal__inner">
       <div class="modal__title">
         <h2>Ваш город:</h2>
-        <button class="modal__close js-close"></button>
+        <button class="modal__close md-close"></button>
       </div>
       <a class="modal__action">
         <svg width="25" height="25">
@@ -44,7 +44,7 @@
     <div class="modal__inner">
       <div class="modal__title">
         <h2>Задайте вопрос</h2>
-        <button class="modal__close js-close"></button>
+        <button class="modal__close md-close"></button>
       </div>
       <form action="">
         <label>
