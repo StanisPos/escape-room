@@ -1,0 +1,23 @@
+.button {
+  font-family: $font-text;
+  font-size: 17px;
+  line-height: 20px;
+  letter-spacing: 0.03em;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #ffffff;
+
+  width: 250px;
+  min-height: 65px;
+  padding: 22px 33px;
+
+  background-color: $color-yellow-button;
+  border-radius: 65px;
+  border: none;
+
+  outline: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

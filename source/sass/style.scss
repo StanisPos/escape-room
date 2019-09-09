@@ -4,9 +4,12 @@
 @import './base/normalize.scss',
           './base/base.scss';
 
-@import './layout/page.scss';
+@import './layout/body-wrapper.scss',
+          './layout/main.scss';
 
 @import './blocks/header.scss',
+          './blocks/introduction.scss',
           './blocks/footer.scss';
 
-@import './components/social.scss';
+@import './components/social.scss',
+          './components/buttons.scss';
