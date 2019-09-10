@@ -1,0 +1,14 @@
+.wrapper {
+  height: 100vh;
+  padding: 0 32px;
+
+  @include background("../../img/photos/bg_humans.jpg");
+  background-position: 39%;
+  background-size: cover;
+}
+
+@media (max-width: $mobile-width) {
+  .wrapper {
+    padding: 0 16px;
+  }
+}

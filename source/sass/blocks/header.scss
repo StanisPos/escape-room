@@ -1,0 +1,157 @@
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  min-height: 78px;
+  padding: 0 32px;
+
+  position: fixed;
+  @include fixed-centering();
+  width: 100%;
+  max-width: $desktop-width;
+}
+
+.header__logo {
+  flex-grow: 0.3;
+}
+
+.header__logo-link {
+  display: block;
+  height: 100%;
+  width: 134px;
+}
+
+.header__navigation {
+  padding-bottom: 21px;
+  flex-grow: 0.43;
+}
+
+.header__list {
+  @include list-reset;
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 536px;
+}
+
+.header__info-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-grow: 0.05;
+
+  max-width: 250px;
+  padding-bottom: 21px;
+}
+
+.header__navigation-link {
+  font-family: $font-text;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.03em;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #ffffff;
+
+  &--phone {
+    color: $color-text-header;
+
+    padding-right: 7px;
+  }
+}
+
+.header__list-item-link {
+  font-family: $font-text;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: $color-yellow;
+
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -24px;
+    transform: translate(0, -50%);
+
+    width: 16px;
+    height: 21px;
+
+    @include background("../../img/icons/icon-mark.svg");
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+
+    display: none;
+    width: 100%;
+    height: 1px;
+
+    border-bottom: 2px dashed $color-yellow;
+  }
+
+  &:hover {
+    &::after {
+      display: block;
+    }
+  }
+}
+
+.header__menu-button {
+  height: 14px;
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+.header__menu-text {
+  font-family: $font-text;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.03em;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: $color-text-header;
+}
+
+.header__menu-wrapper {
+  display: none;
+}
+
+@media (max-width: $mobile-width) {
+  .header {
+    min-height: 73px;
+    padding: 0 16px;
+  }
+
+  .header__navigation {
+    flex-grow: 0;
+  }
+
+  .header__logo-link {
+    svg {
+      width: 97px;
+      margin-bottom: 6px;
+    }
+  }
+
+  .header__list,
+  .header__info-wrapper {
+    display: none;
+  }
+
+  .header__menu-wrapper {
+    display: flex;
+    align-items: center;
+  }
+}
