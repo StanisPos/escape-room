@@ -1,4 +1,5 @@
 'use strict';
+
 // var pageHeader = document.querySelector('.page-header');
 // var headerToggle = document.querySelector('.page-header__toggle');
 //

@@ -9,10 +9,10 @@
   li {
     display: flex;
     position: relative;
-    padding-right: 2.5%;
+    padding-right: 3.7%;
 
     &:not(:first-child) {
-      padding-left: 2.5%;
+      padding-left: 3.7%;
       border-left: 1px solid rgba(255, 255, 255, 0.32);
     }
 
@@ -28,7 +28,7 @@
   }
 
   svg {
-    margin-right: 12px;
+    margin-right: 13px;
   }
 
   a {
@@ -47,7 +47,7 @@
   span {
     white-space: nowrap;
     font-size: 14px;
-    line-height: 20px;
+    line-height: 23px;
     color: $base-color-dark;
     transition: 0.3s;
   }

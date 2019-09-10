@@ -35,7 +35,7 @@
   p {
     display: flex;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 0px;
     margin-bottom: 0;
 
   }
@@ -46,7 +46,7 @@
   }
 
   svg {
-    margin-right: 8px;
+    margin-right: 10px;
   }
 
   img {
@@ -58,6 +58,7 @@
 .quests__item--specification {
   display: flex;
   flex-direction: row;
+  margin-top: 6px;
 
   p:not(:first-child) {
     position: relative;
@@ -107,7 +108,7 @@
   position: absolute;
   left: 0;
   bottom: 0;
-  padding: 17px 20px;
+  padding: 20px 19px;
 
   #icon-pin svg {
     viewBox: '11 14';
@@ -119,10 +120,10 @@
   align-items: flex-start;
   position: absolute;
   top: 15px;
-  right: 17px;
+  right: 18px;
   font-size: 12px;
   line-height: 17px;
-  padding: 4px 10px;
+  padding: 4px 12px;
   border: 2px solid rgba(242, 137, 15, 0.74);
   border-radius: 25px;
 
