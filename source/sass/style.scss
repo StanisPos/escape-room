@@ -1,10 +1,21 @@
 @import './abstracts/variables',
-        './abstracts/mixins';
+          './abstracts/mixins';
 
 @import './base/normalize.scss',
-        './base/base.scss',
-        './base/font.scss';
+          './base/base.scss',
+          './base/font.scss';
 
 @import './layout/page.scss';
 
 @import './blocks/modals.scss';
+          './abstracts/mixins';
+
+@import './base/normalize.scss',
+          './base/base.scss';
+
+@import './layout/page.scss';
+
+@import './blocks/header.scss',
+          './blocks/footer.scss';
+
+@import './components/social.scss';

@@ -26,4 +26,9 @@
 @mixin background($dir) {
   background-image: url($dir);
   background-repeat: no-repeat;
+
+@mixin fixed-centering() {
+  margin: auto;
+  left: 0;
+  right: 0;
 }

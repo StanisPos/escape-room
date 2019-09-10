@@ -1,5 +1,9 @@
+$desktop-width: 1366px;
 $tablet-width: 768px;
 $mobile-width: 360px;
+
+$retina-dpi: 144dpi;
+$retina-dppx: 1.5dppx;
 
 $font: "Raleway", "Open Sans", sans-serif;
 
@@ -10,5 +14,5 @@ $brand-color: #F2890F;
 $brand-color-light: #F39425;
 $background-color: #141414;
 
-$retina-dpi: 144dpi;
-$retina-dppx: 1.5dppx;
+$color-text-footer: #e6e6e6;
+

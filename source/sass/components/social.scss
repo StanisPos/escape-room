@@ -1,0 +1,38 @@
+.social {
+  display: flex;
+  justify-content: space-between;
+  min-width: 63px;
+}
+
+.social__icon-link {
+  display: block;
+  height: 100%;
+  width: 28px;
+  height: 28px;
+  background-size: 100%;
+
+  &--insta {
+    @include background("../../img/icons/icon-instagram-default.svg");
+    &:hover {
+      @include background("../../img/icons/icon-instagram-hover.svg");
+    }
+  }
+
+  &--vk {
+    @include background("../../img/icons/icon-vk-default.svg");
+    &:hover {
+      @include background("../../img/icons/icon-vk-hover.svg");
+    }
+  }
+}
+
+@media (max-width: $mobile-width) {
+  .social {
+    min-width: 100px;
+  }
+
+  .social__icon-link {
+    width: 36px;
+    height: 36px;
+  }
+}
