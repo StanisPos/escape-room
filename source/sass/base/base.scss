@@ -1,0 +1,36 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: $font;
+  background-color: $background-color;
+  color: $base-color;
+  font-size: 15px;
+  line-height: 22px;
+}
+
+a, a span {
+  color: $base-color;
+  transition: 0.3s;
+  transform: translateZ(0);
+}
+
+img {
+  max-width: 100%;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}

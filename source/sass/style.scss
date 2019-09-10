@@ -1,0 +1,14 @@
+@import './abstracts/variables',
+        './abstracts/mixins';
+
+@import './base/normalize.scss',
+        './base/base.scss',
+        './base/font.scss';
+
+@import './layout/page.scss',
+        './layout/choose-quest.scss';
+
+@import './blocks/quests-filters.scss';
+
+@import './components/page-nav.scss',
+        './components/quest-item.scss';

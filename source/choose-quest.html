@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Choose Quest</title>
+  <link rel="stylesheet" href="css/style.min.css">
+  <script src="js/picturefill.min.js" async></script>
+</head>
+<body>
+  <div style="display:none">
+    <include src="build/img/icons/sprite_auto.svg"></include>
+  </div>
+
+  <main class="choose-quest wrapper">
+    <div class="choose-quest__fixed">
+      <nav class="choose-quests__nav page-nav">
+        <a href="#">квесты в Новосибирске</a>
+      </nav>
+
+      <h1>Выберите тематику</h1>
+
+      <section class="choose-quest__filters quests-filters">
+        <ul>
+          <li class="active">
+            <a href="#">
+              <svg width="26" height="30">
+                <use xlink:href="#icon-paper"></use>
+              </svg>
+              <span>Все квесты</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <svg width="36" height="30">
+                <use xlink:href="#icon-map"></use>
+              </svg>
+              <span>Приключения</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <svg width="30" height="30">
+                <use xlink:href="#icon-zombie"></use>
+              </svg>
+              <span>Ужасы</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <svg width="30" height="30">
+                <use xlink:href="#icon-casper"></use>
+              </svg>
+              <span>Мистика</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <svg width="40" height="30">
+                <use xlink:href="#icon-detective"></use>
+              </svg>
+              <span>Детектив</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <svg width="28" height="30">
+                <use xlink:href="#icon-casper"></use>
+              </svg>
+              <span>Sci-fi</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <section class="choose-quest__list quests-list">
+      <h2 class="visually-hidden">Список квестов</h2>
+
+        <section class="choose-quest__item quest-item quest-item--hit">
+          <a href="quest.html" class="quest-item__inner">
+            <picture class="quest-item__img">
+              <source media="(min-width: 768px)" srcset="img/cards/crypt-desktop@1x.png 1x, img/cards/crypt-desktop@2x.png 2x">
+              <!-- <source media="(min-width: 768px)" srcset="img/chicken-small-tablet@1x.png 1x, img/chicken-small-tablet@2x.png 2x"> -->
+              <img src="img/cards/crypt-mobile@1x.png" srcset="img/cards/crypt-mobile@2x.png 2x" alt="Склеп">
+            </picture>
+            <div class="quest-item__text">
+              <h3>Склеп</h3>
+              <div class="quest-item__info">
+                <p>
+                  <svg width="11" height="14">
+                    <use xlink:href="#icon-location"></use>
+                  </svg>
+                  <span>пр. Ленина, 37</span>
+                </p>
+                <div class="quests__item--specification">
+                  <p>
+                    <svg width="11" height="14">
+                      <use xlink:href="#icon-person"></use>
+                    </svg>
+                    <span>2-5 чел</span>
+                  </p>
+                  <p>
+                    <svg width="16" height="16">
+                      <use xlink:href="#icon-puzzle"></use>
+                    </svg>
+                    <span>сложный</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <span class="quest-item__hit">
+            <svg width="14" height="14">
+              <use xlink:href="#icon-star"></use>
+            </svg>
+            Хит
+          </span>
+        </section>
+
+        <section class="choose-quest__item quest-item quest-item--hit" data-label="crypt">
+          <a href="quest.html" class="quest-item__inner">
+            <picture class="quest-item__img">
+              <source media="(min-width: 768px)" srcset="img/cards/crypt-desktop@1x.png 1x, img/cards/crypt-desktop@2x.png 2x">
+              <!-- <source media="(min-width: 768px)" srcset="img/chicken-small-tablet@1x.png 1x, img/chicken-small-tablet@2x.png 2x"> -->
+              <img src="img/cards/crypt-mobile@1x.png" srcset="img/cards/crypt-mobile@2x.png 2x" alt="Склеп">
+            </picture>
+            <div class="quest-item__text">
+              <h3>Склеп</h3>
+              <div class="quest-item__info">
+                <p>
+                  <svg width="11" height="14">
+                    <use xlink:href="#icon-location"></use>
+                  </svg>
+                  <span>пр. Ленина, 37</span>
+                </p>
+                <div class="quests__item--specification">
+                  <p>
+                    <svg width="11" height="14">
+                      <use xlink:href="#icon-person"></use>
+                    </svg>
+                    <span>2-5 чел</span>
+                  </p>
+                  <p>
+                    <svg width="16" height="16">
+                      <use xlink:href="#icon-puzzle"></use>
+                    </svg>
+                    <span>сложный</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <span class="quest-item__hit">
+            <svg width="14" height="14">
+              <use xlink:href="#icon-star"></use>
+            </svg>
+            Хит
+          </span>
+        </section>
+
+        <section class="choose-quest__item quest-item quest-item--hit" data-label="crypt">
+          <a href="quest.html" class="quest-item__inner">
+            <picture class="quest-item__img">
+              <source media="(min-width: 768px)" srcset="img/cards/crypt-desktop@1x.png 1x, img/cards/crypt-desktop@2x.png 2x">
+              <img src="img/cards/crypt-mobile@1x.png" srcset="img/cards/crypt-mobile@2x.png 2x" alt="Склеп">
+            </picture>
+            <div class="quest-item__text">
+              <h3>Склеп</h3>
+              <div class="quest-item__info">
+                <p>
+                  <svg width="11" height="14">
+                    <use xlink:href="#icon-location"></use>
+                  </svg>
+                  <span>пр. Ленина, 37</span>
+                </p>
+                <div class="quests__item--specification">
+                  <p>
+                    <svg width="11" height="14">
+                      <use xlink:href="#icon-person"></use>
+                    </svg>
+                    <span>2-5 чел</span>
+                  </p>
+                  <p>
+                    <svg width="16" height="16">
+                      <use xlink:href="#icon-puzzle"></use>
+                    </svg>
+                    <span>сложный</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </section>
+
+        <section class="choose-quest__item quest-item quest-item--hit" data-label="crypt">
+          <a href="quest.html" class="quest-item__inner">
+            <picture class="quest-item__img">
+              <source media="(min-width: 768px)" srcset="img/cards/crypt-desktop@1x.png 1x, img/cards/crypt-desktop@2x.png 2x">
+              <!-- <source media="(min-width: 768px)" srcset="img/chicken-small-tablet@1x.png 1x, img/chicken-small-tablet@2x.png 2x"> -->
+              <img src="img/cards/crypt-mobile@1x.png" srcset="img/cards/crypt-mobile@2x.png 2x" alt="Склеп">
+            </picture>
+            <div class="quest-item__text">
+              <h3>Склеп</h3>
+              <div class="quest-item__info">
+                <p>
+                  <svg width="11" height="14">
+                    <use xlink:href="#icon-location"></use>
+                  </svg>
+                  <span>пр. Ленина, 37</span>
+                </p>
+                <div class="quests__item--specification">
+                  <p>
+                    <svg width="11" height="14">
+                      <use xlink:href="#icon-person"></use>
+                    </svg>
+                    <span>2-5 чел</span>
+                  </p>
+                  <p>
+                    <svg width="16" height="16">
+                      <use xlink:href="#icon-puzzle"></use>
+                    </svg>
+                    <span>сложный</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </section>
+
+
+      <!-- </div> -->
+    </section>
+  </main>
+</body>
+</html>
