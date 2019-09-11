@@ -1,14 +1,15 @@
 .wrapper {
+  // max-width: 1260px;
+  max-width: 1080px;
   height: 100vh;
   padding: 0 32px;
+  margin-left: auto;
+  margin-right: auto;
 
-  @media (max-width: $mobile-width) {
-  @include background("../../img/photos/bg_humans.jpg");
-  background-position: 39%;
-  background-size: cover;
+
 }
-  
-@media (max-width: $mobile-width) {
+
+@media (max-width: 766px) {
   .wrapper {
     padding: 0 16px;
   }

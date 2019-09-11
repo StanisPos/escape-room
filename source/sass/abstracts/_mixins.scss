@@ -1,8 +1,3 @@
-@mixin background($dir) {
-  background-image: url($dir);
-  background-repeat: no-repeat;
-}
-
 @mixin list-reset() {
   list-style: none;
   margin: 0;
@@ -29,7 +24,7 @@
 }
 
 @mixin disabled-button {
-  background-color: #B8B8B8;
+  background-color: #b8b8b8;
 }
 
 @mixin background($dir) {

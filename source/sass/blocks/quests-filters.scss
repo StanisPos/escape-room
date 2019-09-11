@@ -1,0 +1,74 @@
+.quests-filters {
+  ul {
+    @include list-reset;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+  }
+
+  li {
+    display: flex;
+    position: relative;
+    padding-right: 3.7%;
+
+    &:not(:first-child) {
+      padding-left: 3.7%;
+      border-left: 1px solid rgba(255, 255, 255, 0.32);
+    }
+
+    &:first-child {
+      justify-content: flex-start;
+    }
+
+    &.active {
+      span {
+        border-bottom: 2px solid $brand-color;
+      }
+    }
+  }
+
+  svg {
+    margin-right: 13px;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    height: 40px;
+
+    &:hover {
+      span {
+        color: $brand-color;
+      }
+    }
+  }
+
+  span {
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 23px;
+    color: $base-color-dark;
+    transition: 0.3s;
+  }
+}
+
+@media (max-width: 1023px) {
+  .quests-filters {
+    ul {
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        top: 0;
+        right: 0px;
+        bottom: 0;
+        width: 40px;
+        background: linear-gradient(270deg, #1C1B1B 0%, rgba(28, 27, 27, 0) 100%);
+
+      }
+    }
+  }
+}

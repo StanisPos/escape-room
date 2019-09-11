@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Choose Quest</title>
+  <link rel="stylesheet" href="css/style.min.css">
+  <script src="js/picturefill.min.js" async></script>
+</head>
+<body>
+  <div style="display:none">
+    <include src="build/img/icons/sprite_auto.svg"></include>
+  </div>
+
+  <main class="choose-quest wrapper">
+    <div class="choose-quest__fixed">
+      <nav class="choose-quests__nav page-nav">
+        <a href="#">квесты в Новосибирске</a>
+      </nav>
+
+      <h1>Выберите тематику</h1>
+
+      <section class="choose-quest__filters quests-filters">
+        <ul>
+          <li class="active">
+            <a href="#">
+              <svg width="26" height="30">
+                <use xlink:href="#icon-paper"></use>
+              </svg>
+              <span>Все квесты</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <svg width="36" height="30">
+                <use xlink:href="#icon-map"></use>
+              </svg>
+              <span>Приключения</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <svg width="30" height="30">
+                <use xlink:href="#icon-zombie"></use>
+              </svg>
+              <span>Ужасы</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <svg width="30" height="30">
+                <use xlink:href="#icon-casper"></use>
+              </svg>
+              <span>Мистика</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <svg width="40" height="30">
+                <use xlink:href="#icon-detective"></use>
+              </svg>
+              <span>Детектив</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <svg width="28" height="30">
+                <use xlink:href="#icon-scifi"></use>
+              </svg>
+              <span>Sci-fi</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <section class="choose-quest__list quests-list">
+      <h2 class="visually-hidden">Список квестов</h2>
+
+        <!-- <article class="choose-quest__item quest-item quest-item--hit" data-label='crypt'>
+          <a href="quest.html" class="quest-item__inner">
+            <picture class="quest-item__img">
+              <source media="(min-width: 768px)" srcset="img/cards/crypt-desktop@1x.png 1x, img/cards/crypt-desktop@2x.png 2x">
+              <img src="img/cards/crypt-mobile@1x.png" srcset="img/cards/crypt-mobile@2x.png 2x" alt="Склеп">
+            </picture>
+            <div class="quest-item__text">
+              <h3>Склеп</h3>
+              <div class="quest-item__info">
+                <p>
+                  <svg width="11" height="14">
+                    <use xlink:href="#icon-location"></use>
+                  </svg>
+                  <span>пр. Ленина, 37</span>
+                </p>
+                <div class="quests-item__specification">
+                  <p>
+                    <svg width="11" height="14">
+                      <use xlink:href="#icon-person"></use>
+                    </svg>
+                    <span>2-5 чел</span>
+                  </p>
+                  <p>
+                    <svg width="16" height="16">
+                      <use xlink:href="#icon-puzzle"></use>
+                    </svg>
+                    <span>сложный</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <span class="quest-item__hit">
+            <svg width="14" height="14">
+              <use xlink:href="#icon-star"></use>
+            </svg>
+            Хит
+          </span>
+        </article>
+
+        <article class="choose-quest__item quest-item quest-item--hit" data-label="maniac">
+          <a href="quest.html" class="quest-item__inner">
+            <picture class="quest-item__img">
+              <img src="img/cards/maniac@1x.png"
+                   srcset="img/cards/maniac@1x.png 1x, img/cards/maniac@2x.png 2x"
+                   alt="Маньяк">
+            </picture>
+            <div class="quest-item__text">
+              <h3>Маньяк</h3>
+              <div class="quest-item__info">
+                <p>
+                  <svg width="11" height="14">
+                    <use xlink:href="#icon-location"></use>
+                  </svg>
+                  <span>Верхнетецкая, 32</span>
+                </p>
+                <div class="quests-item__specification">
+                  <p>
+                    <svg width="11" height="14">
+                      <use xlink:href="#icon-person"></use>
+                    </svg>
+                    <span>3-6 чел</span>
+                  </p>
+                  <p>
+                    <svg width="16" height="16">
+                      <use xlink:href="#icon-puzzle"></use>
+                    </svg>
+                    <span>средний</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <span class="quest-item__hit">
+            <svg width="14" height="14">
+              <use xlink:href="#icon-star"></use>
+            </svg>
+            Хит
+          </span>
+        </article>
+
+        <article class="choose-quest__item quest-item" data-label="ritual">
+          <a href="quest.html" class="quest-item__inner">
+            <picture class="quest-item__img">
+              <img src="img/cards/ritual@1x.png"
+                   srcset="img/cards/ritual@1x.png 1x, img/cards/ritual@2x.png 2x"
+                   alt="Ритуал">
+            </picture>
+            <div class="quest-item__text">
+              <h3>Ритуал</h3>
+              <div class="quest-item__info">
+                <p>
+                  <svg width="11" height="14">
+                    <use xlink:href="#icon-location"></use>
+                  </svg>
+                  <span>пр. Ленина, 37</span>
+                </p>
+                <div class="quests-item__specification">
+                  <p>
+                    <svg width="11" height="14">
+                      <use xlink:href="#icon-person"></use>
+                    </svg>
+                    <span>3-5 чел</span>
+                  </p>
+                  <p>
+                    <svg width="16" height="16">
+                      <use xlink:href="#icon-puzzle"></use>
+                    </svg>
+                    <span>сложный</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <span class="quest-item__hit">
+            <svg width="14" height="14">
+              <use xlink:href="#icon-star"></use>
+            </svg>
+            Хит
+          </span>
+        </article>
+
+        <article class="choose-quest__item quest-item"  data-label="history">
+          <a href="quest.html" class="quest-item__inner">
+            <picture class="quest-item__img">
+              <img src="img/cards/history@1x.png"
+                   srcset="img/cards/history@1x.png 1x, img/cards/history@2x.png 2x"
+                   alt="История призраков">
+            </picture>
+            <div class="quest-item__text">
+              <h3>История призраков</h3>
+              <div class="quest-item__info">
+                <p>
+                  <svg width="11" height="14">
+                    <use xlink:href="#icon-location"></use>
+                  </svg>
+                  <span>Новослободская, 2а</span>
+                </p>
+                <div class="quests-item__specification">
+                  <p>
+                    <svg width="11" height="14">
+                      <use xlink:href="#icon-person"></use>
+                    </svg>
+                    <span>5-6 чел</span>
+                  </p>
+                  <p>
+                    <svg width="16" height="16">
+                      <use xlink:href="#icon-puzzle"></use>
+                    </svg>
+                    <span>легкий</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <span class="quest-item__hit">
+            <svg width="14" height="14">
+              <use xlink:href="#icon-star"></use>
+            </svg>
+            Хит
+          </span>
+        </article>
+
+        <article class="choose-quest__item quest-item" data-label="secrets">
+          <a href="quest.html" class="quest-item__inner">
+            <picture class="quest-item__img">
+              <img src="img/cards/secrets@1x.png"
+                   srcset="img/cards/secrets@1x.png 1x, img/cards/secrets@2x.png 2x"
+                   alt="Тайны старого особняка">
+            </picture>
+            <div class="quest-item__text">
+              <h3>Тайны старого особняка</h3>
+              <div class="quest-item__info">
+                <p>
+                  <svg width="11" height="14">
+                    <use xlink:href="#icon-location"></use>
+                  </svg>
+                  <span>пр. Ленина, 37</span>
+                </p>
+                <div class="quests-item__specification">
+                  <p>
+                    <svg width="11" height="14">
+                      <use xlink:href="#icon-person"></use>
+                    </svg>
+                    <span>2-5 чел</span>
+                  </p>
+                  <p>
+                    <svg width="16" height="16">
+                      <use xlink:href="#icon-puzzle"></use>
+                    </svg>
+                    <span>легкий</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <span class="quest-item__hit">
+            <svg width="14" height="14">
+              <use xlink:href="#icon-star"></use>
+            </svg>
+            Хит
+          </span>
+        </article>
+
+        <article class="choose-quest__item quest-item quest-item--hit" data-label="shed">
+          <a href="quest.html" class="quest-item__inner">
+            <picture class="quest-item__img">
+              <img src="img/cards/shed@1x.png"
+                   srcset="img/cards/shed@1x.png 1x, img/cards/shed@2x.png 2x"
+                   alt="Хижина в лесу">
+            </picture>
+            <div class="quest-item__text">
+              <h3>Хижина в лесу</h3>
+              <div class="quest-item__info">
+                <p>
+                  <svg width="11" height="14">
+                    <use xlink:href="#icon-location"></use>
+                  </svg>
+                  <span>Верхнетецкая, 32</span>
+                </p>
+                <div class="quests-item__specification">
+                  <p>
+                    <svg width="11" height="14">
+                      <use xlink:href="#icon-person"></use>
+                    </svg>
+                    <span>4-7 чел</span>
+                  </p>
+                  <p>
+                    <svg width="16" height="16">
+                      <use xlink:href="#icon-puzzle"></use>
+                    </svg>
+                    <span>средний</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <span class="quest-item__hit">
+            <svg width="14" height="14">
+              <use xlink:href="#icon-star"></use>
+            </svg>
+            Хит
+          </span>
+        </article>
+
+        <article class="choose-quest__item quest-item quest-item--hit" data-label="experiment">
+          <a href="quest.html" class="quest-item__inner">
+            <picture class="quest-item__img">
+              <img src="img/cards/experiment@1x.png"
+                   srcset="img/cards/experiment@1x.png 1x, img/cards/experiment@2x.png 2x"
+                   alt="Фатальный эксперимент">
+            </picture>
+            <div class="quest-item__text">
+              <h3>Фатальный эксперимент</h3>
+              <div class="quest-item__info">
+                <p>
+                  <svg width="11" height="14">
+                    <use xlink:href="#icon-location"></use>
+                  </svg>
+                  <span>Верхнетецкая, 32</span>
+                </p>
+                <div class="quests-item__specification">
+                  <p>
+                    <svg width="11" height="14">
+                      <use xlink:href="#icon-person"></use>
+                    </svg>
+                    <span>6-8 чел</span>
+                  </p>
+                  <p>
+                    <svg width="16" height="16">
+                      <use xlink:href="#icon-puzzle"></use>
+                    </svg>
+                    <span>сложный</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <span class="quest-item__hit">
+            <svg width="14" height="14">
+              <use xlink:href="#icon-star"></use>
+            </svg>
+            Хит
+          </span>
+        </article>
+
+        <article class="choose-quest__item quest-item" data-label="metro">
+          <a href="quest.html" class="quest-item__inner">
+            <picture class="quest-item__img">
+              <img src="img/cards/metro@1x.png"
+                   srcset="img/cards/metro@1x.png 1x, img/cards/metro@2x.png 2x"
+                   alt="Метро 2033">
+            </picture>
+            <div class="quest-item__text">
+              <h3>Метро 2033</h3>
+              <div class="quest-item__info">
+                <p>
+                  <svg width="11" height="14">
+                    <use xlink:href="#icon-location"></use>
+                  </svg>
+                  <span>Новослободская, 2а</span>
+                </p>
+                <div class="quests-item__specification">
+                  <p>
+                    <svg width="11" height="14">
+                      <use xlink:href="#icon-person"></use>
+                    </svg>
+                    <span>2-3 чел</span>
+                  </p>
+                  <p>
+                    <svg width="16" height="16">
+                      <use xlink:href="#icon-puzzle"></use>
+                    </svg>
+                    <span>легкий</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <span class="quest-item__hit">
+            <svg width="14" height="14">
+              <use xlink:href="#icon-star"></use>
+            </svg>
+            Хит
+          </span>
+        </article>
+
+        <article class="choose-quest__item quest-item" data-label="attic">
+          <a href="quest.html" class="quest-item__inner">
+            <picture class="quest-item__img">
+              <img src="img/cards/attic@1x.png"
+                   srcset="img/cards/attic@1x.png 1x, img/cards/attic@2x.png 2x"
+                   alt="Старый чердак">
+            </picture>
+            <div class="quest-item__text">
+              <h3>Старый чердак</h3>
+              <div class="quest-item__info">
+                <p>
+                  <svg width="11" height="14">
+                    <use xlink:href="#icon-location"></use>
+                  </svg>
+                  <span>Новослободская, 2а</span>
+                </p>
+                <div class="quests-item__specification">
+                  <p>
+                    <svg width="11" height="14">
+                      <use xlink:href="#icon-person"></use>
+                    </svg>
+                    <span>2-3 чел</span>
+                  </p>
+                  <p>
+                    <svg width="16" height="16">
+                      <use xlink:href="#icon-puzzle"></use>
+                    </svg>
+                    <span>легкий</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <span class="quest-item__hit">
+            <svg width="14" height="14">
+              <use xlink:href="#icon-star"></use>
+            </svg>
+            Хит
+          </span>
+        </article>
+
+        <article class="choose-quest__item quest-item" data-label="frontier">
+          <a href="quest.html" class="quest-item__inner">
+            <picture class="quest-item__img">
+              <img src="img/cards/frontier@1x.png"
+                   srcset="img/cards/frontier@1x.png 1x, img/cards/frontier@2x.png 2x"
+                   alt="Последний рубеж">
+            </picture>
+            <div class="quest-item__text">
+              <h3>Последний рубеж</h3>
+              <div class="quest-item__info">
+                <p>
+                  <svg width="11" height="14">
+                    <use xlink:href="#icon-location"></use>
+                  </svg>
+                  <span>Верхнетецкая, 32</span>
+                </p>
+                <div class="quests-item__specification">
+                  <p>
+                    <svg width="11" height="14">
+                      <use xlink:href="#icon-person"></use>
+                    </svg>
+                    <span>4-7 чел</span>
+                  </p>
+                  <p>
+                    <svg width="16" height="16">
+                      <use xlink:href="#icon-puzzle"></use>
+                    </svg>
+                    <span>средний</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <span class="quest-item__hit">
+            <svg width="14" height="14">
+              <use xlink:href="#icon-star"></use>
+            </svg>
+            Хит
+          </span>
+        </article>
+
+        <article class="choose-quest__item quest-item" data-label="mars">
+          <a href="quest.html" class="quest-item__inner">
+            <picture class="quest-item__img">
+              <img src="img/cards/mars@1x.png"
+                   srcset="img/cards/mars@1x.png 1x, img/cards/mars@2x.png 2x"
+                   alt="Марс 2056">
+            </picture>
+            <div class="quest-item__text">
+              <h3>Марс 2056</h3>
+              <div class="quest-item__info">
+                <p>
+                  <svg width="11" height="14">
+                    <use xlink:href="#icon-location"></use>
+                  </svg>
+                  <span>пр. Ленина, 37</span>
+                </p>
+                <div class="quests-item__specification">
+                  <p>
+                    <svg width="11" height="14">
+                      <use xlink:href="#icon-person"></use>
+                    </svg>
+                    <span>2-4 чел</span>
+                  </p>
+                  <p>
+                    <svg width="16" height="16">
+                      <use xlink:href="#icon-puzzle"></use>
+                    </svg>
+                    <span>легкий</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <span class="quest-item__hit">
+            <svg width="14" height="14">
+              <use xlink:href="#icon-star"></use>
+            </svg>
+            Хит
+          </span>
+        </article> -->
+
+    </section>
+  </main>
+
+  <template id='quest-template'>
+    <article class="choose-quest__item quest-item" data-label="maniac">
+      <a href="quest.html" class="quest-item__inner">
+        <picture class="quest-item__img">
+          <img src="img/cards/maniac@1x.png"
+               srcset="img/cards/maniac@1x.png 1x, img/cards/maniac@2x.png 2x"
+               alt="Маньяк">
+        </picture>
+        <div class="quest-item__text">
+          <h3>Маньяк</h3>
+          <div class="quest-item__info">
+            <p>
+              <svg width="11" height="14">
+                <use xlink:href="#icon-location"></use>
+              </svg>
+              <span class="location">Верхнетецкая, 32</span>
+            </p>
+            <div class="quests-item__specification">
+              <p>
+                <svg width="11" height="14">
+                  <use xlink:href="#icon-person"></use>
+                </svg>
+                <span class="persons">3-6 чел</span>
+              </p>
+              <p>
+                <svg width="16" height="16">
+                  <use xlink:href="#icon-puzzle"></use>
+                </svg>
+                <span class="level">средний</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+      <span class="quest-item__hit">
+        <svg width="14" height="14">
+          <use xlink:href="#icon-star"></use>
+        </svg>
+        Хит
+      </span>
+    </article>
+  </template>
+  <script src="js/app.min.js"></script>
+</body>
+</html>
