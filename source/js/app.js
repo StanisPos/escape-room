@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var ALL_QUESTS = {
   SECRETS: {
@@ -29,22 +29,6 @@ var ALL_QUESTS = {
     image: "bg_experiment"
   }
 };
-
-// var pageHeader = document.querySelector('.page-header');
-// var headerToggle = document.querySelector('.page-header__toggle');
-//
-// pageHeader.classList.remove('page-header--nojs');
-//
-// headerToggle.addEventListener('click', function () {
-//   if (pageHeader.classList.contains('page-header--closed')) {
-//     pageHeader.classList.remove('page-header--closed');
-//     pageHeader.classList.add('page-header--opened');
-//   } else {
-//     pageHeader.classList.add('page-header--closed');
-//     pageHeader.classList.remove('page-header--opened');
-//   }
-// });
-
 
 // Отрисовка квестов
 
@@ -140,9 +124,7 @@ var ALL_QUESTS = {
     }
   ];
 
-  var questTemplate = document
-    .querySelector("#quest-template")
-    .content.querySelector(".quest-item");
+  var questTemplate = document.querySelector('#quest-template');
 
   if (questTemplate) {
     var questsFragment = document.createDocumentFragment();
@@ -176,15 +158,8 @@ var ALL_QUESTS = {
 (function () {
   var ESC_KEYCODE = 27;
 
-var modalQuestion = document.querySelector(".modal--question");
-if (modalQuestion) {
-  var nameInput = modalQuestion.querySelector("[name=name]");
-  var emailInput = modalQuestion.querySelector("[name=email]");
-  var agreementInput = modalQuestion.querySelector("[name=agreement]");
-  var questionForm = modalQuestion.querySelector("form");
-  var questionSubmitButton = modalQuestion.querySelector("[type=submit]");
-  var mdTriggers = document.querySelectorAll(".md-trigger");
-  var questionInputs = modalQuestion.querySelectorAll(".js-input");
+  var modalQuestion = document.querySelector('.modal--question');
+  var mdTriggers = document.querySelectorAll('.md-trigger');
 
   var isStorageSupport = true;
   var storage = '';
@@ -206,10 +181,8 @@ if (modalQuestion) {
     return overlay;
   };
 
-  var removeOverlay = function() {
-    document
-      .querySelector(".modal__overlay")
-      .classList.remove("modal__overlay--show");
+  var removeOverlay = function () {
+    document.querySelector('.modal__overlay').classList.remove('modal__overlay--show');
   };
 
   var overlay = createOverlay();
@@ -291,20 +264,7 @@ if (modalQuestion) {
       }
     }
   });
-}
-
-
-var quests = document.querySelectorAll(".choose-quest__item");
-
-if (quests) {
-  for (let i = 0; i < quests.length; i++) {
-    quests[i].addEventListener("click", function() {
-      var currentQuest = ALL_QUESTS[quests[i].dataset.label.toUpperCase()];
-      localStorage.setItem("quest", JSON.stringify(currentQuest));
-    });
-  }
-}
-
+}());
 
 // Страница выбора квеста
 
@@ -336,3 +296,50 @@ if (quests) {
     });
   }
 }());
+
+// Страница выбора квеста
+
+(function () {
+  var MARGIN = 39;
+  var header = document.querySelector('.header');
+  var chooseQuestContainer = document.querySelector('.choose-quest');
+
+  if (chooseQuestContainer) {
+    var positionElements = function (size) {
+      var questsList = chooseQuestContainer.querySelector('.choose-quest__list');
+
+      if (size > 766) {
+        var windowHeight = window.innerHeight;
+        var headerHeight = header.offsetHeight;
+        var chooseQuestPadding = headerHeight + 48;
+        var questFilters = chooseQuestContainer.querySelector('.quests-filters');
+        chooseQuestContainer.style.paddingTop = chooseQuestPadding + 'px';
+        var questListHeight = windowHeight - questFilters.getBoundingClientRect().bottom - MARGIN + 'px';
+        questsList.style.height = questListHeight;
+      } else {
+        questsList.style.height = 'auto';
+        chooseQuestContainer.style.paddingTop = 0;
+      }
+    };
+    positionElements(window.innerWidth);
+    window.addEventListener('resize', function (evt) {
+      positionElements(evt.target.innerWidth);
+    });
+  }
+}());
+
+
+//Выбор квеста 
+(function () {
+  var quests = document.querySelectorAll(".choose-quest__item");
+
+  if (quests) {
+    for (let i = 0; i < quests.length; i++) {
+      quests[i].addEventListener("click", function() {
+        var currentQuest = ALL_QUESTS[quests[i].dataset.label.toUpperCase()];
+        localStorage.setItem("quest", JSON.stringify(currentQuest));
+      });
+    }
+  }
+
+})()
