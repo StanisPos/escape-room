@@ -321,6 +321,7 @@ var ALL_QUESTS = {
         chooseQuestContainer.style.paddingTop = 0;
       }
     };
+
     positionElements(window.innerWidth);
     window.addEventListener('resize', function (evt) {
       positionElements(evt.target.innerWidth);
@@ -329,7 +330,7 @@ var ALL_QUESTS = {
 }());
 
 
-//Выбор квеста 
+//Выбор квеста
 (function () {
   var quests = document.querySelectorAll(".choose-quest__item");
 

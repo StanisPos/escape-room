@@ -1,4 +1,5 @@
 .header {
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -138,6 +139,27 @@
     z-index: 1;
     // position: static;
 
+  }
+
+  .header__navigation {
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .header__list {
+    align-self: flex-end;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .header__info-wrapper {
+    align-self: flex-end;
+    width: 50%;
+  }
+
+  .header__navigation-link--phone {
+    padding-right: 0;
   }
 }
 
