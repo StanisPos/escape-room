@@ -30,12 +30,13 @@
   letter-spacing: -0.03em;
   text-transform: uppercase;
 
+  width: 450px;
   margin-right: 23.5%;
   margin-bottom: 37px;
 }
 
 .quest__list {
-  font-family: Raleway;
+  font-family: $font;
   font-weight: normal;
   font-size: 14px;
   line-height: 144%;
