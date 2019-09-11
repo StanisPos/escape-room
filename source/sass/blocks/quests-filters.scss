@@ -1,9 +1,13 @@
 .quests-filters {
+  position: relative;
+
+  overflow: hidden;
   ul {
     @include list-reset;
     display: flex;
     flex-direction: row;
-    overflow: hidden;
+    flex-wrap: nowrap;
+
   }
 
   li {
@@ -53,22 +57,48 @@
   }
 }
 
+@media (max-width: 1100px) {
+  .quests-filters {
+    li {
+      padding-right: 2.5%;
+
+      &:not(:first-child) {
+        padding-left: 2.5%;
+      }
+    }
+  }
+}
+
 @media (max-width: 1023px) {
   .quests-filters {
-    ul {
-      position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      top: 0;
+      right: 0px;
+      bottom: 0;
+      width: 40px;
+      background: linear-gradient(270deg, #1C1B1B 0%, rgba(28, 27, 27, 0) 100%);
+    }
 
-      &::after {
-        content: '';
-        position: absolute;
-        display: block;
-        top: 0;
-        right: 0px;
-        bottom: 0;
-        width: 40px;
-        background: linear-gradient(270deg, #1C1B1B 0%, rgba(28, 27, 27, 0) 100%);
+    li {
+      padding-right: 3.7%;
 
+      &:not(:first-child) {
+        padding-left: 3.7%;
       }
+    }
+  }
+}
+
+@media (max-width: 766px) {
+  .quests-filters {
+    ul {
+      overflow-x: scroll;
+      &::-webkit-scrollbar { height: 0 !important };
+      overflow: -moz-scrollbars-none;
+      -ms-overflow-style: none;
     }
   }
 }

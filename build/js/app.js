@@ -111,14 +111,14 @@
     }
   ];
 
-  var questTemplate = document.querySelector('#quest-template').content.querySelector('.quest-item');
+  var questTemplate = document.querySelector('#quest-template');
 
   if (questTemplate) {
     var questsFragment = document.createDocumentFragment();
     var questsContainer = document.querySelector('.quests-list');
 
     questsData.forEach(function (data) {
-      var quest = questTemplate.cloneNode(true);
+      var quest = questTemplate.content.querySelector('.quest-item').cloneNode(true);
 
       if (data.isHit) {
         quest.classList.add('quest-item--hit');
@@ -138,19 +138,15 @@
 
     questsContainer.appendChild(questsFragment);
   }
+}());
+
 // Модальные окна
 
 (function () {
   var ESC_KEYCODE = 27;
 
   var modalQuestion = document.querySelector('.modal--question');
-  var nameInput = modalQuestion.querySelector('[name=name]');
-  var emailInput = modalQuestion.querySelector('[name=email]');
-  var agreementInput = modalQuestion.querySelector('[name=agreement]');
-  var questionForm = modalQuestion.querySelector('form');
-  var questionSubmitButton = modalQuestion.querySelector('[type=submit]');
   var mdTriggers = document.querySelectorAll('.md-trigger');
-  var questionInputs = modalQuestion.querySelectorAll('.js-input');
 
   var isStorageSupport = true;
   var storage = '';
@@ -211,6 +207,13 @@
 
 
   if (modalQuestion) {
+    var nameInput = modalQuestion.querySelector('[name=name]');
+    var emailInput = modalQuestion.querySelector('[name=email]');
+    var agreementInput = modalQuestion.querySelector('[name=agreement]');
+    var questionForm = modalQuestion.querySelector('form');
+    var questionSubmitButton = modalQuestion.querySelector('[type=submit]');
+    var questionInputs = modalQuestion.querySelectorAll('.js-input');
+
     agreementInput.addEventListener('input', function () {
       if (agreementInput.checked === true) {
         questionSubmitButton.removeAttribute('disabled');
