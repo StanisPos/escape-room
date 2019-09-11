@@ -1,7 +1,16 @@
-@mixin list-reset {
+@mixin background($dir) {
+  background-image: url($dir);
+  background-repeat: no-repeat;
+}
+
+@mixin list-reset() {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+@mixin margin-centering() {
+  margin: 0 auto;
 }
 
 @mixin brand-button {
@@ -26,6 +35,7 @@
 @mixin background($dir) {
   background-image: url($dir);
   background-repeat: no-repeat;
+}
 
 @mixin fixed-centering() {
   margin: auto;

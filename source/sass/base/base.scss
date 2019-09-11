@@ -16,7 +16,8 @@ a, a span {
   color: $base-color;
   transition: 0.3s;
   transform: translateZ(0);
- 
+}
+
 *,
 *::before,
 *::after {
@@ -25,6 +26,10 @@ a, a span {
 
 img {
   max-width: 100%;
+}
+
+a {
+  text-decoration: none;
 }
 
 .visually-hidden {
@@ -38,10 +43,6 @@ img {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
-}
-
-a {
-  text-decoration: none;
 }
 
 .title,
