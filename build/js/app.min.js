@@ -269,12 +269,12 @@
         var headerHeight = header.offsetHeight;
         var chooseQuestPadding = headerHeight + 48;
         var questFilters = chooseQuestContainer.querySelector('.quests-filters');
-        chooseQuestContainer.style.top = chooseQuestPadding + 'px';
+        chooseQuestContainer.style.paddingTop = chooseQuestPadding + 'px';
         var questListHeight = windowHeight - questFilters.getBoundingClientRect().bottom - MARGIN + 'px';
         questsList.style.height = questListHeight;
       } else {
         questsList.style.height = 'auto';
-        chooseQuestContainer.style.top = 'auto';
+        chooseQuestContainer.style.paddingTop = 0;
       }
     };
     positionElements(window.innerWidth);

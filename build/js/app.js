@@ -252,3 +252,34 @@
     }
   });
 }());
+
+// Страница выбора квеста
+
+(function () {
+  var MARGIN = 39;
+  var header = document.querySelector('.header');
+  var chooseQuestContainer = document.querySelector('.choose-quest');
+
+  if (chooseQuestContainer) {
+    var positionElements = function (size) {
+      var questsList = chooseQuestContainer.querySelector('.choose-quest__list');
+
+      if (size > 766) {
+        var windowHeight = window.innerHeight;
+        var headerHeight = header.offsetHeight;
+        var chooseQuestPadding = headerHeight + 48;
+        var questFilters = chooseQuestContainer.querySelector('.quests-filters');
+        chooseQuestContainer.style.top = chooseQuestPadding + 'px';
+        var questListHeight = windowHeight - questFilters.getBoundingClientRect().bottom - MARGIN + 'px';
+        questsList.style.height = questListHeight;
+      } else {
+        questsList.style.height = 'auto';
+        chooseQuestContainer.style.top = 'auto';
+      }
+    };
+    positionElements(window.innerWidth);
+    window.addEventListener('resize', function (evt) {
+      positionElements(evt.target.innerWidth);
+    });
+  }
+}());
