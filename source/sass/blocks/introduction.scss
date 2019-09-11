@@ -43,7 +43,7 @@
   .introduction {
     align-items: center;
 
-    margin: 0 auto;
+    @include margin-centering();
     padding-bottom: 110px;
   }
 

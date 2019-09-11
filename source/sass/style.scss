@@ -5,11 +5,13 @@
           './base/base.scss';
 
 @import './layout/body-wrapper.scss',
+          './layout/quest-container.scss',
           './layout/main.scss';
 
 @import './blocks/header.scss',
+          './blocks/footer.scss',
           './blocks/introduction.scss',
-          './blocks/footer.scss';
+          './blocks/current-quest.scss';
 
 @import './components/social.scss',
           './components/buttons.scss';

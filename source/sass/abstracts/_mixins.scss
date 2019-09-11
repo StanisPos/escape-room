@@ -9,6 +9,10 @@
   padding: 0;
 }
 
+@mixin margin-centering() {
+  margin: 0 auto;
+}
+
 @mixin fixed-centering() {
   margin: auto;
   left: 0;

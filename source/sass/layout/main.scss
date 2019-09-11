@@ -2,5 +2,5 @@
   width: inherit;
   height: inherit;
   max-width: $desktop-width;
-  margin: 0 auto;
+  @include margin-centering();
 }
