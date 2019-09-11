@@ -290,12 +290,12 @@ if (modalQuestion) {
 }
 
 
-var test = document.querySelectorAll(".choose-quest__item");
+var quests = document.querySelectorAll(".choose-quest__item");
 
-if (test) {
-  for (let i = 0; i < test.length; i++) {
-    test[i].addEventListener("click", function() {
-      var currentQuest = ALL_QUESTS[test[i].dataset.label.toUpperCase()];
+if (quests) {
+  for (let i = 0; i < quests.length; i++) {
+    quests[i].addEventListener("click", function() {
+      var currentQuest = ALL_QUESTS[quests[i].dataset.label.toUpperCase()];
       localStorage.setItem("quest", JSON.stringify(currentQuest));
     });
   }
