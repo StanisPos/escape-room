@@ -403,6 +403,10 @@
     left: 0;
     margin-left: 0;
   }
+
+  .modal__inner {
+    height: 100vh;
+  }
 }
 
 @media (max-width: 359px) {
@@ -411,7 +415,7 @@
   }
 
   .modal__inner {
-    height: 100vh;
+
     h2 {
       font-size: 28px;
     }
