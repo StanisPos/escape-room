@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Escape Room</title>
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+
+  <div style="display: none">
+    <include src="build/img/sprite_auto.svg"></include>
+  </div>
+
+  <div class="wrapper">
+
+    <header class="header">
+      <div class="header__logo logo">
+        <a class="header__logo-link" href="#">
+          <svg width="134" height="50" viewBox="0 0 134 52">
+            <use xlink:href="#icon-logo-group"></use>
+          </svg>
+        </a>
+      </div>
+      <nav class="header__navigation">
+        <div class="header__menu-wrapper">
+          <p class="header__menu-text text">Меню</p>
+          <button class="header__menu-button">
+            <svg width="24" height="14" viewBox="0 0 24 14">
+              <use xlink:href="#icon-burger"></use>
+            </svg>
+          </button>
+        </div>
+        <ul class="header__list">
+          <li class="header__list-item">
+            <a class="header__navigation-link" href="#">Квесты</a>
+          </li>
+          <li class="header__list-item">
+            <a class="header__navigation-link" href="#">Новичкам</a>
+          </li>
+          <li class="header__list-item">
+            <a class="header__navigation-link" href="#">Отзывы</a>
+          </li>
+          <li class="header__list-item">
+            <a class="header__navigation-link" href="#">Акции</a>
+          </li>
+          <li class="header__list-item">
+            <a class="header__navigation-link" href="#">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="header__info-wrapper">
+        <a class="header__list-item-link" href="#">
+          Новосибирск
+        </a>
+        <a class="header__navigation-link header__navigation-link--phone" href="tel:+73832840160">
+          8 (383) 284 01 60
+        </a>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="introduction">
+        <h1 class="introduction__title title">Лучшие квесты в Новосибирске</h1>
+        <p class="introduction__text text">
+          Надоело проводить свободное время лёжа на диване? Игровые площадки questroom на целый час погружают вас в мир
+          незабываемых авантюр. Ищите подсказки, решайте головоломки и находите выход из комнаты!
+        </p>
+        <button class="introduction__button button">
+          Выбрать квест
+        </button>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <ul class="footer__social social">
+        <li class="social__icon">
+          <a class="social__icon-link social__icon-link--insta" href="#">
+            <p class='visually-hidden'>Присоединяйтесь к нам в инстаграм</p>
+          </a>
+        </li>
+        <li class="social__icon">
+          <a class="social__icon-link social__icon-link--vk" href="#">
+            <p class='visually-hidden'>Присоединяйтесь к нам в контакт</p>
+          </a>
+        </li>
+      </ul>
+      <a class="footer__question text" href="#">
+        Задать вопрос
+      </a>
+    </footer>
+
+  </div>
+
+</body>
+
+</html>

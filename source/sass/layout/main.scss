@@ -1,0 +1,6 @@
+.main {
+  width: inherit;
+  height: inherit;
+  max-width: $desktop-width;
+  @include margin-centering();
+}

@@ -1,14 +1,17 @@
+$desktop-width: 1366px;
 $tablet-width: 768px;
 $mobile-width: 360px;
+
+$retina-dpi: 144dpi;
+$retina-dppx: 1.5dppx;
 
 $font: "Raleway", "Open Sans", sans-serif;
 
 $base-color-light: #ffffff;
-$base-color: #F0F0F0;
-$base-color-dark: #F6F6F6;
-$brand-color: #F2890F;
-$brand-color-light: #F39425;
+$base-color: #f0f0f0;
+$base-color-dark: #f6f6f6;
+$brand-color: #f2890f;
+$brand-color-light: #f39425;
 $background-color: #141414;
-
-$retina-dpi: 144dpi;
-$retina-dppx: 1.5dppx;
+$brand-color-button: #f28a0f;
+$color-text-footer: #e6e6e6;
