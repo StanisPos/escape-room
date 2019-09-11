@@ -50,7 +50,7 @@
       location: 'Новослободская, 2а',
       persons: '5-6',
       level: 'легкий',
-      id: 'history-caspers'
+      id: 'history'
     },
     {
       isHit: false,
@@ -58,7 +58,7 @@
       location: 'пр. Ленина, 37',
       persons: '2-5',
       level: 'легкий',
-      id: 'secrets-mansion'
+      id: 'secrets'
     },
     {
       isHit: true,
@@ -90,7 +90,7 @@
       location: 'Новослободская, 2а',
       persons: '2-3',
       level: 'легкий',
-      id: 'old-attic'
+      id: 'attic'
     },
     {
       isHit: false,
