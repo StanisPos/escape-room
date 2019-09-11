@@ -1,4 +1,4 @@
-.wrapper {
+.main-page__wrapper {
   position: relative;
   z-index: 4;
 
@@ -8,6 +8,7 @@
   @include background("../../img/photos/bg_humans.jpg");
   background-position: 39%;
   background-size: cover;
+  background-attachment: fixed;
 
   &::before,
   &::after {
