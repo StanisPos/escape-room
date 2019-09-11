@@ -46,7 +46,7 @@
 }
 
 .header__navigation-link {
-  font-family: $font-text;
+  font-family: $font;
   font-size: 14px;
   line-height: 16px;
   letter-spacing: 0.03em;
@@ -56,14 +56,14 @@
   color: #ffffff;
 
   &--phone {
-    color: $color-text-header;
+    color: $base-color;
 
     padding-right: 7px;
   }
 }
 
 .header__list-item-link {
-  font-family: $font-text;
+  font-family: $font;
   font-size: 12px;
   line-height: 14px;
   font-weight: bold;
@@ -114,14 +114,14 @@
 }
 
 .header__menu-text {
-  font-family: $font-text;
+  font-family: $font;
   font-size: 14px;
   line-height: 16px;
   letter-spacing: 0.03em;
   font-weight: 600;
   text-transform: uppercase;
   font-feature-settings: "pnum" on, "lnum" on;
-  color: $color-text-header;
+  color: $base-color;
 }
 
 .header__menu-wrapper {
