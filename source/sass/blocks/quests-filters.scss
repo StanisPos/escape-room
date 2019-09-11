@@ -52,3 +52,23 @@
     transition: 0.3s;
   }
 }
+
+@media (max-width: 1023px) {
+  .quests-filters {
+    ul {
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        top: 0;
+        right: 0px;
+        bottom: 0;
+        width: 40px;
+        background: linear-gradient(270deg, #1C1B1B 0%, rgba(28, 27, 27, 0) 100%);
+
+      }
+    }
+  }
+}

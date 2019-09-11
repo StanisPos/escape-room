@@ -1,12 +1,7 @@
 .quest-item {
   position: relative;
-  // background-color: gray;
-  // display: flex;
-  // align-items: flex-end;
   position: relative;
   font-family: $font;
-  // min-height: 232px;
-
   color: $base-color;
 
   h3 {
@@ -29,8 +24,6 @@
 .quest-item__info {
   font-size: 13px;
   line-height: 19px;
-
-
 
   p {
     display: flex;
@@ -55,7 +48,7 @@
   }
 }
 
-.quests__item--specification {
+.quests-item__specification {
   display: flex;
   flex-direction: row;
   margin-top: 6px;
@@ -116,7 +109,7 @@
 }
 
 .quest-item__hit {
-  display: flex;
+  display: none;
   align-items: flex-start;
   position: absolute;
   top: 15px;
@@ -129,5 +122,11 @@
 
   svg {
     margin-right: 4px;
+  }
+}
+
+.quest-item--hit {
+  .quest-item__hit {
+    display: flex;
   }
 }

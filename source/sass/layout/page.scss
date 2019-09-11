@@ -6,7 +6,11 @@
   margin-left: auto;
   margin-right: auto;
 
-  @media (max-width: $mobile-width) {
+
+}
+
+@media (max-width: 766px) {
+  .wrapper {
     padding: 0 16px;
   }
 }
