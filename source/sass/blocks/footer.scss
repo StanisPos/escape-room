@@ -40,11 +40,11 @@
   }
 
   &:hover {
-    color: $color-yellow;
+    color: $brand-color;
 
     padding-left: 8px;
 
-    border-bottom: 2px dashed $color-yellow;
+    border-bottom: 2px dashed $brand-color;
 
     &::before {
       display: block;

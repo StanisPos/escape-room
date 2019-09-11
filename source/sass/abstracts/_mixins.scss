@@ -13,6 +13,30 @@
   margin: 0 auto;
 }
 
+@mixin brand-button {
+  font-family: $font;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  color: $base-color-light;
+  background-color: $brand-color;
+  text-transform: uppercase;
+  border: none;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: $brand-color-light;
+  }
+}
+
+@mixin disabled-button {
+  background-color: #B8B8B8;
+}
+
+@mixin background($dir) {
+  background-image: url($dir);
+  background-repeat: no-repeat;
+}
+
 @mixin fixed-centering() {
   margin: auto;
   left: 0;
