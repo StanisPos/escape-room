@@ -1,10 +1,10 @@
 .choose-quest {
   position: relative;
 
-  height: 100%;
+  height: 100vh;
   overflow: hidden;
 
-  padding-top: 120px;
+  padding-top: 128px;
 
   transition: 0.3s;
 
@@ -58,23 +58,34 @@
   margin-right: 2.15%;
 }
 
-@media (max-width: 1023px) {
+
+@media (max-width: ($desktop-width - 1)) {
+  .choose-quest {
+    height: auto;
+
+    padding-top: 0;
+
+    h1 {
+      font-size: 36px;
+      line-height: 40px;
+    }
+  }
   .choose-quest__item {
     width: calc(100% / 2 - 2.15%);
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: ($tablet-width - 1)) {
   .choose-quest {
-    padding-top: 0;
+    // padding-top: 0;
     &::after {
       display: none;
     }
 
     h1 {
       margin-bottom: 44px;
-      font-size: 36px;
-      line-height: 40px;
+      // font-size: 36px;
+      // line-height: 40px;
     }
   }
 
