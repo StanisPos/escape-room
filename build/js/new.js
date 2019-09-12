@@ -1,3 +1,5 @@
+'use strict';
+
 (function () {
   var PATH_TO_IMAGE = '../../img/photos/';
   var EXTENSION_IMAGE = '.jpg';

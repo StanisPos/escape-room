@@ -30,6 +30,27 @@ var ALL_QUESTS = {
   }
 };
 
+// header
+
+var pageHeader = document.querySelector('.header');
+var headerToggle = document.querySelector('.header__menu-toggle');
+var footer = document.querySelector('.footer');
+
+pageHeader.classList.remove('header--nojs');
+
+headerToggle.addEventListener('click', function () {
+  if (pageHeader.classList.contains('header--closed')) {
+    pageHeader.classList.remove('header--closed');
+    pageHeader.classList.add('header--opened');
+    footer.classList.add('footer--fixed');
+
+  } else {
+    pageHeader.classList.add('header--closed');
+    pageHeader.classList.remove('header--opened');
+    footer.classList.remove('footer--fixed');
+  }
+});
+
 // Отрисовка квестов
 
 (function () {
@@ -301,6 +322,8 @@ var ALL_QUESTS = {
 
 (function () {
   var MARGIN = 39;
+  var EXTRA_PADDING = 48;
+  var DESKTOP_WIDTH = 1024;
   var header = document.querySelector('.header');
   var chooseQuestContainer = document.querySelector('.choose-quest');
 
@@ -308,19 +331,20 @@ var ALL_QUESTS = {
     var positionElements = function (size) {
       var questsList = chooseQuestContainer.querySelector('.choose-quest__list');
 
-      if (size > 766) {
+      if (size >= DESKTOP_WIDTH) {
         var windowHeight = window.innerHeight;
-        var headerHeight = header.offsetHeight;
-        var chooseQuestPadding = headerHeight + 48;
+        // var headerHeight = header.offsetHeight;
         var questFilters = chooseQuestContainer.querySelector('.quests-filters');
-        chooseQuestContainer.style.paddingTop = chooseQuestPadding + 'px';
+        // var chooseQuestPadding = headerHeight + EXTRA_PADDING;
+        // chooseQuestContainer.style.paddingTop = chooseQuestPadding + 'px';
         var questListHeight = windowHeight - questFilters.getBoundingClientRect().bottom - MARGIN + 'px';
         questsList.style.height = questListHeight;
       } else {
         questsList.style.height = 'auto';
-        chooseQuestContainer.style.paddingTop = 0;
+        // chooseQuestContainer.style.paddingTop = '';
       }
     };
+
     positionElements(window.innerWidth);
     window.addEventListener('resize', function (evt) {
       positionElements(evt.target.innerWidth);
@@ -329,7 +353,7 @@ var ALL_QUESTS = {
 }());
 
 
-//Выбор квеста 
+//Выбор квеста
 (function () {
   var quests = document.querySelectorAll(".choose-quest__item");
 

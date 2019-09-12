@@ -1,5 +1,142 @@
 "use strict";
 
+// header
+
+(function () {
+  var pageHeader = document.querySelector('.header');
+  var headerToggle = document.querySelector('.header__menu-toggle');
+  var footer = document.querySelector('.footer');
+
+  pageHeader.classList.remove('header--nojs');
+
+  headerToggle.addEventListener('click', function () {
+    if (pageHeader.classList.contains('header--closed')) {
+      pageHeader.classList.remove('header--closed');
+      pageHeader.classList.add('header--opened');
+      footer.classList.add('footer--fixed');
+
+    } else {
+      pageHeader.classList.add('header--closed');
+      pageHeader.classList.remove('header--opened');
+      footer.classList.remove('footer--fixed');
+    }
+  });
+}());
+
+// Модальные окна
+
+(function () {
+  var ESC_KEYCODE = 27;
+
+  var modalQuestion = document.querySelector('.modal--question');
+  var mdTriggers = document.querySelectorAll('.md-trigger');
+
+  var isStorageSupport = true;
+  var storage = '';
+
+  try {
+    storage = localStorage.getItem('login');
+  } catch (err) {
+    isStorageSupport = false;
+  }
+
+  var createOverlay = function () {
+    var overlay = document.createElement('div');
+    overlay.classList.add('modal__overlay');
+    document.body.appendChild(overlay);
+    overlay.addEventListener('click', function () {
+      document.querySelector('.modal--show').classList.remove('modal--show');
+      removeOverlay();
+    });
+    return overlay;
+  };
+
+  var removeOverlay = function () {
+    document.querySelector('.modal__overlay').classList.remove('modal__overlay--show');
+  };
+
+  var overlay = createOverlay();
+
+  mdTriggers.forEach(function (el) {
+    var modal = document.querySelector('.modal--' + el.getAttribute('data-modal'));
+    var close = modal.querySelector('.md-close');
+
+    function removeModal() {
+      modal.classList.remove('modal--show', 'submit-focused');
+      removeOverlay();
+    }
+
+    el.addEventListener('click', function (evt) {
+      evt.preventDefault();
+      overlay.classList.add('modal__overlay--show');
+      modal.classList.add('modal--show');
+      overlay.addEventListener('click', removeModal);
+
+      if (modal.classList.contains('.modal--question')) {
+        if (storage) {
+          nameInput.value = storage;
+          emailInput.focus();
+        } else {
+          nameInput.focus();
+        }
+      }
+    });
+
+    close.addEventListener('click', function (evt) {
+      evt.preventDefault();
+      removeModal();
+    });
+  });
+
+  if (modalQuestion) {
+    var nameInput = modalQuestion.querySelector('[name=name]');
+    var emailInput = modalQuestion.querySelector('[name=email]');
+    var agreementInput = modalQuestion.querySelector('[name=agreement]');
+    var questionForm = modalQuestion.querySelector('form');
+    var questionSubmitButton = modalQuestion.querySelector('[type=submit]');
+    var questionInputs = modalQuestion.querySelectorAll('.js-input');
+
+    agreementInput.addEventListener('input', function () {
+      if (agreementInput.checked === true) {
+        questionSubmitButton.removeAttribute('disabled');
+      } else {
+        questionSubmitButton.setAttribute('disabled', 'disabled');
+      }
+    });
+
+    questionSubmitButton.addEventListener('click', function () {
+      questionForm.classList.add('submit-focused');
+
+      questionInputs.forEach(function (input) {
+        input.addEventListener('invalid', function (evt) {
+          evt.preventDefault();
+        });
+      });
+    });
+
+    questionForm.addEventListener('submit', function () {
+      if (isStorageSupport) {
+        localStorage.setItem('name', nameInput.value);
+      }
+      questionForm.classList.remove('submit-focused');
+    });
+  }
+
+  window.addEventListener('keydown', function (evt) {
+    if (evt.keyCode === ESC_KEYCODE) {
+      evt.preventDefault();
+      var modal = document.querySelector('.modal--show');
+      if (modal) {
+        questionForm.classList.remove('submit-focused');
+        modal.classList.remove('modal--show');
+        removeOverlay();
+      }
+    }
+  });
+}());
+
+// Все квесты
+
 var ALL_QUESTS = {
   SECRETS: {
     title: "Тайны старого особняка",
@@ -153,123 +290,12 @@ var ALL_QUESTS = {
   }
 }());
 
-// Модальные окна
-
-(function () {
-  var ESC_KEYCODE = 27;
-
-  var modalQuestion = document.querySelector('.modal--question');
-  var mdTriggers = document.querySelectorAll('.md-trigger');
-
-  var isStorageSupport = true;
-  var storage = '';
-
-  try {
-    storage = localStorage.getItem('login');
-  } catch (err) {
-    isStorageSupport = false;
-  }
-
-  var createOverlay = function () {
-    var overlay = document.createElement('div');
-    overlay.classList.add('modal__overlay');
-    document.body.appendChild(overlay);
-    overlay.addEventListener('click', function () {
-      document.querySelector('.modal--show').classList.remove('modal--show');
-      removeOverlay();
-    });
-    return overlay;
-  };
-
-  var removeOverlay = function () {
-    document.querySelector('.modal__overlay').classList.remove('modal__overlay--show');
-  };
-
-  var overlay = createOverlay();
-
-  mdTriggers.forEach(function (el) {
-    var modal = document.querySelector('.modal--' + el.getAttribute('data-modal'));
-    var close = modal.querySelector('.md-close');
-
-    function removeModal() {
-      modal.classList.remove('modal--show', 'submit-focused');
-      removeOverlay();
-    }
-
-    el.addEventListener('click', function (evt) {
-      evt.preventDefault();
-      overlay.classList.add('modal__overlay--show');
-      modal.classList.add('modal--show');
-      overlay.addEventListener('click', removeModal);
-
-      if (modal.classList.contains('.modal--question')) {
-        if (storage) {
-          nameInput.value = storage;
-          emailInput.focus();
-        } else {
-          nameInput.focus();
-        }
-      }
-    });
-
-    close.addEventListener('click', function (evt) {
-      evt.preventDefault();
-      removeModal();
-    });
-  });
-
-
-  if (modalQuestion) {
-    var nameInput = modalQuestion.querySelector('[name=name]');
-    var emailInput = modalQuestion.querySelector('[name=email]');
-    var agreementInput = modalQuestion.querySelector('[name=agreement]');
-    var questionForm = modalQuestion.querySelector('form');
-    var questionSubmitButton = modalQuestion.querySelector('[type=submit]');
-    var questionInputs = modalQuestion.querySelectorAll('.js-input');
-
-    agreementInput.addEventListener('input', function () {
-      if (agreementInput.checked === true) {
-        questionSubmitButton.removeAttribute('disabled');
-      } else {
-        questionSubmitButton.setAttribute('disabled', 'disabled');
-      }
-    });
-
-    questionSubmitButton.addEventListener('click', function () {
-      questionForm.classList.add('submit-focused');
-
-      questionInputs.forEach(function (input) {
-        input.addEventListener('invalid', function (evt) {
-          evt.preventDefault();
-        });
-      });
-    });
-
-    questionForm.addEventListener('submit', function () {
-      if (isStorageSupport) {
-        localStorage.setItem('name', nameInput.value);
-      }
-      questionForm.classList.remove('submit-focused');
-    });
-  }
-
-  window.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === ESC_KEYCODE) {
-      evt.preventDefault();
-      var modal = document.querySelector('.modal--show');
-      if (modal) {
-        questionForm.classList.remove('submit-focused');
-        modal.classList.remove('modal--show');
-        removeOverlay();
-      }
-    }
-  });
-}());
-
 // Страница выбора квеста
 
 (function () {
   var MARGIN = 39;
+  var EXTRA_PADDING = 48;
+  var DESKTOP_WIDTH = 1024;
   var header = document.querySelector('.header');
   var chooseQuestContainer = document.querySelector('.choose-quest');
 
@@ -277,17 +303,17 @@ var ALL_QUESTS = {
     var positionElements = function (size) {
       var questsList = chooseQuestContainer.querySelector('.choose-quest__list');
 
-      if (size > 766) {
+      if (size >= DESKTOP_WIDTH) {
         var windowHeight = window.innerHeight;
-        var headerHeight = header.offsetHeight;
-        var chooseQuestPadding = headerHeight + 48;
+        // var headerHeight = header.offsetHeight;
         var questFilters = chooseQuestContainer.querySelector('.quests-filters');
-        chooseQuestContainer.style.paddingTop = chooseQuestPadding + 'px';
+        // var chooseQuestPadding = headerHeight + EXTRA_PADDING;
+        // chooseQuestContainer.style.paddingTop = chooseQuestPadding + 'px';
         var questListHeight = windowHeight - questFilters.getBoundingClientRect().bottom - MARGIN + 'px';
         questsList.style.height = questListHeight;
       } else {
         questsList.style.height = 'auto';
-        chooseQuestContainer.style.paddingTop = 0;
+        // chooseQuestContainer.style.paddingTop = '';
       }
     };
     positionElements(window.innerWidth);
@@ -301,6 +327,8 @@ var ALL_QUESTS = {
 
 (function () {
   var MARGIN = 39;
+  var EXTRA_PADDING = 48;
+  var DESKTOP_WIDTH = 1024;
   var header = document.querySelector('.header');
   var chooseQuestContainer = document.querySelector('.choose-quest');
 
@@ -308,17 +336,13 @@ var ALL_QUESTS = {
     var positionElements = function (size) {
       var questsList = chooseQuestContainer.querySelector('.choose-quest__list');
 
-      if (size > 766) {
+      if (size >= DESKTOP_WIDTH) {
         var windowHeight = window.innerHeight;
-        var headerHeight = header.offsetHeight;
-        var chooseQuestPadding = headerHeight + 48;
         var questFilters = chooseQuestContainer.querySelector('.quests-filters');
-        chooseQuestContainer.style.paddingTop = chooseQuestPadding + 'px';
         var questListHeight = windowHeight - questFilters.getBoundingClientRect().bottom - MARGIN + 'px';
         questsList.style.height = questListHeight;
       } else {
         questsList.style.height = 'auto';
-        chooseQuestContainer.style.paddingTop = 0;
       }
     };
 

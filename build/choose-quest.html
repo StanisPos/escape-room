@@ -23,23 +23,20 @@
 
   <div class="wrapper">
 
-    <header class="header">
+    <header class="header header--closed header--nojs">
       <div class="header__logo logo">
-        <a class="header__logo-link" href="#">
+        <a class="header__logo-link" href="main.html">
           <svg width="134" height="50" viewBox="0 0 134 52">
             <use xlink:href="#icon-logo-group"></use>
           </svg>
         </a>
       </div>
       <nav class="header__navigation">
-        <div class="header__menu-wrapper">
-          <p class="header__menu-text text">Меню</p>
-          <button class="header__menu-button">
-            <svg width="24" height="14" viewBox="0 0 24 14">
-              <use xlink:href="#icon-burger"></use>
-            </svg>
-          </button>
-        </div>
+        <button class="header__menu-toggle">
+          меню
+          <span class="visually-hidden">Открыть или закрыть меню</span>
+          <span class="header__burger"></span>
+        </button>
         <ul class="header__list">
           <li class="header__list-item">
             <a class="header__navigation-link" href="#">Квесты</a>
@@ -59,7 +56,10 @@
         </ul>
         <div class="header__info-wrapper">
           <a class="header__list-item-link md-trigger" href="#" data-modal="city">
-            Новосибирск
+            <svg width="16" height="21" viewBox="0 0 16 21">
+              <use xlink:href="#icon-pin"></use>
+            </svg>
+            <span>Новосибирск</span>
           </a>
           <a class="header__navigation-link header__navigation-link--phone" href="tel:+73832840160">
             8 (383) 284 01 60
@@ -70,7 +70,7 @@
 
     <main class="choose-quest container">
       <div class="choose-quest__fixed">
-        <div class="quest__subtitle">квесты в Новосибирске</div>
+        <div class="subtitle">квесты в Новосибирске</div>
 
         <h1>Выберите тематику</h1>
 
@@ -152,6 +152,7 @@
     </footer>
   </div>
 
+<!-- Модальные окна -->
 
   <section class="modal modal--city">
     <div class="modal__inner">
@@ -215,6 +216,8 @@
       </form>
     </div>
   </section>
+
+  <!-- Шаблон квеста -->
 
   <template id="quest-template">
     <article class="choose-quest__item quest-item" data-label="maniac">

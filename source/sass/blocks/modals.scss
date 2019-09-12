@@ -14,7 +14,7 @@
 
 .modal__inner {
   display: flex;
-
+  overflow-y: auto;
   border-radius: 3px;
 
 	opacity: 0;
@@ -389,13 +389,13 @@
 	visibility: visible;
 }
 
-@media (max-width: 1023px) {
-  .modal {
-    top: 80px;
-  }
-}
+// @media (max-width: ($desktop-width - 1)) {
+//   .modal {
+//     top: 80px;
+//   }
+// }
 
-@media (max-width: 767px) {
+@media (max-width: ($desktop-width - 1)) {
   .modal {
     width: 100%;
     min-width: 320px;
@@ -406,6 +406,13 @@
 
   .modal__inner {
     height: 100vh;
+  }
+}
+
+@media (max-width: ($tablet-width - 1)) {
+  .modal__inner {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
 

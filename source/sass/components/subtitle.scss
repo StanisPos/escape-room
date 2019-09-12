@@ -1,12 +1,15 @@
 .subtitle {
   margin-bottom: 7px;
+  font-family: $font;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: $brand-color;
+  text-decoration: none;
+}
 
-  a {
-    font-family: $font;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-    color: $brand-color;
-    text-decoration: none;
+@media (max-width: ($tablet-width - 1)) {
+  .subtitle {
+    margin-bottom: 10px;
   }
 }
