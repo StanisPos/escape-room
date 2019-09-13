@@ -1,0 +1,302 @@
+.order {
+  padding-top: 137px;
+
+  h1 {
+    font-family: $font;
+    font-weight: 900;
+    font-size: 92px;
+    line-height: 87%;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 15px;
+    letter-spacing: -1.7px;
+  }
+
+  .subtitle {
+    margin-bottom: 11px;
+  }
+}
+
+.order__schedule {
+  padding-top: 35px;
+  padding-left: 48px;
+  border-top: 1px solid fade-out($base-color-dark, 0.75);
+
+  form {
+    position: relative;
+    // max-width: 80%;
+    max-width: calc(110px * 6 + 32px * 5);
+  }
+}
+
+.order__date {
+  display: flex;
+  align-items: center;
+  margin-bottom: 23px;
+}
+
+.order__action {
+  position: relative;
+  font-family: $font;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 22px;
+  color: $base-color;
+  padding-right: 11px;
+  padding-left: 0;
+  padding-bottom: 5px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid $brand-color;
+  height: fit-content;
+  transition: 0.3s;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+
+    top: 9px;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+
+    border-left: 5px solid $base-color;
+    transition: 0.3s;
+  }
+
+  &:hover {
+    border-bottom-color: fade-out($base-color, 0.3);
+
+    &:after {
+      border-left-color: $brand-color;
+    }
+  }
+}
+
+.order__date-chosen {
+  margin-left: 24px;
+  font-family: $font;
+  color: $base-color;
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.order__state {
+  margin-bottom: 48px;
+  ul {
+    @include list-reset;
+
+    display: flex;
+    flex-direction: row;
+  }
+
+  li {
+    display: flex;
+    font-family: $font;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 17px;
+
+    display: flex;
+    align-items: center;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+
+    color: fade-out($base-color, 0.18);
+
+    &:not(:last-child) {
+      margin-right: 24px;
+    }
+  }
+
+  span {
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    margin-right: 5px;
+  }
+
+}
+
+.time {
+  &--available {
+    @include time-available;
+  }
+
+  &--reserved {
+    @include time-reserved;
+  }
+
+  &--chosen {
+    @include time-chosen;
+  }
+}
+
+.order__time-list {
+  border: none;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  @include list-reset;
+
+  label {
+    max-width: 110px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.order__time {
+  width: 110px;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  margin-bottom: 31px;
+
+  &:not(:nth-of-type(6n)) {
+    margin-right: 32px;
+  }
+
+  input[type="radio"] + .order__time-btn {
+    @include time-available;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 110px;
+    height: 38px;
+    border-radius: 65px;
+
+    font-family: $font;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 23;
+    letter-spacing: 0.05em;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    pointer-events: none;
+    transition: 0.3s;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  input[type="radio"]:disabled + .order__time-btn {
+    @include time-reserved;
+    cursor: default;
+  }
+
+  input[type="radio"]:checked + .order__time-btn {
+    @include time-chosen;
+  }
+
+  &:hover {
+    input[type="radio"] + .order__time-btn {
+      border-color: #2cdb52;
+    }
+  }
+}
+
+.order__summary {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  right: 0;
+  top: -121px;
+  width: 49%;
+
+  p {
+    margin: 0;
+    letter-spacing: 0.2px;
+  }
+
+  .order__action {
+    bottom: 5px;
+  }
+}
+
+.order__final-date {
+  display: block;
+}
+
+@media (max-width: $desktop-width - 1) {
+
+  .order {
+    padding-top: 0;
+    h1 {
+      font-size: 42px;
+      line-height: 46px;
+      letter-spacing: normal;
+      margin-bottom: 12px;
+    }
+  }
+
+  .order__schedule {
+    padding-left: 0;
+    padding-top: 28px;
+  }
+
+  .order__date-chosen {
+    margin-left: 17px;
+  }
+
+  .order__date {
+    .order__action {
+      top: 4px;
+    }
+  }
+
+  .order__time {
+    margin-right: 24px;
+  }
+
+  .order__time-list {
+    margin-bottom: 6px;
+  }
+
+  .order__summary {
+    position: static;
+    width: 100%;
+    margin-bottom: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+
+    p {
+      margin-bottom: 5px;
+    }
+  }
+
+  .order__final-date {
+    display: inline;
+  }
+
+  .order__final-price {
+    display: block;
+    margin-bottom: 24px;
+  }
+
+  .order__state {
+    margin-bottom: 38px;
+
+    ul {
+      flex-wrap: wrap;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+  }
+}

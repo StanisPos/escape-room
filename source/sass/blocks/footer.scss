@@ -61,35 +61,36 @@
       position: fixed;
       bottom: 0;
       @include fixed-centering();
+      align-items: flex-start;
     }
   }
 
+  .footer__question {
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.03em;
+    padding-top: 4px;
+
+    &::before {
+      top: 4px;
+    }
+
+    &:hover {
+      padding-left: 14px;
+    }
+  }
 }
 
 @media (max-width: ($tablet-width - 1)) {
   .footer {
-    position: static;
+    position: absolute;
     align-items: center;
-    min-height: 71px;
-    // padding: 0 16px;
-    padding: 0;
-  }
-
-  .footer__question {
-    // font-size: 18px;
-    line-height: 19px;
-
-    padding-top: 4px;
+    height: 71px;
+    padding: 0 16px;
+    // padding: 0;
   }
 
   .footer--fixed {
     padding: 0 16px;
-  }
-}
-
-@media (max-width: $mobile-width) {
-  .footer__question {
-    font-size: 16px;
-    line-height: 19px;
   }
 }

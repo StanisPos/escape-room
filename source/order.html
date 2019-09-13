@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Заказ квеста</title>
+  <link rel="stylesheet" href="css/style.min.css">
+  <script src="js/picturefill.min.js" async></script>
+</head>
+<body>
+  <div style="display:none">
+    <include src="build/img/sprite_auto.svg"></include>
+  </div>
+
+  <div class="wrapper wrapper--blurred">
+
+    <header class="header header--closed header--nojs">
+      <div class="header__logo logo">
+        <a class="header__logo-link" href="main.html">
+          <svg width="134" height="50" viewBox="0 0 134 52">
+            <use xlink:href="#icon-logo-group"></use>
+          </svg>
+        </a>
+      </div>
+      <nav class="header__navigation">
+        <button class="header__menu-toggle">
+          меню
+          <span class="visually-hidden">Открыть или закрыть меню</span>
+          <span class="header__burger"></span>
+        </button>
+        <ul class="header__list">
+          <li class="header__list-item">
+            <a class="header__navigation-link header__navigation-link--active" href="choose-quest.html">Квесты</a>
+          </li>
+          <li class="header__list-item">
+            <a class="header__navigation-link" href="#">Новичкам</a>
+          </li>
+          <li class="header__list-item">
+            <a class="header__navigation-link" href="#">Отзывы</a>
+          </li>
+          <li class="header__list-item">
+            <a class="header__navigation-link" href="#">Акции</a>
+          </li>
+          <li class="header__list-item">
+            <a class="header__navigation-link" href="#">Контакты</a>
+          </li>
+        </ul>
+        <div class="header__info-wrapper">
+          <a class="header__list-item-link md-trigger" href="#" data-modal="city">
+            <svg width="16" height="21" viewBox="0 0 16 21">
+              <use xlink:href="#icon-pin"></use>
+            </svg>
+            <span>Новосибирск</span>
+          </a>
+          <a class="header__navigation-link header__navigation-link--phone" href="tel:+73832840160">
+            8 (383) 284 01 60
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="order container">
+      <nav class="page-nav">
+        <a href="current-quest.html">описание</a>
+      </nav>
+
+      <div class="subtitle">выбранный квест</div>
+
+      <h1>маньяк</h1>
+
+      <section class="order__schedule">
+        <h2 class="visually-hidden">Расписание</h2>
+        <form action="#">
+          <div class="order__date">
+            <button class="order__action">Выберите дату</button>
+            <span class="order__date-chosen">22 марта</span>
+          </div>
+
+          <div class="order__state">
+            <ul>
+              <li>
+                <span class="time--available"></span>&#8212; свободно
+              </li>
+              <li>
+                <span class="time--reserved"></span>&#8212; занято
+              </li>
+              <li>
+                <span class="time--chosen"></span>&#8212; выбрано вами
+              </li>
+            </ul>
+          </div>
+
+          <div role="group" class="order__time-list">
+            <legend class="visually-hidden">Выберите время</legend>
+
+            <label class="order__time">
+              <input class="visually-hidden" type="radio" name="time" value="9:45">
+              <span class="order__time-btn">9:45</span>
+              <span class="order__price">1400 &#8381;</span>
+            </label>
+            <label class="order__time">
+              <input class="visually-hidden" type="radio" name="time" value="11:00">
+              <span class="order__time-btn">11:00</span>
+              <span class="order__price">1400 &#8381;</span>
+            </label>
+            <label class="order__time">
+              <input class="visually-hidden" type="radio" name="time" value="12:15" disabled>
+              <span class="order__time-btn">12:15</span>
+              <span class="order__price">1400 &#8381;</span>
+            </label>
+            <label class="order__time">
+              <input class="visually-hidden" type="radio" name="time" value="13:30" disabled>
+              <span class="order__time-btn">13:30</span>
+              <span class="order__price">1400 &#8381;</span>
+            </label>
+            <label class="order__time">
+              <input class="visually-hidden" type="radio" name="time" value="14:45">
+              <span class="order__time-btn">14:45</span>
+              <span class="order__price">1400 &#8381;</span>
+            </label>
+            <label class="order__time">
+              <input class="visually-hidden" type="radio" name="time" value="16:00" checked>
+              <span class="order__time-btn">16:00</span>
+              <span class="order__price">1400 &#8381;</span>
+            </label>
+            <label class="order__time">
+              <input class="visually-hidden" type="radio" name="time" value="17:15" disabled>
+              <span class="order__time-btn">17:15</span>
+              <span class="order__price">1500 &#8381;</span>
+            </label>
+            <label class="order__time">
+              <input class="visually-hidden" type="radio" name="time" value="18:30">
+              <span class="order__time-btn">18:30</span>
+              <span class="order__price">1500 &#8381;</span>
+            </label>
+            <label class="order__time">
+              <input class="visually-hidden" type="radio" name="time" value="19:45">
+              <span class="order__time-btn">19:45</span>
+              <span class="order__price">1500 &#8381;</span>
+            </label>
+            <label class="order__time">
+              <input class="visually-hidden" type="radio" name="time" value="21:00">
+              <span class="order__time-btn">21:00</span>
+              <span class="order__price">1800 &#8381;</span>
+            </label>
+            <label class="order__time">
+              <input class="visually-hidden" type="radio" name="time" value="22:15" disabled>
+              <span class="order__time-btn">22:15</span>
+              <span class="order__price">1800 &#8381;</span>
+            </label>
+            <label class="order__time">
+              <input class="visually-hidden" type="radio" name="time" value="23:30" disabled>
+              <span class="order__time-btn">23:30</span>
+              <span class="order__price">2000 &#8381;</span>
+            </label>
+          </div>
+
+          <section class="order__summary">
+            <p>
+              Вы выбрали игру
+              <span class="order__final-date">22 марта в 16:00.</span>
+              <span class="order__final-price">К оплате 1500 рублей.</span>
+            </p>
+            <button type="submit" name="button" class="order__action">Перейти к оплате</button>
+          </section>
+
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <ul class="footer__social social">
+        <li class="social__icon">
+          <a class="social__icon-link social__icon-link--insta" href="#">
+            <p class='visually-hidden'>Присоединяйтесь к нам в инстаграм</p>
+          </a>
+        </li>
+        <li class="social__icon">
+          <a class="social__icon-link social__icon-link--vk" href="#">
+            <p class='visually-hidden'>Присоединяйтесь к нам в контакт</p>
+          </a>
+        </li>
+      </ul>
+      <a class="footer__question text md-trigger" href="#" data-modal="question">
+        Задать вопрос
+      </a>
+    </footer>
+  </div>
+
+<!-- Модальные окна -->
+
+  <section class="modal modal--city">
+    <div class="modal__inner">
+      <div class="modal__title">
+        <h2>Ваш город:</h2>
+        <button class="modal__close md-close"></button>
+      </div>
+      <a class="modal__action">
+        <svg width="25" height="25">
+          <use xlink:href="#icon-gps-location"></use>
+        </svg>
+        <span>Определить местоположение</span>
+      </a>
+      <p>... или выберите вручную</p>
+      <div class="modal__cities">
+        <ul>
+          <li class="active"><a href="#">Новосибирск</a></li>
+          <li><a href="#">Иркутск</a></li>
+          <li><a href="#">Смоленск</a></li>
+          <li><a href="#">Волгоград</a></li>
+          <li><a href="#">Комсомольск-на-Амуре</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="modal modal--question">
+    <div class="modal__inner">
+      <div class="modal__title">
+        <h2>Задайте вопрос</h2>
+        <button class="modal__close md-close"></button>
+      </div>
+      <form action="#">
+        <div class="modal__form-inner">
+          <label for="input-name">Чтобы мы смогли обращаться к вам, оставьте ваше имя</label>
+          <div class="modal__input-wrapper modal__input-wrapper--name">
+            <input class="js-input" type="text" name="name" placeholder="Имя" required id="input-name">
+            <span class="modal__prompt modal__prompt--name">Имя</span>
+            <span class="modal__validation modal__validation--name">Введите имя</span>
+          </div>
+          <label for="input-email">Чтобы вы получили ответ, оставьте ваш e-mail</label>
+          <div class="modal__input-wrapper modal__input-wrapper--email">
+            <input class="js-input" type="email" name="email" placeholder="E-mail" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" id="input-email">
+            <span class="modal__prompt modal__prompt--email">E-mail</span>
+            <span class="modal__validation modal__validation--email">Введен некорректный e-mail, попробуйте заново</span>
+          </div>
+          <label for="input-question">Ваш вопрос:</label>
+          <div class="modal__input-wrapper modal__input-wrapper--question">
+            <textarea name="question" rows="4" placeholder="Начните вводить ..." required class="js-input" id="input-question"></textarea>
+            <span class="modal__validation modal__validation--question">Введите вопрос</span>
+          </div>
+        </div>
+        <p class="modal__submit">
+          <button type="submit" name="button" disabled>Отправить вопрос</button>
+        </p>
+        <label>
+          <input class="visually-hidden" type="checkbox" name="agreement" value="agree" required>
+          <span class="checkbox-indicator"></span>
+          <span>Я согласен <a href="#">с правилами обработки персональных данных</a> и пользовательским соглашением</span>
+        </label>
+      </form>
+    </div>
+  </section>
+
+  <script src="js/app.min.js"></script>
+</body>
+</html>

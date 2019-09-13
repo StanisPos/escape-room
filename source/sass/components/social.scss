@@ -26,7 +26,7 @@
   }
 }
 
-@media (max-width: $mobile-width) {
+@media (max-width: $desktop-width - 1) {
   .social {
     min-width: 88px;
   }

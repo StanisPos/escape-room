@@ -1,0 +1,36 @@
+.page-nav {
+  display: none;
+  margin-bottom: 28px;
+
+  a {
+    position: relative;
+    font-family: $font;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 17px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    color: $base-color-dark;
+    padding-left: 14px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 1px;
+      display: block;
+      width: 6px;
+      height: 12px;
+      @include background("../../img/icons/icon-left-arrow.svg");
+    }
+  }
+}
+
+@media (max-width: $desktop-width - 1) {
+  .page-nav {
+    display: block;
+  }
+}
