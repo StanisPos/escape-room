@@ -54,6 +54,48 @@
   margin-bottom: 27px;
 }
 
+.quest__item {
+  position: relative;
+}
+
+.quest__item:not(:last-of-type)::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: -24px;
+
+  height: 37px;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.36);
+}
+
+.quest__item-text {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -29px;
+
+    width: 24px;
+    height: 24px;
+
+    background-size: 34px;
+  }
+
+  &--time::before {
+    @include background("../../img/icons/icon-clock.svg");
+  }
+  &--capacity::before {
+    @include background("../../img/icons/icon-person.svg");
+  }
+  &--level::before {
+    text-transform: uppercase;
+    @include background("../../img/icons/icon-puzzle.svg");
+  }
+}
+
 .quest__description {
   font-family: $font;
   font-style: normal;
@@ -102,26 +144,44 @@
   .quest {
     text-align: left;
 
-    padding-top: 400px;
+    padding-top: 313px;
     padding-bottom: 0;
   }
 
   .quest__subtitle {
-    margin-right: 63%;
+    margin-right: 62%;
   }
 
   .quest__title {
     font-size: 42px;
-    margin-bottom: 26px;
+    margin-bottom: 52px;
   }
 
   .quest__list {
-    min-height: 66px;
+    max-width: 312px;
+    min-height: 40px;
     margin-bottom: 14px;
   }
 
+  .quest__item:not(:last-of-type)::after {
+    top: -27px;
+    left: 92px;
+    height: 55px;
+  }
+
+  .quest__item-text {
+    font-size: 14px;
+    text-align: center;
+
+    max-width: 72px;
+    &::before {
+      top: -30px;
+      left: 22px;
+    }
+  }
+
   .quest__description {
-    margin-bottom: 14px;
+    margin-bottom: 26px;
   }
 
   .quest__button {

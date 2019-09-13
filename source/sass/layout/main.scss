@@ -4,3 +4,9 @@
   max-width: $desktop-width;
   @include margin-centering();
 }
+
+@media (max-width: $tablet-width) {
+  .main {
+    height: auto;
+  }
+}
