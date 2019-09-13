@@ -286,7 +286,7 @@ var ALL_QUESTS = {
       questsFragment.appendChild(quest);
     });
 
-    questsContainer.appendChild(questsFragment);
+    questsContainer.querySelector('ul').appendChild(questsFragment);
   }
 }());
 
