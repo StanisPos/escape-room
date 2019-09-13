@@ -18,11 +18,14 @@
 @media (max-width: ($desktop-width - 1)) {
   .wrapper {
     height: auto;
+    min-height: 100vh;
+    padding-bottom: 71px;
   }
 }
 
 @media (max-width: ($tablet-width - 1)) {
   .wrapper {
     padding: 0 16px;
+    padding-bottom: 71px;
   }
 }

@@ -68,11 +68,11 @@
 
 @media (max-width: ($tablet-width - 1)) {
   .footer {
-    position: static;
+    position: absolute;
     align-items: center;
-    min-height: 71px;
-    // padding: 0 16px;
-    padding: 0;
+    height: 71px;
+    padding: 0 16px;
+    // padding: 0;
   }
 
   .footer__question {

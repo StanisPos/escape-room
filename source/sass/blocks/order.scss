@@ -8,8 +8,7 @@
     line-height: 87%;
     text-transform: uppercase;
     margin-top: 0;
-    margin-bottom: 16px;
-    letter-spacing: -0.03em;
+    margin-bottom: 12px;
   }
 }
 
@@ -86,7 +85,6 @@
 
   li {
     display: flex;
-    margin-right: 24px;
     font-family: $font;
     font-style: normal;
     font-weight: 500;
@@ -98,6 +96,10 @@
     font-feature-settings: 'pnum' on, 'lnum' on;
 
     color: fade-out($base-color, 0.18);
+
+    &:not(:last-child) {
+      margin-right: 24px;
+    }
   }
 
   span {
@@ -146,7 +148,7 @@
   flex-direction: column;
 
   align-items: center;
-  margin-bottom: 32px;
+  margin-bottom: 31px;
 
   &:not(:nth-of-type(6n)) {
     margin-right: 24px;
@@ -197,6 +199,7 @@
 
   p {
     margin: 0;
+    letter-spacing: 0.2px;
   }
 
   .order__action {
@@ -219,7 +222,11 @@
   }
   .order__schedule {
     padding-left: 0;
-    padding-top: 27px;
+    padding-top: 28px;
+  }
+
+  .order__date-chosen {
+    margin-left: 17px;
   }
 
   .order__date {
@@ -232,12 +239,20 @@
     margin-right: 24px;
   }
 
+  .order__time-list {
+    margin-bottom: 6px;
+  }
+
   .order__summary {
     position: static;
     width: 100%;
+    margin-bottom: 10px;
     flex-direction: column;
     align-items: flex-start;
 
+    p {
+      margin-bottom: 5px;
+    }
   }
 
   .order__final-date {
@@ -247,5 +262,17 @@
   .order__final-price {
     display: block;
     margin-bottom: 24px;
+  }
+
+  .order__state {
+    margin-bottom: 38px;
+
+    ul {
+      flex-wrap: wrap;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
   }
 }
