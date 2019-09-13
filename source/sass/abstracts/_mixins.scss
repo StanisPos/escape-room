@@ -37,3 +37,18 @@
   left: 0;
   right: 0;
 }
+
+@mixin time-available() {
+  border: 2px solid #C4C4C4;
+  background-color: transparent;
+}
+
+@mixin time-reserved() {
+  border: none;
+  background: linear-gradient(158.6deg, $brand-color 9.78%, #B8600F 79.81%);
+}
+
+@mixin time-chosen() {
+  border: none;
+  background: linear-gradient(180deg, #2CDB52 0%, #13BA19 100%);
+}

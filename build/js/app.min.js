@@ -400,11 +400,14 @@ var ALL_QUESTS = {
       image.style.backgroundSize = 'cover';
 
       window.addEventListener('load', function () {
-        preloader.style.display = 'none';
+         if (preloader) {
+           preloader.style.display = 'none';
+         }
       });
     }
   } else {
-    preloader.style.display = 'none';
+    if (preloader) {
+      preloader.style.display = 'none';
+    }
   }
 })();
-

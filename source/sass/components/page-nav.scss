@@ -1,0 +1,22 @@
+.page-nav {
+  position: relative;
+  font-family: $font;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 17px;
+  letter-spacing: 0.02em;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  color: $base-color-dark;
+  padding-left: 18px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    display: block;
+    width: 6px;
+    height: 10px;
+    @include background("../../img/icons/icon-left-arrow.svg");
+  }
+}
