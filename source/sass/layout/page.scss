@@ -16,7 +16,8 @@
 }
 
 .wrapper--blurred {
-  &::before {
+  &::before,
+  &::after {
     z-index: -1;
     content: '';
     display: block;
@@ -27,6 +28,9 @@
     right: 0;
     bottom: 0;
     left: 0;
+  }
+
+  &::before {
     background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('../../img/photos/bg_maniac.jpg');
     filter: blur(70px);
     background-position: 99% 25%;
@@ -48,6 +52,9 @@
       background-position: 48% -203px;
     }
 
+    &::after {
+      background: linear-gradient(159.27deg, rgba(99, 60, 15, 0) 23.22%, rgba(99, 60, 15, 0) 37.46%, #24150E 89.63%, #1A140D 106.79%);
+    }
   }
 }
 
