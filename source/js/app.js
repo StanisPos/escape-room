@@ -144,7 +144,7 @@ var ALL_QUESTS = {
     time: "60",
     count: "2-5",
     complexity: "легкий квест",
-    description: `Погрузитесь в атмосферу служебных помещений закулисья, которые хранят множество тайн и загадок. Вы окажитесь в старом особняке и увидите все, что скрывают его запутанные коридоры.`,
+    description: "Погрузитесь в атмосферу служебных помещений закулисья, которые хранят множество тайн и загадок. Вы окажитесь в старом особняке и увидите все, что скрывают его запутанные коридоры.",
     image: "bg_secrets-mansion"
   },
   RITUAL: {
@@ -153,7 +153,7 @@ var ALL_QUESTS = {
     time: "60",
     count: "3-5",
     complexity: "высокая сложность",
-    description: `Тяжелый воздух угнетает, в ночи вы оказыватесь запертыми в сыром помещении вместе с другими ничего не понимающими жертвами. Сквозь щель в двери вы видите, как некто в капюшоне готовит площадку как будто для проведения мистического обряда. Удастся ли вам выбраться, пока вы не станете жертвой ритуала?`,
+    description: "Тяжелый воздух угнетает, в ночи вы оказыватесь запертыми в сыром помещении вместе с другими ничего не понимающими жертвами. Сквозь щель в двери вы видите, как некто в капюшоне готовит площадку как будто для проведения мистического обряда. Удастся ли вам выбраться, пока вы не станете жертвой ритуала?",
     image: "bg_ritual"
   },
   EXPERIMENT: {
@@ -162,7 +162,7 @@ var ALL_QUESTS = {
     time: "90",
     count: "5-8",
     complexity: "высокая сложность",
-    description: `Вы стоите на пороге нового научного открытия, которое перевернет судьбу человечества. Но что-то идёт не так, и ядерный реактор, который работает на полную мощность, сигнализирует о скорой поломке. Удастя ли вам починить его в отведенное время и предотвратить гибель людей в этом фатальном эксперименте?`,
+    description: "Вы стоите на пороге нового научного открытия, которое перевернет судьбу человечества. Но что-то идёт не так, и ядерный реактор, который работает на полную мощность, сигнализирует о скорой поломке. Удастя ли вам починить его в отведенное время и предотвратить гибель людей в этом фатальном эксперименте?",
     image: "bg_experiment"
   }
 };
@@ -367,4 +367,44 @@ var ALL_QUESTS = {
     }
   }
 
-})()
+})();
+
+(function () {
+  var PATH_TO_IMAGE = '../../img/photos/';
+  var EXTENSION_IMAGE = '.jpg';
+
+  var preloader = document.querySelector('.js-preloader');
+  var quest = localStorage.getItem('quest');
+  var currentQuest;
+  if (quest !== 'undefined') {
+    currentQuest = JSON.parse(quest);
+
+    var image = document.querySelector('.js-container');
+    var questContainer = document.querySelector('.quest');
+    if (questContainer) {
+      var subtitle = questContainer.querySelector('.js-subtitle');
+      var title = questContainer.querySelector('.js-title');
+      var time = questContainer.querySelector('.js-time');
+      var count = questContainer.querySelector('.js-count');
+      var level = questContainer.querySelector('.js-level');
+      var description = questContainer.querySelector('.js-description');
+
+      title.textContent = currentQuest.title;
+      subtitle.textContent = currentQuest.subtitle;
+      time.textContent = currentQuest.time;
+      count.textContent = currentQuest.count;
+      description.textContent = currentQuest.description;
+      level.textContent = currentQuest.complexity;
+
+      image.style.backgroundImage = 'url(' + PATH_TO_IMAGE + currentQuest.image + EXTENSION_IMAGE + ')';
+      image.style.backgroundSize = 'cover';
+
+      window.addEventListener('load', function () {
+        preloader.style.display = 'none';
+      });
+    }
+  } else {
+    preloader.style.display = 'none';
+  }
+})();
+

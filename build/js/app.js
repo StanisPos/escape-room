@@ -1,5 +1,142 @@
 "use strict";
 
+// header
+
+(function () {
+  var pageHeader = document.querySelector('.header');
+  var headerToggle = document.querySelector('.header__menu-toggle');
+  var footer = document.querySelector('.footer');
+
+  pageHeader.classList.remove('header--nojs');
+
+  headerToggle.addEventListener('click', function () {
+    if (pageHeader.classList.contains('header--closed')) {
+      pageHeader.classList.remove('header--closed');
+      pageHeader.classList.add('header--opened');
+      footer.classList.add('footer--fixed');
+
+    } else {
+      pageHeader.classList.add('header--closed');
+      pageHeader.classList.remove('header--opened');
+      footer.classList.remove('footer--fixed');
+    }
+  });
+}());
+
+// Модальные окна
+
+(function () {
+  var ESC_KEYCODE = 27;
+
+  var modalQuestion = document.querySelector('.modal--question');
+  var mdTriggers = document.querySelectorAll('.md-trigger');
+
+  var isStorageSupport = true;
+  var storage = '';
+
+  try {
+    storage = localStorage.getItem('login');
+  } catch (err) {
+    isStorageSupport = false;
+  }
+
+  var createOverlay = function () {
+    var overlay = document.createElement('div');
+    overlay.classList.add('modal__overlay');
+    document.body.appendChild(overlay);
+    overlay.addEventListener('click', function () {
+      document.querySelector('.modal--show').classList.remove('modal--show');
+      removeOverlay();
+    });
+    return overlay;
+  };
+
+  var removeOverlay = function () {
+    document.querySelector('.modal__overlay').classList.remove('modal__overlay--show');
+  };
+
+  var overlay = createOverlay();
+
+  mdTriggers.forEach(function (el) {
+    var modal = document.querySelector('.modal--' + el.getAttribute('data-modal'));
+    var close = modal.querySelector('.md-close');
+
+    function removeModal() {
+      modal.classList.remove('modal--show', 'submit-focused');
+      removeOverlay();
+    }
+
+    el.addEventListener('click', function (evt) {
+      evt.preventDefault();
+      overlay.classList.add('modal__overlay--show');
+      modal.classList.add('modal--show');
+      overlay.addEventListener('click', removeModal);
+
+      if (modal.classList.contains('.modal--question')) {
+        if (storage) {
+          nameInput.value = storage;
+          emailInput.focus();
+        } else {
+          nameInput.focus();
+        }
+      }
+    });
+
+    close.addEventListener('click', function (evt) {
+      evt.preventDefault();
+      removeModal();
+    });
+  });
+
+  if (modalQuestion) {
+    var nameInput = modalQuestion.querySelector('[name=name]');
+    var emailInput = modalQuestion.querySelector('[name=email]');
+    var agreementInput = modalQuestion.querySelector('[name=agreement]');
+    var questionForm = modalQuestion.querySelector('form');
+    var questionSubmitButton = modalQuestion.querySelector('[type=submit]');
+    var questionInputs = modalQuestion.querySelectorAll('.js-input');
+
+    agreementInput.addEventListener('input', function () {
+      if (agreementInput.checked === true) {
+        questionSubmitButton.removeAttribute('disabled');
+      } else {
+        questionSubmitButton.setAttribute('disabled', 'disabled');
+      }
+    });
+
+    questionSubmitButton.addEventListener('click', function () {
+      questionForm.classList.add('submit-focused');
+
+      questionInputs.forEach(function (input) {
+        input.addEventListener('invalid', function (evt) {
+          evt.preventDefault();
+        });
+      });
+    });
+
+    questionForm.addEventListener('submit', function () {
+      if (isStorageSupport) {
+        localStorage.setItem('name', nameInput.value);
+      }
+      questionForm.classList.remove('submit-focused');
+    });
+  }
+
+  window.addEventListener('keydown', function (evt) {
+    if (evt.keyCode === ESC_KEYCODE) {
+      evt.preventDefault();
+      var modal = document.querySelector('.modal--show');
+      if (modal) {
+        questionForm.classList.remove('submit-focused');
+        modal.classList.remove('modal--show');
+        removeOverlay();
+      }
+    }
+  });
+}());
+
+// Все квесты
+
 var ALL_QUESTS = {
   SECRETS: {
     title: "Тайны старого особняка",
@@ -7,7 +144,7 @@ var ALL_QUESTS = {
     time: "60",
     count: "2-5",
     complexity: "легкий квест",
-    description: `Погрузитесь в атмосферу служебных помещений закулисья, которые хранят множество тайн и загадок. Вы окажитесь в старом особняке и увидите все, что скрывают его запутанные коридоры.`,
+    description: "Погрузитесь в атмосферу служебных помещений закулисья, которые хранят множество тайн и загадок. Вы окажитесь в старом особняке и увидите все, что скрывают его запутанные коридоры.",
     image: "bg_secrets-mansion"
   },
   RITUAL: {
@@ -16,7 +153,7 @@ var ALL_QUESTS = {
     time: "60",
     count: "3-5",
     complexity: "высокая сложность",
-    description: `Тяжелый воздух угнетает, в ночи вы оказыватесь запертыми в сыром помещении вместе с другими ничего не понимающими жертвами. Сквозь щель в двери вы видите, как некто в капюшоне готовит площадку как будто для проведения мистического обряда. Удастся ли вам выбраться, пока вы не станете жертвой ритуала?`,
+    description: "Тяжелый воздух угнетает, в ночи вы оказыватесь запертыми в сыром помещении вместе с другими ничего не понимающими жертвами. Сквозь щель в двери вы видите, как некто в капюшоне готовит площадку как будто для проведения мистического обряда. Удастся ли вам выбраться, пока вы не станете жертвой ритуала?",
     image: "bg_ritual"
   },
   EXPERIMENT: {
@@ -25,31 +162,10 @@ var ALL_QUESTS = {
     time: "90",
     count: "5-8",
     complexity: "высокая сложность",
-    description: `Вы стоите на пороге нового научного открытия, которое перевернет судьбу человечества. Но что-то идёт не так, и ядерный реактор, который работает на полную мощность, сигнализирует о скорой поломке. Удастя ли вам починить его в отведенное время и предотвратить гибель людей в этом фатальном эксперименте?`,
+    description: "Вы стоите на пороге нового научного открытия, которое перевернет судьбу человечества. Но что-то идёт не так, и ядерный реактор, который работает на полную мощность, сигнализирует о скорой поломке. Удастя ли вам починить его в отведенное время и предотвратить гибель людей в этом фатальном эксперименте?",
     image: "bg_experiment"
   }
 };
-
-// header
-
-var pageHeader = document.querySelector('.header');
-var headerToggle = document.querySelector('.header__menu-toggle');
-var footer = document.querySelector('.footer');
-
-pageHeader.classList.remove('header--nojs');
-
-headerToggle.addEventListener('click', function () {
-  if (pageHeader.classList.contains('header--closed')) {
-    pageHeader.classList.remove('header--closed');
-    pageHeader.classList.add('header--opened');
-    footer.classList.add('footer--fixed');
-
-  } else {
-    pageHeader.classList.add('header--closed');
-    pageHeader.classList.remove('header--opened');
-    footer.classList.remove('footer--fixed');
-  }
-});
 
 // Отрисовка квестов
 
@@ -174,150 +290,6 @@ headerToggle.addEventListener('click', function () {
   }
 }());
 
-// Модальные окна
-
-(function () {
-  var ESC_KEYCODE = 27;
-
-  var modalQuestion = document.querySelector('.modal--question');
-  var mdTriggers = document.querySelectorAll('.md-trigger');
-
-  var isStorageSupport = true;
-  var storage = '';
-
-  try {
-    storage = localStorage.getItem('login');
-  } catch (err) {
-    isStorageSupport = false;
-  }
-
-  var createOverlay = function () {
-    var overlay = document.createElement('div');
-    overlay.classList.add('modal__overlay');
-    document.body.appendChild(overlay);
-    overlay.addEventListener('click', function () {
-      document.querySelector('.modal--show').classList.remove('modal--show');
-      removeOverlay();
-    });
-    return overlay;
-  };
-
-  var removeOverlay = function () {
-    document.querySelector('.modal__overlay').classList.remove('modal__overlay--show');
-  };
-
-  var overlay = createOverlay();
-
-  mdTriggers.forEach(function (el) {
-    var modal = document.querySelector('.modal--' + el.getAttribute('data-modal'));
-    var close = modal.querySelector('.md-close');
-
-    function removeModal() {
-      modal.classList.remove('modal--show', 'submit-focused');
-      removeOverlay();
-    }
-
-    el.addEventListener('click', function (evt) {
-      evt.preventDefault();
-      overlay.classList.add('modal__overlay--show');
-      modal.classList.add('modal--show');
-      overlay.addEventListener('click', removeModal);
-
-      if (modal.classList.contains('.modal--question')) {
-        if (storage) {
-          nameInput.value = storage;
-          emailInput.focus();
-        } else {
-          nameInput.focus();
-        }
-      }
-    });
-
-    close.addEventListener('click', function (evt) {
-      evt.preventDefault();
-      removeModal();
-    });
-  });
-
-
-  if (modalQuestion) {
-    var nameInput = modalQuestion.querySelector('[name=name]');
-    var emailInput = modalQuestion.querySelector('[name=email]');
-    var agreementInput = modalQuestion.querySelector('[name=agreement]');
-    var questionForm = modalQuestion.querySelector('form');
-    var questionSubmitButton = modalQuestion.querySelector('[type=submit]');
-    var questionInputs = modalQuestion.querySelectorAll('.js-input');
-
-    agreementInput.addEventListener('input', function () {
-      if (agreementInput.checked === true) {
-        questionSubmitButton.removeAttribute('disabled');
-      } else {
-        questionSubmitButton.setAttribute('disabled', 'disabled');
-      }
-    });
-
-    questionSubmitButton.addEventListener('click', function () {
-      questionForm.classList.add('submit-focused');
-
-      questionInputs.forEach(function (input) {
-        input.addEventListener('invalid', function (evt) {
-          evt.preventDefault();
-        });
-      });
-    });
-
-    questionForm.addEventListener('submit', function () {
-      if (isStorageSupport) {
-        localStorage.setItem('name', nameInput.value);
-      }
-      questionForm.classList.remove('submit-focused');
-    });
-  }
-
-  window.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === ESC_KEYCODE) {
-      evt.preventDefault();
-      var modal = document.querySelector('.modal--show');
-      if (modal) {
-        questionForm.classList.remove('submit-focused');
-        modal.classList.remove('modal--show');
-        removeOverlay();
-      }
-    }
-  });
-}());
-
-// Страница выбора квеста
-
-(function () {
-  var MARGIN = 39;
-  var header = document.querySelector('.header');
-  var chooseQuestContainer = document.querySelector('.choose-quest');
-
-  if (chooseQuestContainer) {
-    var positionElements = function (size) {
-      var questsList = chooseQuestContainer.querySelector('.choose-quest__list');
-
-      if (size > 766) {
-        var windowHeight = window.innerHeight;
-        var headerHeight = header.offsetHeight;
-        var chooseQuestPadding = headerHeight + 48;
-        var questFilters = chooseQuestContainer.querySelector('.quests-filters');
-        chooseQuestContainer.style.paddingTop = chooseQuestPadding + 'px';
-        var questListHeight = windowHeight - questFilters.getBoundingClientRect().bottom - MARGIN + 'px';
-        questsList.style.height = questListHeight;
-      } else {
-        questsList.style.height = 'auto';
-        chooseQuestContainer.style.paddingTop = 0;
-      }
-    };
-    positionElements(window.innerWidth);
-    window.addEventListener('resize', function (evt) {
-      positionElements(evt.target.innerWidth);
-    });
-  }
-}());
-
 // Страница выбора квеста
 
 (function () {
@@ -344,6 +316,35 @@ headerToggle.addEventListener('click', function () {
         // chooseQuestContainer.style.paddingTop = '';
       }
     };
+    positionElements(window.innerWidth);
+    window.addEventListener('resize', function (evt) {
+      positionElements(evt.target.innerWidth);
+    });
+  }
+}());
+
+// Страница выбора квеста
+
+(function () {
+  var MARGIN = 39;
+  var EXTRA_PADDING = 48;
+  var DESKTOP_WIDTH = 1024;
+  var header = document.querySelector('.header');
+  var chooseQuestContainer = document.querySelector('.choose-quest');
+
+  if (chooseQuestContainer) {
+    var positionElements = function (size) {
+      var questsList = chooseQuestContainer.querySelector('.choose-quest__list');
+
+      if (size >= DESKTOP_WIDTH) {
+        var windowHeight = window.innerHeight;
+        var questFilters = chooseQuestContainer.querySelector('.quests-filters');
+        var questListHeight = windowHeight - questFilters.getBoundingClientRect().bottom - MARGIN + 'px';
+        questsList.style.height = questListHeight;
+      } else {
+        questsList.style.height = 'auto';
+      }
+    };
 
     positionElements(window.innerWidth);
     window.addEventListener('resize', function (evt) {
@@ -366,4 +367,44 @@ headerToggle.addEventListener('click', function () {
     }
   }
 
-})()
+})();
+
+(function () {
+  var PATH_TO_IMAGE = '../../img/photos/';
+  var EXTENSION_IMAGE = '.jpg';
+
+  var preloader = document.querySelector('.js-preloader');
+  var quest = localStorage.getItem('quest');
+  var currentQuest;
+  if (quest !== 'undefined') {
+    currentQuest = JSON.parse(quest);
+
+    var image = document.querySelector('.js-container');
+    var questContainer = document.querySelector('.quest');
+    if (questContainer) {
+      var subtitle = questContainer.querySelector('.js-subtitle');
+      var title = questContainer.querySelector('.js-title');
+      var time = questContainer.querySelector('.js-time');
+      var count = questContainer.querySelector('.js-count');
+      var level = questContainer.querySelector('.js-level');
+      var description = questContainer.querySelector('.js-description');
+
+      title.textContent = currentQuest.title;
+      subtitle.textContent = currentQuest.subtitle;
+      time.textContent = currentQuest.time;
+      count.textContent = currentQuest.count;
+      description.textContent = currentQuest.description;
+      level.textContent = currentQuest.complexity;
+
+      image.style.backgroundImage = 'url(' + PATH_TO_IMAGE + currentQuest.image + EXTENSION_IMAGE + ')';
+      image.style.backgroundSize = 'cover';
+
+      window.addEventListener('load', function () {
+        preloader.style.display = 'none';
+      });
+    }
+  } else {
+    preloader.style.display = 'none';
+  }
+})();
+
