@@ -61,7 +61,14 @@
       position: fixed;
       bottom: 0;
       @include fixed-centering();
+      align-items: flex-start;
     }
+  }
+
+  .footer__question {
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.03em;
   }
 
 }
@@ -84,12 +91,5 @@
 
   .footer--fixed {
     padding: 0 16px;
-  }
-}
-
-@media (max-width: $mobile-width) {
-  .footer__question {
-    font-size: 16px;
-    line-height: 19px;
   }
 }

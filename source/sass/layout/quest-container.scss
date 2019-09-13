@@ -37,11 +37,12 @@
   }
 }
 
-@media (max-width: $mobile-width) {
+@media (max-width: $tablet-width - 1) {
   .quest-container {
     min-height: 100vh;
     height: auto;
     padding: 0 16px;
+    padding-bottom: 71px;
 
     background-size: 274%;
     background-position: 48% -203px;

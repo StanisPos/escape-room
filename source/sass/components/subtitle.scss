@@ -6,10 +6,12 @@
   line-height: 20px;
   color: $brand-color;
   text-decoration: none;
+  padding-left: 5px;
 }
 
 @media (max-width: ($tablet-width - 1)) {
   .subtitle {
     margin-bottom: 10px;
+    padding-left: 0;
   }
 }

@@ -13,7 +13,8 @@
 }
 
 .header__logo {
-  flex-grow: 0.3;
+  // flex-grow: 0.3;
+  flex-grow: 0.56;
 }
 
 .header__logo-link {
@@ -26,7 +27,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // padding-bottom: 21px;
+  padding-bottom: 7px;
   flex-grow: 0.7;
 }
 
@@ -36,7 +37,7 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  flex-grow: 0.6;
+  flex-grow: 0.62;
   align-items: center;
   max-width: 536px;
 }
@@ -66,7 +67,22 @@
   &--phone {
     color: $base-color;
     min-width: 122px;
-    // padding-right: 7px;
+    white-space: nowrap;
+
+    padding-right: 7px;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &--active {
+    color: $brand-color;
+
+    &:hover {
+      cursor: default;
+      opacity: 1;
+    }
   }
 }
 
@@ -75,31 +91,6 @@
   align-items: center;
 
   margin-right: 24px;
-  // font-family: $font;
-  // font-size: 12px;
-  // line-height: 14px;
-  // font-weight: bold;
-  // letter-spacing: 0.02em;
-  // text-transform: uppercase;
-  // color: $brand-color;
-  // padding-left: 24px;
-
-  // position: relative;
-
-
-
-  // &::before {
-  //   content: "";
-  //   position: absolute;
-  //   top: 50%;
-  //   left: -24px;
-  //   transform: translate(0, -50%);
-  //
-  //   width: 16px;
-  //   height: 21px;
-  //
-  //   @include background("../../img/icons/icon-mark.svg");
-  // }
 
   svg {
     min-width: 16px;
@@ -132,15 +123,11 @@
       border-bottom: 2px dashed $brand-color;
       transition: 0.3s;
     }
-
   }
-
-
 
   &:hover {
     span::after {
       opacity: 1;
-
     }
   }
 }
@@ -245,10 +232,7 @@
   .header--nojs {
     flex-direction: column;
     justify-content: flex-start;
-
-
     width: 100%;
-
     background: linear-gradient(#42290F, #20150E);
     align-items: flex-start;
     padding-left: 32px;
@@ -272,11 +256,20 @@
     }
 
     .header__list-item {
-      padding-top: 20px;
-      padding-bottom: 20px;
+      padding-top: 21px;
+      padding-bottom: 22px;
       display: flex;
       justify-content: center;
       width: 100%;
+    }
+
+    .header__navigation-link {
+      letter-spacing: 2px;
+
+      &--phone {
+        letter-spacing: 0.4px;
+        padding-right: 0;
+      }
     }
 
     .header__info-wrapper {
@@ -285,8 +278,8 @@
       max-width: none;
       width: 100%;
       margin-bottom: 20px;
-      padding-top: 44px;
-      padding-bottom: 40px;
+      padding-top: 29px;
+      padding-bottom: 41px;
       border-bottom: 1px solid fade-out($base-color, 0.84);
     }
 
@@ -339,7 +332,7 @@
   .header__navigation {
     flex-grow: 0;
     flex-direction: column;
-
+    padding-bottom: 0;
   }
 
   .header__logo-link {

@@ -1,5 +1,5 @@
 .order {
-  padding-top: 128px;
+  padding-top: 137px;
 
   h1 {
     font-family: $font;
@@ -8,27 +8,31 @@
     line-height: 87%;
     text-transform: uppercase;
     margin-top: 0;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
+    letter-spacing: -1.7px;
+  }
+
+  .subtitle {
+    margin-bottom: 11px;
   }
 }
 
 .order__schedule {
-  padding-top: 43px;
-  padding-left: 50px;
+  padding-top: 35px;
+  padding-left: 48px;
   border-top: 1px solid fade-out($base-color-dark, 0.75);
 
   form {
     position: relative;
     // max-width: 80%;
-    max-width: calc(110px * 6 + 24px * 5);
+    max-width: calc(110px * 6 + 32px * 5);
   }
 }
 
 .order__date {
   display: flex;
   align-items: center;
-  margin-bottom: 24px;
-
+  margin-bottom: 23px;
 }
 
 .order__action {
@@ -46,6 +50,7 @@
   border: none;
   border-bottom: 2px solid $brand-color;
   height: fit-content;
+  transition: 0.3s;
 
   &::after {
     content: '';
@@ -60,6 +65,15 @@
     border-bottom: 4px solid transparent;
 
     border-left: 5px solid $base-color;
+    transition: 0.3s;
+  }
+
+  &:hover {
+    border-bottom-color: fade-out($base-color, 0.3);
+
+    &:after {
+      border-left-color: $brand-color;
+    }
   }
 }
 
@@ -75,7 +89,7 @@
 }
 
 .order__state {
-  margin-bottom: 49px;
+  margin-bottom: 48px;
   ul {
     @include list-reset;
 
@@ -151,7 +165,7 @@
   margin-bottom: 31px;
 
   &:not(:nth-of-type(6n)) {
-    margin-right: 24px;
+    margin-right: 32px;
   }
 
   input[type="radio"] + .order__time-btn {
@@ -172,6 +186,7 @@
     letter-spacing: 0.05em;
     font-feature-settings: 'pnum' on, 'lnum' on;
     pointer-events: none;
+    transition: 0.3s;
 
     &:hover {
       cursor: pointer;
@@ -186,6 +201,12 @@
   input[type="radio"]:checked + .order__time-btn {
     @include time-chosen;
   }
+
+  &:hover {
+    input[type="radio"] + .order__time-btn {
+      border-color: #2cdb52;
+    }
+  }
 }
 
 .order__summary {
@@ -194,8 +215,8 @@
   justify-content: space-between;
   align-items: flex-end;
   right: 0;
-  top: -126px;
-  width: 47%;
+  top: -121px;
+  width: 49%;
 
   p {
     margin: 0;
@@ -218,8 +239,11 @@
     h1 {
       font-size: 42px;
       line-height: 46px;
+      letter-spacing: normal;
+      margin-bottom: 12px;
     }
   }
+
   .order__schedule {
     padding-left: 0;
     padding-top: 28px;
