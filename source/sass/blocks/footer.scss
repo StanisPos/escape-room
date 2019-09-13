@@ -23,8 +23,6 @@
 
   position: relative;
 
-  padding-bottom: 5px;
-
   border-bottom: 1px dashed $color-text-footer;
 
   transform: translateZ(0);
@@ -55,13 +53,15 @@
 @media (max-width: ($desktop-width - 1)) {
   .footer {
     padding: 0 32px;
+    position: absolute;
+    align-items: flex-start;
 
     &.footer--fixed {
       z-index: 10;
       position: fixed;
       bottom: 0;
       @include fixed-centering();
-      align-items: flex-start;
+
     }
   }
 
@@ -70,6 +70,7 @@
     line-height: 19px;
     letter-spacing: 0.03em;
     padding-top: 4px;
+    padding-bottom: 4px;
 
     &::before {
       top: 4px;
@@ -83,11 +84,8 @@
 
 @media (max-width: ($tablet-width - 1)) {
   .footer {
-    position: absolute;
-    align-items: center;
     height: 71px;
     padding: 0 16px;
-    // padding: 0;
   }
 
   .footer--fixed {

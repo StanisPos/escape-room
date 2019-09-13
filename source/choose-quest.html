@@ -120,9 +120,9 @@
         </section>
       </div>
 
-      <section class="choose-quest__list quests-list">
-        <h2 class="visually-hidden">Список квестов</h2>
-      </section>
+      <h2 class="visually-hidden">Подходящие квесты</h2>
+      <ul class="choose-quest__list quests-list">
+      </ul>
     </main>
 
     <footer class="footer">
@@ -212,7 +212,7 @@
   <!-- Шаблон квеста -->
 
   <template id='quest-template'>
-    <article class="choose-quest__item quest-item" data-label="maniac">
+    <li class="choose-quest__item quest-item" data-label="maniac">
       <a href="current-quest.html" class="quest-item__inner">
         <picture class="quest-item__img">
           <img src="img/cards/maniac@1x.png"
@@ -251,7 +251,7 @@
         </svg>
         Хит
       </span>
-    </article>
+    </li>
   </template>
   <script src="js/app.min.js"></script>
 </body>

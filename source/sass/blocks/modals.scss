@@ -22,7 +22,7 @@
   transform: translate3d(0, 0, 0);
 
   padding: 32px;
-  padding-bottom: 20px;
+  padding-bottom: 34px;
   background: linear-gradient(0deg, #141414 0%, #1F1D1D 100%);
 
   font: $font;
@@ -220,7 +220,7 @@
   }
 
   span {
-    margin-bottom: 15px;
+    // margin-bottom: 15px;
   }
 
   label:last-child {
@@ -262,6 +262,10 @@
       opacity: 0;
       transition: opacity 0.3s;
     }
+
+    & + span {
+      pointer-events: none;
+    }
   }
 
   input[type=checkbox]:checked + .checkbox-indicator {
@@ -294,18 +298,20 @@
 }
 
 .modal__validation {
-  display: none;
   position: absolute;
   font-size: 12px;
-  line-height: 17px;
   left: 25px;
-  bottom: -35px;
+  top: 55px;
+  line-height: 17px;
+  // bottom: -35px;
+
   color: $brand-color;
   opacity: 0.64;
 }
 
 .modal__validation--question {
-  bottom: -27px;
+  top: auto;
+  bottom: -16px;
 }
 
 .modal__input-wrapper {
@@ -326,7 +332,7 @@
   line-height: 17px;
   left: 20px;
   top: -8px;
-  padding-left: 5px;
+  padding-left: 6px;
   padding-right: 5px;
   background-color: #1B1919;
   color: rgba(240, 240, 240, 0.64);
@@ -404,8 +410,13 @@
     margin-left: 0;
   }
 
+  .modal__prompt {
+    left: 16px;
+  }
+
   .modal__inner {
-    height: 100vh;
+    min-height: 100vh;
+    padding-bottom: 20px;
   }
 }
 
@@ -413,6 +424,10 @@
   .modal__inner {
     padding-left: 16px;
     padding-right: 16px;
+  }
+
+  .modal__form-inner {
+    padding-right: 7px;
   }
 }
 
