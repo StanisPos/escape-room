@@ -23,8 +23,6 @@
 
   position: relative;
 
-  padding-bottom: 5px;
-
   border-bottom: 1px dashed $color-text-footer;
 
   transform: translateZ(0);
@@ -55,6 +53,7 @@
 @media (max-width: ($desktop-width - 1)) {
   .footer {
     padding: 0 32px;
+    position: absolute;
 
     &.footer--fixed {
       z-index: 10;
@@ -70,6 +69,7 @@
     line-height: 19px;
     letter-spacing: 0.03em;
     padding-top: 4px;
+    padding-bottom: 4px;
 
     &::before {
       top: 4px;
@@ -83,7 +83,7 @@
 
 @media (max-width: ($tablet-width - 1)) {
   .footer {
-    position: absolute;
+    // position: absolute;
     align-items: center;
     height: 71px;
     padding: 0 16px;
