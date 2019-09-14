@@ -41,7 +41,7 @@
 @media (max-width: $desktop-width - 1) {
   .wrapper {
     height: auto;
-    // min-height: 100vh;
+    min-height: 100vh; // это важно
   }
 
   .wrapper--blurred {

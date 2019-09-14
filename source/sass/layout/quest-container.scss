@@ -5,7 +5,7 @@
   height: 100vh;
   padding: 0 32px;
 
-  @include background("../../img/photos/bg_maniac.jpg");
+  @include background("../img/photos/bg_maniac.jpg");
   background-position: 99% 25%;
   background-size: 136%;
   background-color: #3D3333;
@@ -42,7 +42,6 @@
     min-height: 100vh;
     height: auto;
     padding: 0 16px;
-    padding-bottom: 71px;
 
     background-size: 274%;
     background-position: 48% -203px;

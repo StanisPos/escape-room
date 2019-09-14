@@ -85,14 +85,14 @@
   }
 
   &--time::before {
-    @include background("../../img/icons/icon-clock.svg");
+    @include background("../img/icons/icon-clock.svg");
   }
   &--capacity::before {
-    @include background("../../img/icons/icon-person.svg");
+    @include background("../img/icons/icon-person.svg");
   }
   &--level::before {
     text-transform: uppercase;
-    @include background("../../img/icons/icon-puzzle.svg");
+    @include background("../img/icons/icon-puzzle.svg");
   }
 }
 
