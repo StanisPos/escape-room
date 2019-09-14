@@ -62,7 +62,7 @@
 
     <main class="order container">
       <form action="#" method="post">
-        <section class="order__header">
+        <div class="order__header">
           <nav class="page-nav">
             <a href="current-quest.html">описание</a>
           </nav>
@@ -70,7 +70,7 @@
           <div class="subtitle">выбранный квест</div>
 
           <h1>маньяк</h1>
-        </section>
+        </div>
 
         <section class="order__schedule">
           <h2 class="visually-hidden">Расписание</h2>
@@ -94,8 +94,6 @@
           </div>
 
           <div role="group" class="order__time-list">
-            <legend class="visually-hidden">Выберите время</legend>
-
             <label class="order__time">
               <input class="visually-hidden" type="radio" name="time" value="9:45">
               <span class="order__time-btn">9:45</span>
@@ -159,14 +157,14 @@
           </div>
         </section>
 
-        <section class="order__summary">
+        <div class="order__summary">
           <p>
             Вы выбрали игру
             <span class="order__final-date">22 марта в 16:00.</span>
             <span class="order__final-price">К оплате 1500 рублей.</span>
           </p>
           <button type="submit" name="button" class="order__action">Перейти к оплате</button>
-        </section>
+        </div>
 
       </form>
     </main>
