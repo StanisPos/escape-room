@@ -41,8 +41,7 @@
 @media (max-width: $desktop-width - 1) {
   .wrapper {
     height: auto;
-    min-height: 100vh;
-    padding-bottom: 71px;
+    // min-height: 100vh;
   }
 
   .wrapper--blurred {
@@ -56,11 +55,15 @@
       background: linear-gradient(159.27deg, rgba(99, 60, 15, 0) 23.22%, rgba(99, 60, 15, 0) 37.46%, #24150E 89.63%, #1A140D 106.79%);
     }
   }
+
+  .container {
+    padding-bottom: 71px;
+    height: 100%;
+  }
 }
 
 @media (max-width: ($tablet-width - 1)) {
   .wrapper {
     padding: 0 16px;
-    padding-bottom: 71px;
   }
 }

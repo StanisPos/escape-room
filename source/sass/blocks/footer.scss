@@ -54,14 +54,14 @@
   .footer {
     padding: 0 32px;
     position: absolute;
-    align-items: flex-start;
+    align-items: center;
 
     &.footer--fixed {
       z-index: 10;
       position: fixed;
       bottom: 0;
+      align-items: flex-start;
       @include fixed-centering();
-
     }
   }
 
@@ -78,6 +78,17 @@
 
     &:hover {
       padding-left: 14px;
+    }
+  }
+
+  .footer--one-page {
+    display: none;
+  }
+
+  .header--opened,
+  .header--nojs {
+    & ~ .footer--one-page {
+      display: flex;
     }
   }
 }

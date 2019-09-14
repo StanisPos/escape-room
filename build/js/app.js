@@ -192,7 +192,7 @@ var ALL_QUESTS = {
       title: 'Ритуал',
       location: 'пр. Ленина, 37',
       persons: '3-5',
-      level: 'сложный',
+      level: 'легкий',
       id: 'ritual'
     },
     {
@@ -281,78 +281,14 @@ var ALL_QUESTS = {
       questImg.alt = data.title;
       quest.querySelector('h3').textContent = data.title;
       quest.querySelector('.location').textContent = data.location;
-      quest.querySelector('.persons').textContent = data.persons;
+      quest.querySelector('.persons').textContent = data.persons + ' чел';
       quest.querySelector('.level').textContent = data.level;
       questsFragment.appendChild(quest);
     });
 
-    questsContainer.querySelector('ul').appendChild(questsFragment);
+    questsContainer.appendChild(questsFragment);
   }
 }());
-
-// Страница выбора квеста
-
-(function () {
-  var MARGIN = 39;
-  var EXTRA_PADDING = 48;
-  var DESKTOP_WIDTH = 1024;
-  var header = document.querySelector('.header');
-  var chooseQuestContainer = document.querySelector('.choose-quest');
-
-  if (chooseQuestContainer) {
-    var positionElements = function (size) {
-      var questsList = chooseQuestContainer.querySelector('.choose-quest__list');
-
-      if (size >= DESKTOP_WIDTH) {
-        var windowHeight = window.innerHeight;
-        // var headerHeight = header.offsetHeight;
-        var questFilters = chooseQuestContainer.querySelector('.quests-filters');
-        // var chooseQuestPadding = headerHeight + EXTRA_PADDING;
-        // chooseQuestContainer.style.paddingTop = chooseQuestPadding + 'px';
-        var questListHeight = windowHeight - questFilters.getBoundingClientRect().bottom - MARGIN + 'px';
-        questsList.style.height = questListHeight;
-      } else {
-        questsList.style.height = 'auto';
-        // chooseQuestContainer.style.paddingTop = '';
-      }
-    };
-    positionElements(window.innerWidth);
-    window.addEventListener('resize', function (evt) {
-      positionElements(evt.target.innerWidth);
-    });
-  }
-}());
-
-// Страница выбора квеста
-
-(function () {
-  var MARGIN = 39;
-  var EXTRA_PADDING = 48;
-  var DESKTOP_WIDTH = 1024;
-  var header = document.querySelector('.header');
-  var chooseQuestContainer = document.querySelector('.choose-quest');
-
-  if (chooseQuestContainer) {
-    var positionElements = function (size) {
-      var questsList = chooseQuestContainer.querySelector('.choose-quest__list');
-
-      if (size >= DESKTOP_WIDTH) {
-        var windowHeight = window.innerHeight;
-        var questFilters = chooseQuestContainer.querySelector('.quests-filters');
-        var questListHeight = windowHeight - questFilters.getBoundingClientRect().bottom - MARGIN + 'px';
-        questsList.style.height = questListHeight;
-      } else {
-        questsList.style.height = 'auto';
-      }
-    };
-
-    positionElements(window.innerWidth);
-    window.addEventListener('resize', function (evt) {
-      positionElements(evt.target.innerWidth);
-    });
-  }
-}());
-
 
 //Выбор квеста
 (function () {
