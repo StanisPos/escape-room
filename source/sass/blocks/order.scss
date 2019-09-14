@@ -15,9 +15,22 @@
   .subtitle {
     margin-bottom: 11px;
   }
+
+  form {
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.order__header {
+  order: 1;
 }
 
 .order__schedule {
+  order: 3;
+  flex-grow: 1;
+
   padding-top: 35px;
   padding-left: 48px;
   border-top: 1px solid fade-out($base-color-dark, 0.75);
@@ -51,6 +64,7 @@
   border-bottom: 2px solid $brand-color;
   height: fit-content;
   transition: 0.3s;
+  white-space: nowrap;
 
   &::after {
     content: '';
@@ -140,13 +154,13 @@
 }
 
 .order__time-list {
-  border: none;
-
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   @include list-reset;
+  width: 95%;
 
+  border: none;
   label {
     max-width: 110px;
 
@@ -164,9 +178,7 @@
   align-items: center;
   margin-bottom: 31px;
 
-  &:not(:nth-of-type(6n)) {
-    margin-right: 32px;
-  }
+  margin-right: 32px;
 
   input[type="radio"] + .order__time-btn {
     @include time-available;
@@ -210,17 +222,21 @@
 }
 
 .order__summary {
-  position: absolute;
+  order: 2;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-end;
   right: 0;
   top: -121px;
-  width: 49%;
+
+  padding-bottom: 15px;
 
   p {
     margin: 0;
     letter-spacing: 0.2px;
+    padding-right: 90px;
+    padding-left: 90px;
+    width: 350px;
   }
 
   .order__action {
@@ -264,18 +280,19 @@
   }
 
   .order__time-list {
+    width: 100%;
     margin-bottom: 6px;
   }
 
   .order__summary {
-    position: static;
-    width: 100%;
+    order: 3;
     margin-bottom: 10px;
     flex-direction: column;
     align-items: flex-start;
 
     p {
       margin-bottom: 5px;
+      padding: 0;
     }
   }
 

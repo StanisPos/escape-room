@@ -5,8 +5,14 @@
   @include margin-centering();
 }
 
-@media (max-width: $tablet-width) {
+@media (max-width: $desktop-width - 1) {
   .main {
-    height: auto;
+    height: calc(100vh - 86px); //86px (высота header + margin 8px)
   }
 }
+
+// @media (max-width: $tablet-width - 1) {
+//   .main {
+//     height: auto;
+//   }
+// }

@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 // header
 
@@ -139,31 +139,31 @@
 
 var ALL_QUESTS = {
   SECRETS: {
-    title: "Тайны старого особняка",
-    subtitle: "приключение, детектив",
-    time: "60",
-    count: "2-5",
-    complexity: "легкий квест",
-    description: "Погрузитесь в атмосферу служебных помещений закулисья, которые хранят множество тайн и загадок. Вы окажитесь в старом особняке и увидите все, что скрывают его запутанные коридоры.",
-    image: "bg_secrets-mansion"
+    title: 'Тайны старого особняка',
+    subtitle: 'приключение, детектив',
+    time: '60',
+    count: '2-5',
+    complexity: 'легкий квест',
+    description: 'Погрузитесь в атмосферу служебных помещений закулисья, которые хранят множество тайн и загадок. Вы окажитесь в старом особняке и увидите все, что скрывают его запутанные коридоры.',
+    image: 'bg_secrets-mansion'
   },
   RITUAL: {
-    title: "Ритуал",
-    subtitle: "хоррор, мистика",
-    time: "60",
-    count: "3-5",
-    complexity: "высокая сложность",
-    description: "Тяжелый воздух угнетает, в ночи вы оказыватесь запертыми в сыром помещении вместе с другими ничего не понимающими жертвами. Сквозь щель в двери вы видите, как некто в капюшоне готовит площадку как будто для проведения мистического обряда. Удастся ли вам выбраться, пока вы не станете жертвой ритуала?",
-    image: "bg_ritual"
+    title: 'Ритуал',
+    subtitle: 'хоррор, мистика',
+    time: '60',
+    count: '3-5',
+    complexity: 'высокая сложность',
+    description: 'Тяжелый воздух угнетает, в ночи вы оказыватесь запертыми в сыром помещении вместе с другими ничего не понимающими жертвами. Сквозь щель в двери вы видите, как некто в капюшоне готовит площадку как будто для проведения мистического обряда. Удастся ли вам выбраться, пока вы не станете жертвой ритуала?',
+    image: 'bg_ritual'
   },
   EXPERIMENT: {
-    title: "Фатальный эксперимент",
-    subtitle: "приключение, детектив",
-    time: "90",
-    count: "5-8",
-    complexity: "высокая сложность",
-    description: "Вы стоите на пороге нового научного открытия, которое перевернет судьбу человечества. Но что-то идёт не так, и ядерный реактор, который работает на полную мощность, сигнализирует о скорой поломке. Удастя ли вам починить его в отведенное время и предотвратить гибель людей в этом фатальном эксперименте?",
-    image: "bg_experiment"
+    title: 'Фатальный эксперимент',
+    subtitle: 'приключение, детектив',
+    time: '90',
+    count: '5-8',
+    complexity: 'высокая сложность',
+    description: 'Вы стоите на пороге нового научного открытия, которое перевернет судьбу человечества. Но что-то идёт не так, и ядерный реактор, который работает на полную мощность, сигнализирует о скорой поломке. Удастя ли вам починить его в отведенное время и предотвратить гибель людей в этом фатальном эксперименте?',
+    image: 'bg_experiment'
   }
 };
 
@@ -192,7 +192,7 @@ var ALL_QUESTS = {
       title: 'Ритуал',
       location: 'пр. Ленина, 37',
       persons: '3-5',
-      level: 'сложный',
+      level: 'легкий',
       id: 'ritual'
     },
     {
@@ -281,92 +281,27 @@ var ALL_QUESTS = {
       questImg.alt = data.title;
       quest.querySelector('h3').textContent = data.title;
       quest.querySelector('.location').textContent = data.location;
-      quest.querySelector('.persons').textContent = data.persons;
+      quest.querySelector('.persons').textContent = data.persons + ' чел';
       quest.querySelector('.level').textContent = data.level;
       questsFragment.appendChild(quest);
     });
 
-    questsContainer.querySelector('ul').appendChild(questsFragment);
+    questsContainer.appendChild(questsFragment);
   }
 }());
 
-// Страница выбора квеста
-
+// Выбор квеста
 (function () {
-  var MARGIN = 39;
-  var EXTRA_PADDING = 48;
-  var DESKTOP_WIDTH = 1024;
-  var header = document.querySelector('.header');
-  var chooseQuestContainer = document.querySelector('.choose-quest');
-
-  if (chooseQuestContainer) {
-    var positionElements = function (size) {
-      var questsList = chooseQuestContainer.querySelector('.choose-quest__list');
-
-      if (size >= DESKTOP_WIDTH) {
-        var windowHeight = window.innerHeight;
-        // var headerHeight = header.offsetHeight;
-        var questFilters = chooseQuestContainer.querySelector('.quests-filters');
-        // var chooseQuestPadding = headerHeight + EXTRA_PADDING;
-        // chooseQuestContainer.style.paddingTop = chooseQuestPadding + 'px';
-        var questListHeight = windowHeight - questFilters.getBoundingClientRect().bottom - MARGIN + 'px';
-        questsList.style.height = questListHeight;
-      } else {
-        questsList.style.height = 'auto';
-        // chooseQuestContainer.style.paddingTop = '';
-      }
-    };
-    positionElements(window.innerWidth);
-    window.addEventListener('resize', function (evt) {
-      positionElements(evt.target.innerWidth);
-    });
-  }
-}());
-
-// Страница выбора квеста
-
-(function () {
-  var MARGIN = 39;
-  var EXTRA_PADDING = 48;
-  var DESKTOP_WIDTH = 1024;
-  var header = document.querySelector('.header');
-  var chooseQuestContainer = document.querySelector('.choose-quest');
-
-  if (chooseQuestContainer) {
-    var positionElements = function (size) {
-      var questsList = chooseQuestContainer.querySelector('.choose-quest__list');
-
-      if (size >= DESKTOP_WIDTH) {
-        var windowHeight = window.innerHeight;
-        var questFilters = chooseQuestContainer.querySelector('.quests-filters');
-        var questListHeight = windowHeight - questFilters.getBoundingClientRect().bottom - MARGIN + 'px';
-        questsList.style.height = questListHeight;
-      } else {
-        questsList.style.height = 'auto';
-      }
-    };
-
-    positionElements(window.innerWidth);
-    window.addEventListener('resize', function (evt) {
-      positionElements(evt.target.innerWidth);
-    });
-  }
-}());
-
-
-//Выбор квеста
-(function () {
-  var quests = document.querySelectorAll(".choose-quest__item");
+  var quests = document.querySelectorAll('.choose-quest__item');
 
   if (quests) {
-    for (let i = 0; i < quests.length; i++) {
-      quests[i].addEventListener("click", function() {
+    for (var i = 0; i < quests.length; i++) {
+      quests[i].addEventListener('click', function () {
         var currentQuest = ALL_QUESTS[quests[i].dataset.label.toUpperCase()];
-        localStorage.setItem("quest", JSON.stringify(currentQuest));
+        localStorage.setItem('quest', JSON.stringify(currentQuest));
       });
     }
   }
-
 })();
 
 (function () {
@@ -400,9 +335,9 @@ var ALL_QUESTS = {
       image.style.backgroundSize = 'cover';
 
       window.addEventListener('load', function () {
-         if (preloader) {
-           preloader.style.display = 'none';
-         }
+        if (preloader) {
+          preloader.style.display = 'none';
+        }
       });
     }
   } else {

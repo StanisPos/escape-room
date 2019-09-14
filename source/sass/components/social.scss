@@ -12,16 +12,16 @@
   background-size: 100%;
 
   &--insta {
-    @include background("../../img/icons/icon-instagram-default.svg");
+    @include background("../img/icons/icon-instagram-default.svg");
     &:hover {
-      @include background("../../img/icons/icon-instagram-hover.svg");
+      @include background("../img/icons/icon-instagram-hover.svg");
     }
   }
 
   &--vk {
-    @include background("../../img/icons/icon-vk-default.svg");
+    @include background("../img/icons/icon-vk-default.svg");
     &:hover {
-      @include background("../../img/icons/icon-vk-hover.svg");
+      @include background("../img/icons/icon-vk-hover.svg");
     }
   }
 }
