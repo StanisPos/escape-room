@@ -7,20 +7,22 @@
   var headerToggle = document.querySelector('.header__menu-toggle');
   var footer = document.querySelector('.footer');
 
-  pageHeader.classList.remove('header--nojs');
+  if (pageHeader) {
+    pageHeader.classList.remove('header--nojs');
 
-  headerToggle.addEventListener('click', function () {
-    if (pageHeader.classList.contains('header--closed')) {
-      pageHeader.classList.remove('header--closed');
-      pageHeader.classList.add('header--opened');
-      footer.classList.add('footer--fixed');
+    headerToggle.addEventListener('click', function () {
+      if (pageHeader.classList.contains('header--closed')) {
+        pageHeader.classList.remove('header--closed');
+        pageHeader.classList.add('header--opened');
+        footer.classList.add('footer--fixed');
 
-    } else {
-      pageHeader.classList.add('header--closed');
-      pageHeader.classList.remove('header--opened');
-      footer.classList.remove('footer--fixed');
-    }
-  });
+      } else {
+        pageHeader.classList.add('header--closed');
+        pageHeader.classList.remove('header--opened');
+        footer.classList.remove('footer--fixed');
+      }
+    });
+  }
 }());
 
 // Модальные окна
