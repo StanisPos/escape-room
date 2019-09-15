@@ -89,6 +89,14 @@
       background: linear-gradient(270deg, #1C1B1B 0%, rgba(28, 27, 27, 0) 100%);
     }
 
+    ul {
+      overflow-x: scroll;
+      &::-webkit-scrollbar { height: 0 !important };
+      overflow: -moz-scrollbars-none;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
     li {
       padding-right: 3.7%;
 
@@ -104,17 +112,6 @@
     svg {
       height: 24px;
       margin-right: 12px;
-    }
-  }
-}
-
-@media (max-width: ($tablet-width - 1)) {
-  .quests-filters {
-    ul {
-      overflow-x: scroll;
-      &::-webkit-scrollbar { height: 0 !important };
-      overflow: -moz-scrollbars-none;
-      -ms-overflow-style: none;
     }
   }
 }
