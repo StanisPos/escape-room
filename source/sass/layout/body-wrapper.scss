@@ -4,7 +4,7 @@
 
   height: 100vh;
 
-  @include background("../img/photos/bg_humans.jpg");
+  @include background("../img/photos/bg_humans@1x.jpg");
   background-position: 39%;
   background-size: cover;
   background-attachment: fixed;
@@ -40,5 +40,17 @@
     );
 
     opacity: 0.7;
+  }
+}
+
+@media (max-width: $tablet-width - 1) {
+  .main-page__wrapper {
+    background-position: 45%;
+  }
+}
+
+@media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+   .main-page__wrapper {
+    background-image: url("../img/photos/bg_humans@2x.jpg");
   }
 }
