@@ -53,6 +53,7 @@
 }
 
 .order__date-chosen {
+  flex-wrap: wrap;
   position: relative;
 
   display: flex;
@@ -66,6 +67,7 @@
 
   input[type=date] {
     position: absolute;
+    max-width: 100%;
     top: 0;
     right: 0;
     bottom: 0;
@@ -227,7 +229,6 @@
     letter-spacing: 0.05em;
     font-feature-settings: 'pnum' on, 'lnum' on;
     pointer-events: none;
-    transition: 0.3s;
 
     &:hover {
       cursor: pointer;
@@ -236,7 +237,6 @@
 
   input[type="radio"]:disabled + .order__time-btn {
     @include time-reserved;
-    cursor: default;
   }
 
   input[type="radio"]:checked + .order__time-btn {
@@ -245,7 +245,9 @@
 
   &:hover {
     input[type="radio"] + .order__time-btn {
-      border-color: #2cdb52;
+      &::before {
+        border-color: #2cdb52;
+      }
     }
   }
 }
