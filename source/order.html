@@ -75,8 +75,13 @@
         <section class="order__schedule">
           <h2 class="visually-hidden">Расписание</h2>
           <div class="order__date">
-            <button class="order__action">Выберите дату</button>
-            <span class="order__date-chosen">22 марта</span>
+            <div class="order__action">Выберите дату</div>
+            <label class="order__date-chosen">
+              <span class="order__date-text">22 марта</span>
+              <input id="input-date" type="date" name="quest-date" min="2019-09-16" max="2019-12-30" value="2019-09-22" required>
+            </label>
+
+            <!-- <span class="order__date-chosen">22 марта</span> -->
           </div>
 
           <div class="order__state">

@@ -46,6 +46,45 @@
   display: flex;
   align-items: center;
   margin-bottom: 23px;
+
+  .order__action {
+    margin-right: 24px;
+  }
+}
+
+.order__date-chosen {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  font-family: $font;
+  color: $base-color;
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 40px;
+
+  input[type=date] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    border: none;
+    background: transparent;
+
+    &::-webkit-calendar-picker-indicator {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+    }
+  }
 }
 
 .order__action {
@@ -84,22 +123,12 @@
 
   &:hover {
     border-bottom-color: fade-out($base-color, 0.3);
+    cursor: pointer;
 
     &:after {
       border-left-color: $brand-color;
     }
   }
-}
-
-.order__date-chosen {
-  margin-left: 24px;
-  font-family: $font;
-  color: $base-color;
-  font-weight: 800;
-  font-size: 28px;
-  line-height: 40px;
-  display: flex;
-  align-items: center;
 }
 
 .order__state {
@@ -261,17 +290,17 @@
   }
 
   .order__schedule {
+    width: 100%;
     padding-left: 0;
     padding-top: 28px;
   }
 
-  .order__date-chosen {
-    margin-left: 17px;
-  }
-
   .order__date {
+    flex-wrap: wrap;
+
     .order__action {
       top: 4px;
+      margin-right: 17px;
     }
   }
 
@@ -291,6 +320,7 @@
     align-items: flex-start;
 
     p {
+      width: auto;
       margin-bottom: 5px;
       padding: 0;
     }

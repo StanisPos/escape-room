@@ -348,3 +348,56 @@ var ALL_QUESTS = {
     }
   }
 })();
+
+// настройка выбора даты
+(function () {
+  var months = {
+    'январь': 'января',
+    'февраль': 'февраля',
+    'март': 'марта',
+    'апрель': 'апреля',
+    'мая': 'мая',
+    'июнь': 'июня',
+    'июль': 'июля',
+    'август': 'августа',
+    'сентябрь': 'сентября',
+    'октябрь': 'октября',
+    'ноябрь': 'ноября',
+    'декабрь': 'декабря'
+  };
+
+  var inputDate = document.querySelector('#input-date');
+  var inputLabel = document.querySelector('.order__date-text');
+
+  if (inputDate && inputLabel) {
+    inputLabel.addEventListener('click', function () {
+      inputDate.focus();
+      inputDate.click();
+    });
+
+    inputDate.addEventListener('change', function () {
+      var date = inputDate.valueAsDate.getDate();
+      var month = months[inputDate.valueAsDate.toLocaleString('default', {month: 'long'})];
+      var text = date + ' ' + month;
+      inputLabel.innerText = text;
+    });
+  }
+}());
+
+// курсор при выборе времени
+(function () {
+  var timeLabels = document.querySelectorAll('.order__time');
+
+  if (timeLabels) {
+    timeLabels.forEach(function (label) {
+      label.addEventListener('mouseover', function () {
+        var input = label.querySelector('input');
+        if (input.hasAttribute('disabled')) {
+          label.style.cursor = 'auto';
+        } else {
+          label.style.cursor = 'pointer';
+        }
+      });
+    });
+  }
+}());
