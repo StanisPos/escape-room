@@ -263,6 +263,13 @@ var ALL_QUESTS = {
     }
   ];
 
+  var isIE = function () {
+    var ua = navigator.userAgent;
+    /* MSIE used to detect old browsers and Trident used to newer ones*/
+    var isIe = ua.indexOf('MSIE ') > -1 || ua.indexOf('Trident/') > -1;
+    return isIe;
+  };
+
   var questTemplate = document.querySelector('#quest-template');
 
   if (questTemplate) {
@@ -272,8 +279,11 @@ var ALL_QUESTS = {
     var quest = null;
 
     for (var i = 0; i < questsData.length; i++) {
-      quest = questTemplate.content.querySelector('.quest-item').cloneNode(true); // все нормальные браузеры
-      // quest = questTemplate.querySelector('.quest-item').cloneNode(true); // IE
+      if (isIE()) {
+        quest = questTemplate.querySelector('.quest-item').cloneNode(true); // IE
+      } else {
+        quest = questTemplate.content.querySelector('.quest-item').cloneNode(true); // все нормальные браузеры
+      }
 
       if (questsData[i].isHit) {
         quest.classList.add('quest-item--hit');
