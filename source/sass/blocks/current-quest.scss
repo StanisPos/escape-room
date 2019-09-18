@@ -119,7 +119,8 @@
   display: none;
 }
 
-@media (max-width: $tablet-width) {
+// @media (max-width: $tablet-width) {
+@media (max-width: $desktop-width - 1) {
   .quest {
     text-align: center;
   }
@@ -146,7 +147,8 @@
   }
 }
 
-@media (max-width: $mobile-width) {
+// @media (max-width: $mobile-width) {
+@media (max-width: $tablet-width - 1) {
   .quest {
     text-align: left;
 
