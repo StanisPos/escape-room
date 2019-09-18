@@ -59,16 +59,16 @@
 
   var overlay = createOverlay();
 
-  mdTriggers.forEach(function (el) {
-    var modal = document.querySelector('.modal--' + el.getAttribute('data-modal'));
+  for (var i = 0; i < mdTriggers.length; i++) {
+    var modal = document.querySelector('.modal--' + mdTriggers[i].getAttribute('data-modal'));
     var close = modal.querySelector('.md-close');
 
-    function removeModal() {
+    var removeModal = function () {
       modal.classList.remove('modal--show', 'submit-focused');
       removeOverlay();
-    }
+    };
 
-    el.addEventListener('click', function (evt) {
+    mdTriggers[i].addEventListener('click', function (evt) {
       evt.preventDefault();
       overlay.classList.add('modal__overlay--show');
       modal.classList.add('modal--show');
@@ -88,7 +88,7 @@
       evt.preventDefault();
       removeModal();
     });
-  });
+  }
 
   if (modalQuestion) {
     var nameInput = modalQuestion.querySelector('[name=name]');
@@ -127,10 +127,10 @@
   window.addEventListener('keydown', function (evt) {
     if (evt.keyCode === ESC_KEYCODE) {
       evt.preventDefault();
-      var modal = document.querySelector('.modal--show');
-      if (modal) {
+      var modalVisible = document.querySelector('.modal--show');
+      if (modalVisible) {
         questionForm.classList.remove('submit-focused');
-        modal.classList.remove('modal--show');
+        modalVisible.classList.remove('modal--show');
         removeOverlay();
       }
     }
@@ -269,24 +269,23 @@ var ALL_QUESTS = {
     var questsFragment = document.createDocumentFragment();
     var questsContainer = document.querySelector('.quests-list');
 
-    questsData.forEach(function (data) {
+    for (var i = 0; i < questsData.length; i++) {
       var quest = questTemplate.content.querySelector('.quest-item').cloneNode(true);
-
-      if (data.isHit) {
+      if (questsData[i].isHit) {
         quest.classList.add('quest-item--hit');
       }
 
-      quest.setAttribute('data-label', data.id);
+      quest.setAttribute('data-label', questsData[i].id);
       var questImg = quest.querySelector('img');
-      questImg.src = 'img/cards/' + data.id + '@1x.png';
-      questImg.srcset = 'img/cards/' + data.id + '@1x.png 1x, img/cards/' + data.id + '@1x.png 2x';
-      questImg.alt = data.title;
-      quest.querySelector('h3').textContent = data.title;
-      quest.querySelector('.location').textContent = data.location;
-      quest.querySelector('.persons').textContent = data.persons + ' чел';
-      quest.querySelector('.level').textContent = data.level;
+      questImg.src = 'img/cards/' + questsData[i].id + '@1x.png';
+      questImg.srcset = 'img/cards/' + questsData[i].id + '@1x.png 1x, img/cards/' + questsData[i].id + '@1x.png 2x';
+      questImg.alt = questsData[i].title;
+      quest.querySelector('h3').textContent = questsData[i].title;
+      quest.querySelector('.location').textContent = questsData[i].location;
+      quest.querySelector('.persons').textContent = questsData[i].persons + ' чел';
+      quest.querySelector('.level').textContent = questsData[i].level;
       questsFragment.appendChild(quest);
-    });
+    }
 
     questsContainer.appendChild(questsFragment);
   }
@@ -389,15 +388,19 @@ var ALL_QUESTS = {
   var timeLabels = document.querySelectorAll('.order__time');
 
   if (timeLabels) {
-    timeLabels.forEach(function (label) {
-      label.addEventListener('mouseover', function () {
-        var input = label.querySelector('input');
-        if (input.hasAttribute('disabled')) {
-          label.style.cursor = 'auto';
-        } else {
-          label.style.cursor = 'pointer';
-        }
-      });
-    });
+    for (var i = 0; i < timeLabels.length; i++) {
+      (function () {
+        var timeLabel = timeLabels[i];
+        timeLabel.addEventListener('mouseover', function () {
+
+          var input = timeLabel.querySelector('input');
+          if (input.hasAttribute('disabled')) {
+            timeLabel.style.cursor = 'auto';
+          } else {
+            timeLabel.style.cursor = 'pointer';
+          }
+        });
+      }());
+    }
   }
 }());
