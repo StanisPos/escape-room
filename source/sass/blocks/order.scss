@@ -30,7 +30,7 @@
 .order__schedule {
   order: 3;
   flex-grow: 1;
-
+  width: 100%;
   padding-top: 35px;
   padding-left: 48px;
   border-top: 1px solid fade-out($base-color-dark, 0.75);
@@ -237,6 +237,7 @@
 
   input[type="radio"]:disabled + .order__time-btn {
     @include time-reserved;
+    cursor: auto;
   }
 
   input[type="radio"]:checked + .order__time-btn {
