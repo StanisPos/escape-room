@@ -21,3 +21,16 @@
     cursor: pointer;
   }
 }
+
+
+@media (max-width: $mobile-width) {
+  .button {
+    font-size: 14px;
+    line-height: 16px;
+
+    min-height: 47px;
+    height: 47px;
+    width: 185px;
+    padding: 5px 30px;
+  }
+}
