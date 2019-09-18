@@ -268,17 +268,22 @@ var ALL_QUESTS = {
   if (questTemplate) {
     var questsFragment = document.createDocumentFragment();
     var questsContainer = document.querySelector('.quests-list');
+    var questImg = null;
+    var quest = null;
 
     for (var i = 0; i < questsData.length; i++) {
-      var quest = questTemplate.content.querySelector('.quest-item').cloneNode(true);
+      quest = questTemplate.content.querySelector('.quest-item').cloneNode(true); // все нормальные браузеры
+      // quest = questTemplate.querySelector('.quest-item').cloneNode(true); // IE
+
       if (questsData[i].isHit) {
         quest.classList.add('quest-item--hit');
       }
 
+      questImg = quest.querySelector('img');
+
       quest.setAttribute('data-label', questsData[i].id);
-      var questImg = quest.querySelector('img');
       questImg.src = 'img/cards/' + questsData[i].id + '@1x.png';
-      questImg.srcset = 'img/cards/' + questsData[i].id + '@1x.png 1x, img/cards/' + questsData[i].id + '@1x.png 2x';
+      questImg.setAttribute('srcset', 'img/cards/' + questsData[i].id + '@1x.png 1x, img/cards/' + questsData[i].id + '@2x.png 2x'); // setAttribute для IE
       questImg.alt = questsData[i].title;
       quest.querySelector('h3').textContent = questsData[i].title;
       quest.querySelector('.location').textContent = questsData[i].location;
