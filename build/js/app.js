@@ -327,6 +327,7 @@ var ALL_QUESTS = {
   var quest = localStorage.getItem('quest');
   var currentQuest;
   if (quest !== 'undefined') {
+    console.log(quest);
     currentQuest = JSON.parse(quest);
 
     var image = document.querySelector('.js-container');
@@ -379,7 +380,7 @@ var ALL_QUESTS = {
     'декабрь': 'декабря'
   };
 
-  var monthsArr = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августя', 'сентября', 'октября', 'ноября', 'декабря'];
+  // var monthsArr = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августя', 'сентября', 'октября', 'ноября', 'декабря'];
 
   var isIE = function () {
     var ua = navigator.userAgent;
@@ -388,35 +389,16 @@ var ALL_QUESTS = {
   };
 
   var inputLabel = document.querySelector('.order__date-chosen');
-  var inputDate = inputLabel.querySelector('#input-date');
-  var inputText = inputLabel.querySelector('.order__date-text');
 
-  var hasMonth = function () {
-    var inputString = inputDate.value;
-    var match = false;
+  if (inputLabel) {
+    var inputDate = inputLabel.querySelector('#input-date');
+    var inputText = inputLabel.querySelector('.order__date-text');
 
-    for (var i = 0; i < monthsArr.length; i++) {
-      if (inputString.includes(monthsArr[1])) {
-        match = true;
-      }
-    }
-    return match;
-  };
-
-  if (isIE()) { // для IE
-    inputLabel.classList.add('js-ie');
-    inputDate.value = '22 сентября';
-    inputDate.setAttribute('placeholder', '22 сентября');
-    inputDate.setAttribute('pattern', '^\s*(3[01]|[12][0-9]|0?[1-9])\s[a-z]');
-
-    inputDate.addEventListener('change', function (evt) {
-      evt.preventDefault();
-      if (inputDate.validity.patternMismatch || !hasMonth()) {
-        inputDate.setCustomValidity('Дата указано неверно. Введите дату вида 22 сентября');
-      }
-    });
-  } else { // для нормальных браузеров
-    if (inputDate && inputText) {
+    if (isIE()) { // для IE
+      inputLabel.classList.add('js-ie');
+      inputDate.value = '';
+      inputDate.setAttribute('placeholder', '22 сентября');
+    } else { // для нормальных браузеров
       inputText.addEventListener('click', function () {
         inputDate.focus();
         inputDate.click();

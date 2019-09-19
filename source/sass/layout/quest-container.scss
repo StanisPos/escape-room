@@ -6,7 +6,7 @@
   padding: 0 32px;
 
   @include background("../img/photos/bg_maniac.jpg");
-  background-position: 99% 25%;
+  background-position: 99% 23.5%;
   background-size: 136%;
   background-color: #3D3333;
 
@@ -43,8 +43,8 @@
     height: auto;
     padding: 0 16px;
 
-    background-size: 274%;
-    background-position: 48% -203px;
+    background-size: 260%;
+    background-position: 48% -188px;
 
     &::after {
       background: linear-gradient(
@@ -54,6 +54,25 @@
         #24150e 64.63%,
         #1a140d 108.79%
       );
+    }
+
+    &::before {
+      content: '';
+      position: fixed;
+      height: 64px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(177.83deg, rgba(99, 60, 15, 0) 23.22%, rgba(99, 60, 15, 0) 37.46%, #24150E 89.63%, #1A140D 106.79%);
+      opacity: 0.8;
+    }
+  }
+}
+
+@media (max-width: $mobile-width - 1) {
+  .quest-container {
+    &::after {
+      opacity: 1;
     }
   }
 }

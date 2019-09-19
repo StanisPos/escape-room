@@ -1,7 +1,7 @@
 .main {
   width: inherit;
   height: inherit;
-  max-width: $desktop-width;
+  max-width: $max-content-width;;
   @include margin-centering();
 }
 
@@ -11,8 +11,10 @@
   }
 }
 
-// @media (max-width: $tablet-width - 1) {
-//   .main {
-//     height: auto;
-//   }
-// }
+@media (max-width: $tablet-width - 1) {
+  .main {
+    display: flex;
+    height: auto;
+    min-height: calc(100vh - 86px);
+  }
+}

@@ -324,37 +324,41 @@ var ALL_QUESTS = {
   var EXTENSION_IMAGE = '.jpg';
 
   var preloader = document.querySelector('.js-preloader');
-  var quest = localStorage.getItem('quest');
   var currentQuest;
-  if (quest !== 'undefined') {
-    currentQuest = JSON.parse(quest);
 
-    var image = document.querySelector('.js-container');
-    var questContainer = document.querySelector('.quest');
-    if (questContainer) {
-      var subtitle = questContainer.querySelector('.js-subtitle');
-      var title = questContainer.querySelector('.js-title');
-      var time = questContainer.querySelector('.js-time');
-      var count = questContainer.querySelector('.js-count');
-      var level = questContainer.querySelector('.js-level');
-      var description = questContainer.querySelector('.js-description');
+  if (localStorage) {
+    var quest = localStorage.getItem('quest');
 
-      title.textContent = currentQuest.title;
-      subtitle.textContent = currentQuest.subtitle;
-      time.textContent = currentQuest.time;
-      count.textContent = currentQuest.count;
-      description.textContent = currentQuest.description;
-      level.textContent = currentQuest.complexity;
+    if (quest && (quest !== 'undefined')) {
+      currentQuest = JSON.parse(quest);
 
-      image.style.backgroundImage = 'url(' + PATH_TO_IMAGE + currentQuest.image + EXTENSION_IMAGE + ')';
-      image.style.backgroundSize = 'cover';
+      var image = document.querySelector('.js-container');
+      var questContainer = document.querySelector('.quest');
+      if (questContainer) {
+        var subtitle = questContainer.querySelector('.js-subtitle');
+        var title = questContainer.querySelector('.js-title');
+        var time = questContainer.querySelector('.js-time');
+        var count = questContainer.querySelector('.js-count');
+        var level = questContainer.querySelector('.js-level');
+        var description = questContainer.querySelector('.js-description');
 
-      window.addEventListener('load', function () {
-        if (preloader) {
-          preloader.style.display = 'none';
-        }
-      });
+        title.textContent = currentQuest.title;
+        subtitle.textContent = currentQuest.subtitle;
+        time.textContent = currentQuest.time;
+        count.textContent = currentQuest.count;
+        description.textContent = currentQuest.description;
+        level.textContent = currentQuest.complexity;
+
+        image.style.backgroundImage = 'url(' + PATH_TO_IMAGE + currentQuest.image + EXTENSION_IMAGE + ')';
+        image.style.backgroundSize = 'cover';
+      }
     }
+
+    window.addEventListener('load', function () {
+      if (preloader) {
+        preloader.style.display = 'none';
+      }
+    });
   } else {
     if (preloader) {
       preloader.style.display = 'none';
@@ -379,8 +383,6 @@ var ALL_QUESTS = {
     'декабрь': 'декабря'
   };
 
-  // var monthsArr = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августя', 'сентября', 'октября', 'ноября', 'декабря'];
-
   var isIE = function () {
     var ua = navigator.userAgent;
     /* MSIE used to detect old browsers and Trident used to newer ones*/
@@ -388,41 +390,16 @@ var ALL_QUESTS = {
   };
 
   var inputLabel = document.querySelector('.order__date-chosen');
-  var inputDate = inputLabel.querySelector('#input-date');
-  var inputText = inputLabel.querySelector('.order__date-text');
 
-  // var hasMonth = function () {
-  //   var inputString = inputDate.value;
-  //   var match = false;
-  //
-  //   for (var i = 0; i < monthsArr.length; i++) {
-  //     if (inputString.includes(monthsArr[1])) {
-  //       match = true;
-  //     }
-  //   }
-  //   return match;
-  // };
+  if (inputLabel) {
+    var inputDate = inputLabel.querySelector('#input-date');
+    var inputText = inputLabel.querySelector('.order__date-text');
 
-  if (isIE()) { // для IE
-    inputLabel.classList.add('js-ie');
-    inputDate.value = '';
-    inputDate.setAttribute('placeholder', '22 сентября');
-    // inputDate.setAttribute('pattern', '^([0]?[1-9])|([1-2][0-9])|(3[01])\s(w{3,7})$');
-    //
-    // inputDate.addEventListener('change', function (evt) {
-    //   evt.preventDefault();
-    //   if (inputDate.validity.patternMismatch || !(hasMonth())) {
-    //
-    //     inputDate.setCustomValidity('Дата указано неверно. Введите дату вида 22 сентября');
-    //     inputDate.setAttribute('style', 'border-color: rgba(242, 137, 15, 0.64)');
-    //   } else {
-    //     console.log('valid');
-    //     inputDate.setCustomValidity('');
-    //     inputDate.removeAttribute('style');
-    //   }
-    // });
-  } else { // для нормальных браузеров
-    if (inputDate && inputText) {
+    if (isIE()) { // для IE
+      inputLabel.classList.add('js-ie');
+      inputDate.value = '';
+      inputDate.setAttribute('placeholder', '22 сентября');
+    } else { // для нормальных браузеров
       inputText.addEventListener('click', function () {
         inputDate.focus();
         inputDate.click();

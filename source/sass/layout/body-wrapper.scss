@@ -46,7 +46,13 @@
 @media (max-width: $tablet-width - 1) {
   .main-page__wrapper {
     background-position: 45%;
+
+    .main {
+      height: calc(100vh - 86px); //86px (высота header + margin 8px)
+    }
   }
+
+
 }
 
 @media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
