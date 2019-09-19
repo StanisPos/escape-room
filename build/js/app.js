@@ -263,6 +263,12 @@ var ALL_QUESTS = {
     }
   ];
 
+  var isIE = function () {
+    var ua = navigator.userAgent;
+    /* MSIE used to detect old browsers and Trident used to newer ones*/
+    return ua.indexOf('MSIE ') > -1 || ua.indexOf('Trident/') > -1;
+  };
+
   var questTemplate = document.querySelector('#quest-template');
 
   if (questTemplate) {
@@ -272,8 +278,11 @@ var ALL_QUESTS = {
     var quest = null;
 
     for (var i = 0; i < questsData.length; i++) {
-      quest = questTemplate.content.querySelector('.quest-item').cloneNode(true); // все нормальные браузеры
-      // quest = questTemplate.querySelector('.quest-item').cloneNode(true); // IE
+      if (isIE()) {
+        quest = questTemplate.querySelector('.quest-item').cloneNode(true); // IE
+      } else {
+        quest = questTemplate.content.querySelector('.quest-item').cloneNode(true); // все нормальные браузеры
+      }
 
       if (questsData[i].isHit) {
         quest.classList.add('quest-item--hit');
@@ -370,21 +379,56 @@ var ALL_QUESTS = {
     'декабрь': 'декабря'
   };
 
-  var inputDate = document.querySelector('#input-date');
-  var inputLabel = document.querySelector('.order__date-text');
+  var monthsArr = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августя', 'сентября', 'октября', 'ноября', 'декабря'];
 
-  if (inputDate && inputLabel) {
-    inputLabel.addEventListener('click', function () {
-      inputDate.focus();
-      inputDate.click();
-    });
+  var isIE = function () {
+    var ua = navigator.userAgent;
+    /* MSIE used to detect old browsers and Trident used to newer ones*/
+    return ua.indexOf('MSIE ') > -1 || ua.indexOf('Trident/') > -1;
+  };
 
-    inputDate.addEventListener('change', function () {
-      var date = inputDate.valueAsDate.getDate();
-      var month = months[inputDate.valueAsDate.toLocaleString('default', {month: 'long'})];
-      var text = date + ' ' + month;
-      inputLabel.innerText = text;
+  var inputLabel = document.querySelector('.order__date-chosen');
+  var inputDate = inputLabel.querySelector('#input-date');
+  var inputText = inputLabel.querySelector('.order__date-text');
+
+  var hasMonth = function () {
+    var inputString = inputDate.value;
+    var match = false;
+
+    for (var i = 0; i < monthsArr.length; i++) {
+      if (inputString.includes(monthsArr[1])) {
+        match = true;
+      }
+    }
+    return match;
+  };
+
+  if (isIE()) { // для IE
+    inputLabel.classList.add('js-ie');
+    inputDate.value = '22 сентября';
+    inputDate.setAttribute('placeholder', '22 сентября');
+    inputDate.setAttribute('pattern', '^\s*(3[01]|[12][0-9]|0?[1-9])\s[a-z]');
+
+    inputDate.addEventListener('change', function (evt) {
+      evt.preventDefault();
+      if (inputDate.validity.patternMismatch || !hasMonth()) {
+        inputDate.setCustomValidity('Дата указано неверно. Введите дату вида 22 сентября');
+      }
     });
+  } else { // для нормальных браузеров
+    if (inputDate && inputText) {
+      inputText.addEventListener('click', function () {
+        inputDate.focus();
+        inputDate.click();
+      });
+
+      inputDate.addEventListener('change', function () {
+        var date = inputDate.valueAsDate.getDate();
+        var month = months[inputDate.valueAsDate.toLocaleString('default', {month: 'long'})];
+        var text = date + ' ' + month;
+        inputText.innerText = text;
+      });
+    }
   }
 }());
 

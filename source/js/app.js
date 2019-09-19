@@ -266,8 +266,7 @@ var ALL_QUESTS = {
   var isIE = function () {
     var ua = navigator.userAgent;
     /* MSIE used to detect old browsers and Trident used to newer ones*/
-    var isIe = ua.indexOf('MSIE ') > -1 || ua.indexOf('Trident/') > -1;
-    return isIe;
+    return ua.indexOf('MSIE ') > -1 || ua.indexOf('Trident/') > -1;
   };
 
   var questTemplate = document.querySelector('#quest-template');
@@ -380,21 +379,62 @@ var ALL_QUESTS = {
     'декабрь': 'декабря'
   };
 
-  var inputDate = document.querySelector('#input-date');
-  var inputLabel = document.querySelector('.order__date-text');
+  // var monthsArr = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августя', 'сентября', 'октября', 'ноября', 'декабря'];
 
-  if (inputDate && inputLabel) {
-    inputLabel.addEventListener('click', function () {
-      inputDate.focus();
-      inputDate.click();
-    });
+  var isIE = function () {
+    var ua = navigator.userAgent;
+    /* MSIE used to detect old browsers and Trident used to newer ones*/
+    return ua.indexOf('MSIE ') > -1 || ua.indexOf('Trident/') > -1;
+  };
 
-    inputDate.addEventListener('change', function () {
-      var date = inputDate.valueAsDate.getDate();
-      var month = months[inputDate.valueAsDate.toLocaleString('default', {month: 'long'})];
-      var text = date + ' ' + month;
-      inputLabel.innerText = text;
-    });
+  var inputLabel = document.querySelector('.order__date-chosen');
+  var inputDate = inputLabel.querySelector('#input-date');
+  var inputText = inputLabel.querySelector('.order__date-text');
+
+  // var hasMonth = function () {
+  //   var inputString = inputDate.value;
+  //   var match = false;
+  //
+  //   for (var i = 0; i < monthsArr.length; i++) {
+  //     if (inputString.includes(monthsArr[1])) {
+  //       match = true;
+  //     }
+  //   }
+  //   return match;
+  // };
+
+  if (isIE()) { // для IE
+    inputLabel.classList.add('js-ie');
+    inputDate.value = '';
+    inputDate.setAttribute('placeholder', '22 сентября');
+    // inputDate.setAttribute('pattern', '^([0]?[1-9])|([1-2][0-9])|(3[01])\s(w{3,7})$');
+    //
+    // inputDate.addEventListener('change', function (evt) {
+    //   evt.preventDefault();
+    //   if (inputDate.validity.patternMismatch || !(hasMonth())) {
+    //
+    //     inputDate.setCustomValidity('Дата указано неверно. Введите дату вида 22 сентября');
+    //     inputDate.setAttribute('style', 'border-color: rgba(242, 137, 15, 0.64)');
+    //   } else {
+    //     console.log('valid');
+    //     inputDate.setCustomValidity('');
+    //     inputDate.removeAttribute('style');
+    //   }
+    // });
+  } else { // для нормальных браузеров
+    if (inputDate && inputText) {
+      inputText.addEventListener('click', function () {
+        inputDate.focus();
+        inputDate.click();
+      });
+
+      inputDate.addEventListener('change', function () {
+        var date = inputDate.valueAsDate.getDate();
+        var month = months[inputDate.valueAsDate.toLocaleString('default', {month: 'long'})];
+        var text = date + ' ' + month;
+        inputText.innerText = text;
+      });
+    }
   }
 }());
 
