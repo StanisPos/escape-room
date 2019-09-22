@@ -1,13 +1,27 @@
 .quest {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: flex-end;
 
   max-width: $desktop-width;
   width: 100%;
   height: 100%;
-  padding-bottom: 17.5%;
+  padding-top: 43px;
+  padding-bottom: 70px;
+}
+
+.quest__wrapper {
+  width: 50%;
+  min-width: 560px;
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+.quest__content {
+  padding-left: 32px;
 }
 
 .quest__title,
@@ -20,9 +34,9 @@
   font-weight: 300;
   color: $brand-color;
 
-  align-self: center;
   margin-right: 30px;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
+  padding-left: 8px;
 }
 
 .quest__title {
@@ -32,9 +46,7 @@
   letter-spacing: -0.03em;
   text-transform: uppercase;
 
-  width: 450px;
-  margin-right: 13.9%;
-  margin-bottom: 40px;
+  margin-bottom: 36px;
 }
 
 .quest__list {
@@ -48,35 +60,46 @@
   @include list-reset();
 
   display: flex;
-  justify-content: space-between;
-
-  max-width: 383px;
   width: 100%;
   margin-right: 14.5%;
   margin-bottom: 25px;
 }
 
 .quest__item {
+
+
   position: relative;
+  padding-right: 24px;
+
+  &:not(:first-child) {
+    padding-left: 24px;
+  }
 }
 
 .quest__item:not(:last-of-type)::after {
   content: "";
   position: absolute;
-  top: -10px;
-  right: -24px;
 
-  height: 37px;
+  top: -6px;
+  // right: -24px;
+  right: 0;
+
+  height: 36px;
   width: 1px;
   background: rgba(255, 255, 255, 0.36);
 }
 
 .quest__item-text {
   position: relative;
+  display: flex;
+  align-items: center;
+  line-height: 17px;
 
   &::before {
     content: "";
-    position: absolute;
+    position: static;
+    display: inline-block;
+    margin-right: 6px;
     top: 0px;
     left: -29px;
 
@@ -107,83 +130,88 @@
   font-feature-settings: "pnum" on, "lnum" on;
 
   max-width: 520px;
-  margin-right: 4%;
+  // margin-right: 4%;
   margin-bottom: 43px;
-}
-
-.quest__button {
-  margin-right: 30%;
 }
 
 .quest-back {
   display: none;
 }
 
-// @media (max-width: $tablet-width) {
 @media (max-width: $desktop-width - 1) {
   .quest {
-    text-align: center;
+    padding-bottom: 70px;
   }
 
   .quest__title {
     font-size: 60px;
 
     width: 100%;
-    margin-right: 0;
-  }
-
-  .quest__list,
-  .quest__description,
-  .quest__button {
-    @include margin-centering();
-  }
-
-  .quest__description {
-    text-align: left;
-  }
-
-  .quest__button {
-    @include margin-centering();
   }
 }
 
-// @media (max-width: $mobile-width) {
 @media (max-width: $tablet-width - 1) {
   .quest {
-    text-align: left;
+    height: inherit;
 
-    justify-content: normal;
     align-items: flex-start;
-    padding-top: 315px;
-    padding-bottom: 0;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    padding-top: 307px;
+    padding-bottom: 58px;
+    text-align: left;
+  }
+
+  .quest__wrapper {
+    min-width: auto;
+    width: 100%;
   }
 
   .quest__subtitle {
+    align-self: flex-start;
+    padding-left: 0;
     font-size: 14px;
     font-weight: 300;
-
-    align-self: flex-start;
   }
 
   .quest__title {
     font-size: 42px;
     letter-spacing: 0.001em;
 
-    margin-bottom: 56px;
+    margin-bottom: 25px;
+  }
+
+  .quest__content {
+    padding-left: 0;
   }
 
   .quest__list {
-    max-width: 297px;
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    margin-left: -16px;
+    margin-right: -16px;
+
     min-height: 40px;
-    margin: 0;
     margin-bottom: 11px;
-    margin-left: 22px;
+  }
+
+  .quest__item {
+    display: flex;
+    justify-content: center;
+    width: 33.3%;
+    align-items: flex-start;
+    padding-right: 0;
+
+    &:not(:first-child) {
+      padding-left: 0;
+    }
   }
 
   .quest__item:not(:last-of-type)::after {
-    top: -27px;
-    left: 86px;
-    height: 55px;
+    top: 0px;
+    height: 48px;
   }
 
   .quest__item-text {
@@ -191,6 +219,15 @@
     text-align: center;
 
     max-width: 72px;
+
+    flex-direction: column;
+    align-items: center;
+
+    &::before {
+      margin-bottom: 10px;
+      margin-right: 0;
+    }
+
     &--time::before {
       top: -27px;
       left: 11px;
@@ -213,7 +250,6 @@
 
   .quest__button {
     margin-left: 0;
-    margin-bottom: 150px;
   }
 
   .quest-back {

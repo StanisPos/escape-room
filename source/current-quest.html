@@ -66,28 +66,32 @@
 
     <main class="main">
       <section class="quest">
-        <b class="quest__subtitle  js-subtitle">хоррор, триллер</b>
-        <h1 class="quest__title title  js-title">Маньяк</h1>
-        <ul class="quest__list">
-          <li class="quest__item">
-            <p class="quest__item-text quest__item-text--time text  js-time">60 мин</p>
-          </li>
-          <li class="quest__item">
-            <p class="quest__item-text quest__item-text--capacity text  js-count">3-4 чел</p>
-          </li>
-          <li class="quest__item">
-            <p class="quest__item-text quest__item-text--level text  js-level">Средняя сложность</p>
-          </li>
-        </ul>
-        <p class="quest__description text js-description">
-          В комнате с приглушённым светом несколько человек, незнакомых друг с другом, приходят в себя. Никто не помнит,
-          что произошло прошлым вечером. Руки и ноги связаным, но одному из вас получилось освободиться. На стене висит
-          пугающий таймер и запущен отсxёт 60 минут. Сможете ли вы разобраться в стрессовой ситуации, помочь другим,
-          разобраться что произошло и выбраться из комнаты?
-        </p>
-        <button class="quest__button button">
-          Забронировать
-        </button>
+        <div class="quest__wrapper">
+          <b class="quest__subtitle  js-subtitle">хоррор, триллер</b>
+          <h1 class="quest__title title  js-title">Маньяк</h1>
+          <div class="quest__content">
+            <ul class="quest__list">
+              <li class="quest__item">
+                <p class="quest__item-text quest__item-text--time text  js-time">60 мин</p>
+              </li>
+              <li class="quest__item">
+                <p class="quest__item-text quest__item-text--capacity text  js-count">3-4 чел</p>
+              </li>
+              <li class="quest__item">
+                <p class="quest__item-text quest__item-text--level text  js-level">средняя сложность</p>
+              </li>
+            </ul>
+            <p class="quest__description text js-description">
+              В комнате с приглушённым светом несколько человек, незнакомых друг с другом, приходят в себя. Никто не помнит,
+              что произошло прошлым вечером. Руки и ноги связаным, но одному из вас получилось освободиться. На стене висит
+              пугающий таймер и запущен отсxёт 60 минут. Сможете ли вы разобраться в стрессовой ситуации, помочь другим,
+              разобраться что произошло и выбраться из комнаты?
+            </p>
+            <button class="quest__button button">
+              Забронировать
+            </button>
+          </div>
+        </div>
       </section>
     </main>
 
@@ -178,7 +182,7 @@
 
   <div class="preloader js-preloader"></div>
 
-  <script src="js/app.js"></script>
+  <script src="js/app.min.js"></script>
 </body>
 
 </html>
