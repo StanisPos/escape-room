@@ -60,9 +60,6 @@
   @include list-reset();
 
   display: flex;
-  // justify-content: space-between;
-
-  // max-width: 383px;
   width: 100%;
   margin-right: 14.5%;
   margin-bottom: 25px;
@@ -100,7 +97,6 @@
 
   &::before {
     content: "";
-    // position: absolute;
     position: static;
     display: inline-block;
     margin-right: 6px;
@@ -152,34 +148,19 @@
 
     width: 100%;
   }
-//
-//   .quest__list,
-//   .quest__description,
-//   .quest__button {
-//     @include margin-centering();
-//   }
-//
-//   .quest__description {
-//     text-align: left;
-//   }
-//
-//   .quest__button {
-//     @include margin-centering();
-//   }
 }
 
 @media (max-width: $tablet-width - 1) {
   .quest {
     height: inherit;
-    text-align: left;
 
-    // justify-content: normal;
     align-items: flex-start;
     flex-direction: column;
     justify-content: flex-end;
 
     padding-top: 307px;
     padding-bottom: 58px;
+    text-align: left;
   }
 
   .quest__wrapper {
@@ -188,11 +169,10 @@
   }
 
   .quest__subtitle {
+    align-self: flex-start;
+    padding-left: 0;
     font-size: 14px;
     font-weight: 300;
-    padding-left: 0;
-
-    align-self: flex-start;
   }
 
   .quest__title {
@@ -209,16 +189,12 @@
   .quest__list {
     display: flex;
     justify-content: space-between;
+    width: auto;
     margin-left: -16px;
     margin-right: -16px;
-    width: auto;
 
-
-    // max-width: 297px;
     min-height: 40px;
-    // margin: 0;
     margin-bottom: 11px;
-    // margin-left: 22px;
   }
 
   .quest__item {
@@ -231,12 +207,10 @@
     &:not(:first-child) {
       padding-left: 0;
     }
-
   }
 
   .quest__item:not(:last-of-type)::after {
     top: 0px;
-    // left: 86px;
     height: 48px;
   }
 
@@ -276,7 +250,6 @@
 
   .quest__button {
     margin-left: 0;
-    // margin-bottom: 150px;
   }
 
   .quest-back {

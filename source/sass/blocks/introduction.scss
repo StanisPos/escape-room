@@ -1,14 +1,12 @@
 .introduction {
   display: flex;
   flex-direction: column;
-  // justify-content: flex-end;
   justify-content: center;
 
   align-items: flex-start;
 
   height: inherit;
   max-width: 520px;
-  // padding-bottom: 17.2%;
   padding-bottom: 70px;
   padding-top: 80px;
 }
@@ -39,10 +37,6 @@
 }
 
 @media (max-width: $tablet-width - 1) {
-  // .introduction {
-    // min-height: 785px;
-    // height: auto;
-  // }
 
   .introduction__title {
     font-size: 40px;
@@ -56,8 +50,6 @@
 
     @include margin-centering();
 
-    // min-height: 765px;
-    // height: auto;
     padding-bottom: 65px;
     justify-content: flex-end;
 

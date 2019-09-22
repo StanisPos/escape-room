@@ -326,6 +326,8 @@ var ALL_QUESTS = {
   var preloader = document.querySelector('.js-preloader');
   var currentQuest;
 
+  console.log(localStorage);
+
   if (localStorage) {
     var quest = localStorage.getItem('quest');
 

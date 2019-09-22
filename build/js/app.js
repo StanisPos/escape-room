@@ -324,38 +324,41 @@ var ALL_QUESTS = {
   var EXTENSION_IMAGE = '.jpg';
 
   var preloader = document.querySelector('.js-preloader');
-  var quest = localStorage.getItem('quest');
   var currentQuest;
-  if (quest !== 'undefined') {
-    console.log(quest);
-    currentQuest = JSON.parse(quest);
 
-    var image = document.querySelector('.js-container');
-    var questContainer = document.querySelector('.quest');
-    if (questContainer) {
-      var subtitle = questContainer.querySelector('.js-subtitle');
-      var title = questContainer.querySelector('.js-title');
-      var time = questContainer.querySelector('.js-time');
-      var count = questContainer.querySelector('.js-count');
-      var level = questContainer.querySelector('.js-level');
-      var description = questContainer.querySelector('.js-description');
+  if (localStorage) {
+    var quest = localStorage.getItem('quest');
 
-      title.textContent = currentQuest.title;
-      subtitle.textContent = currentQuest.subtitle;
-      time.textContent = currentQuest.time;
-      count.textContent = currentQuest.count;
-      description.textContent = currentQuest.description;
-      level.textContent = currentQuest.complexity;
+    if (quest && (quest !== 'undefined')) {
+      currentQuest = JSON.parse(quest);
 
-      image.style.backgroundImage = 'url(' + PATH_TO_IMAGE + currentQuest.image + EXTENSION_IMAGE + ')';
-      image.style.backgroundSize = 'cover';
+      var image = document.querySelector('.js-container');
+      var questContainer = document.querySelector('.quest');
+      if (questContainer) {
+        var subtitle = questContainer.querySelector('.js-subtitle');
+        var title = questContainer.querySelector('.js-title');
+        var time = questContainer.querySelector('.js-time');
+        var count = questContainer.querySelector('.js-count');
+        var level = questContainer.querySelector('.js-level');
+        var description = questContainer.querySelector('.js-description');
 
-      window.addEventListener('load', function () {
-        if (preloader) {
-          preloader.style.display = 'none';
-        }
-      });
+        title.textContent = currentQuest.title;
+        subtitle.textContent = currentQuest.subtitle;
+        time.textContent = currentQuest.time;
+        count.textContent = currentQuest.count;
+        description.textContent = currentQuest.description;
+        level.textContent = currentQuest.complexity;
+
+        image.style.backgroundImage = 'url(' + PATH_TO_IMAGE + currentQuest.image + EXTENSION_IMAGE + ')';
+        image.style.backgroundSize = 'cover';
+      }
     }
+
+    window.addEventListener('load', function () {
+      if (preloader) {
+        preloader.style.display = 'none';
+      }
+    });
   } else {
     if (preloader) {
       preloader.style.display = 'none';
@@ -379,8 +382,6 @@ var ALL_QUESTS = {
     'ноябрь': 'ноября',
     'декабрь': 'декабря'
   };
-
-  // var monthsArr = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августя', 'сентября', 'октября', 'ноября', 'декабря'];
 
   var isIE = function () {
     var ua = navigator.userAgent;
