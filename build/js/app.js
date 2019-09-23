@@ -60,34 +60,36 @@
   var overlay = createOverlay();
 
   for (var i = 0; i < mdTriggers.length; i++) {
-    var modal = document.querySelector('.modal--' + mdTriggers[i].getAttribute('data-modal'));
-    var close = modal.querySelector('.md-close');
+    (function () {
+      var modal = document.querySelector('.modal--' + mdTriggers[i].getAttribute('data-modal'));
+      var close = modal.querySelector('.md-close');
 
-    var removeModal = function () {
-      modal.classList.remove('modal--show', 'submit-focused');
-      removeOverlay();
-    };
+      var removeModal = function () {
+        modal.classList.remove('modal--show', 'submit-focused');
+        removeOverlay();
+      };
 
-    mdTriggers[i].addEventListener('click', function (evt) {
-      evt.preventDefault();
-      overlay.classList.add('modal__overlay--show');
-      modal.classList.add('modal--show');
-      overlay.addEventListener('click', removeModal);
+      mdTriggers[i].addEventListener('click', function (evt) {
+        evt.preventDefault();
+        overlay.classList.add('modal__overlay--show');
+        modal.classList.add('modal--show');
+        overlay.addEventListener('click', removeModal);
 
-      if (modal.classList.contains('.modal--question')) {
-        if (storage) {
-          nameInput.value = storage;
-          emailInput.focus();
-        } else {
-          nameInput.focus();
+        if (modal.classList.contains('.modal--question')) {
+          if (storage) {
+            nameInput.value = storage;
+            emailInput.focus();
+          } else {
+            nameInput.focus();
+          }
         }
-      }
-    });
+      });
 
-    close.addEventListener('click', function (evt) {
-      evt.preventDefault();
-      removeModal();
-    });
+      close.addEventListener('click', function (evt) {
+        evt.preventDefault();
+        removeModal();
+      });
+    }());
   }
 
   if (modalQuestion) {
