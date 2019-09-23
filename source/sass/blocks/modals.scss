@@ -1,15 +1,15 @@
 .modal {
+  transform: translate3d(-50%, -50.1%, 0);
   position: fixed;
 	top: 50%;
 	left: 50%;
+  // transform: translateX(-50%);
+  // transform: translateY(-50.1%);
   width: 480px;
 	height: auto;
 	z-index: 5;
-	visibility: hidden;
-	backface-visibility: hidden;
-	// transform: translateX(-50%) translateY(-50%);
-  margin-left: -240px;
-  top: 133px;
+  -webkit-font-smoothing: subpixel-antialiased;
+  visibility: hidden;
 }
 
 .modal__inner {
@@ -19,7 +19,6 @@
 
 	opacity: 0;
 	transition: 0.3s;
-  transform: translate3d(0, 0, 0);
 
   padding: 32px;
   padding-bottom: 34px;
@@ -400,12 +399,6 @@
 	visibility: visible;
 }
 
-// @media (max-width: ($desktop-width - 1)) {
-//   .modal {
-//     top: 80px;
-//   }
-// }
-
 @media (max-width: ($desktop-width - 1)) {
   .modal {
     width: 100%;
@@ -413,6 +406,7 @@
     top: 0;
     left: 0;
     margin-left: 0;
+    transform: translate3d(0, 0, 0);
   }
 
   .modal__prompt {
