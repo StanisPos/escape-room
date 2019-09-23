@@ -5,10 +5,10 @@
   height: 100vh;
   padding: 0 32px;
 
-  @include background("../img/photos/bg_maniac.jpg");
+  // @include background("../img/photos/bg_maniac.jpg");
   background-position: 99% 23.5%;
   background-size: 136%;
-  background-color: #3D3333;
+  background-color: #23150E;
 
   &::after {
     content: "";
@@ -24,16 +24,25 @@
       rgba(0, 0, 0, 0.04) 0%,
       rgba(0, 0, 0, 0.76) 171%
     );
-    opacity: 0.72;
+    opacity: 0.8;
 
     z-index: -1;
   }
+
+  &[data-label="secrets"] {
+    .quest {
+      padding-top: 100px;
+    }
+    .quest__subtitle {
+      padding-left: 0;
+      margin-bottom: 20px;
+    }
+  }
 }
 
-@media (max-width: $tablet-width) {
+@media (max-width: $desktop-width) {
   .quest-container {
     background-size: cover;
-    background-position: center;
   }
 }
 
@@ -43,8 +52,9 @@
     height: auto;
     padding: 0 16px;
 
-    background-size: 260%;
-    background-position: 48% -188px;
+    // background-size: 260%;
+    // background-position: 48% -188px;
+    background-position: 48% -133px;
 
     &::after {
       background: linear-gradient(
@@ -65,6 +75,14 @@
       bottom: 0;
       background: linear-gradient(177.83deg, rgba(99, 60, 15, 0) 23.22%, rgba(99, 60, 15, 0) 37.46%, #24150E 89.63%, #1A140D 106.79%);
       opacity: 0.8;
+    }
+
+    &[data-label="experiment"] {
+      background-position-x: 68%;
+    }
+
+    &[data-label="ritual"] {
+      background-position-y: -180px;
     }
   }
 }
