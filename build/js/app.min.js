@@ -316,67 +316,6 @@ var ALL_QUESTS = {
   }
 }());
 
-// Выбор квеста
-(function () {
-  var quests = document.querySelectorAll('.choose-quest__item');
-
-  if (quests) {
-    for (var i = 0; i < quests.length; i++) {
-      quests[i].addEventListener('click', function () {
-        var currentQuest = ALL_QUESTS[quests[i].dataset.label.toUpperCase()];
-        localStorage.setItem('quest', JSON.stringify(currentQuest));
-      });
-    }
-  }
-})();
-
-(function () {
-  var PATH_TO_IMAGE = '../../img/photos/';
-  var EXTENSION_IMAGE = '.jpg';
-
-  var preloader = document.querySelector('.js-preloader');
-  var currentQuest;
-
-  if (localStorage) {
-    var quest = localStorage.getItem('quest');
-
-    if (quest && (quest !== 'undefined')) {
-      currentQuest = JSON.parse(quest);
-
-      var image = document.querySelector('.js-container');
-      var questContainer = document.querySelector('.quest');
-      if (questContainer) {
-        var subtitle = questContainer.querySelector('.js-subtitle');
-        var title = questContainer.querySelector('.js-title');
-        var time = questContainer.querySelector('.js-time');
-        var count = questContainer.querySelector('.js-count');
-        var level = questContainer.querySelector('.js-level');
-        var description = questContainer.querySelector('.js-description');
-
-        title.textContent = currentQuest.title;
-        subtitle.textContent = currentQuest.subtitle;
-        time.textContent = currentQuest.time;
-        count.textContent = currentQuest.count;
-        description.textContent = currentQuest.description;
-        level.textContent = currentQuest.complexity;
-
-        image.style.backgroundImage = 'url(' + PATH_TO_IMAGE + currentQuest.image + EXTENSION_IMAGE + ')';
-        image.style.backgroundSize = 'cover';
-      }
-    }
-
-    window.addEventListener('load', function () {
-      if (preloader) {
-        preloader.style.display = 'none';
-      }
-    });
-  } else {
-    if (preloader) {
-      preloader.style.display = 'none';
-    }
-  }
-})();
-
 // настройка выбора даты
 (function () {
   var months = {
@@ -454,9 +393,9 @@ var ALL_QUESTS = {
   var PATH_TO_IMAGE = 'img/photos/';
   var EXTENSION_IMAGE = '.jpg';
 
-  var currentQuest;
-
+  var preloader = document.querySelector('.js-preloader');
   var image = document.querySelector('.js-container');
+  var currentQuest;
 
   if (image) {
     var quest = image.getAttribute('data-label');
@@ -478,5 +417,11 @@ var ALL_QUESTS = {
 
     image.style.backgroundImage = 'url(' + PATH_TO_IMAGE + currentQuest.image + EXTENSION_IMAGE + ')';
     // image.style.backgroundSize = 'cover';
+
+    window.addEventListener('load', function () {
+      if (preloader) {
+        preloader.style.display = 'none';
+      }
+    });
   }
 }());
