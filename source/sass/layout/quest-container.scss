@@ -6,7 +6,7 @@
   padding: 0 32px;
 
   background-position: 99% 23.5%;
-  background-size: 136%;
+  background-size: cover;
   background-color: #23150E;
   background-repeat: no-repeat;
 
@@ -63,14 +63,23 @@
 
 .quest-container--experiment {
   background-image: url("../img/photos/bg_experiment@1x.jpg");
-  background-position: 112% 33%;
-  background-size: 158%;
+  background-position: 100% 30%;
+  // background-size: 200%;
+  background-size: 170%;
+
+  &::after {
+    background: linear-gradient(107.85deg, rgba(107, 75, 75, 0.15) 30.73%, rgba(36, 21, 21, 0.82) 70.25%);
+  }
 }
 
 .quest-container--ritual {
   background-image: url("../img/photos/bg_ritual@1x.jpg");
   background-position: 86% 50%;
   background-size: 141%;
+
+  &::after {
+    display: none;
+  }
 }
 
 .quest-container--secrets {
@@ -89,7 +98,6 @@
 @media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
   .quest-container--maniac {
     background-image: url("../img/photos/bg_maniac@2x.jpg");
-    // background-size: 1338px auto;
   }
 
   .quest-container--experiment {
@@ -105,22 +113,19 @@
   }
 }
 
-@media (max-width: $desktop-width) {
+@media (min-width: $desktop-width) and (orientation: portrait) {
   .quest-container {
     background-size: cover;
   }
 }
 
-@media (max-width: $tablet-width - 1) {
+@media (max-width: $desktop-width - 1) {
   .quest-container {
     min-height: 100vh;
     height: auto;
     padding: 0 16px;
 
     background-size: cover;
-    // background-size: 260%;
-    // background-position: 48% -188px;
-    background-position: 48% -133px;
 
     &::after {
       background: linear-gradient(
@@ -144,10 +149,6 @@
     }
   }
 
-  .quest-container--maniac {
-    background-position: 48% -133px;
-  }
-
   .quest-container--experiment {
     background-position-x: 68%;
 
@@ -158,6 +159,11 @@
 
   .quest-container--ritual {
     background-position: 48% -180px;
+    background-size: 220%;
+
+    &::after {
+      display: block;
+    }
   }
 
   .quest-container--secrets {
@@ -166,6 +172,31 @@
     .quest {
       padding-top: 220px;
     }
+  }
+}
+
+@media (max-width: $tablet-width - 1) {
+  .quest-container {
+  }
+
+  .quest-container--maniac {
+    background-position: 48% -133px;
+  }
+
+  .quest-container--experiment {
+    background-position: 69% -80px;
+
+    .quest {
+      padding-top: 270px;
+    }
+  }
+
+  .quest-container--ritual {
+    background-size: cover;
+  }
+
+  .quest-container--secrets {
+    background-position: 40% -130px;
   }
 }
 
