@@ -16,8 +16,10 @@
   border: none;
 
   outline: none;
+  transition: 0.3s;
 
   &:hover {
+    background-color: #f39425;
     cursor: pointer;
   }
 }
