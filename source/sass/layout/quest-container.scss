@@ -5,12 +5,13 @@
   height: 100vh;
   padding: 0 32px;
 
-  // @include background("../img/photos/bg_maniac.jpg");
   background-position: 99% 23.5%;
   background-size: 136%;
   background-color: #23150E;
+  background-repeat: no-repeat;
 
   &::after {
+    z-index: -1;
     content: "";
     position: absolute;
     top: 0;
@@ -25,34 +26,82 @@
       rgba(0, 0, 0, 0.76) 171%
     );
     opacity: 0.8;
-
-    z-index: -1;
   }
 
-  &[data-label="secrets"] {
-    background-position: 74% 40%;
+  // &[data-label="secrets"] {
+  //   background-position: 74% 40%;
+  //
+  //   .quest {
+  //     padding-top: 100px;
+  //   }
+  //   .quest__subtitle {
+  //     padding-left: 0;
+  //     margin-bottom: 20px;
+  //   }
+  // }
 
-    .quest {
-      padding-top: 100px;
-    }
-    .quest__subtitle {
-      padding-left: 0;
-      margin-bottom: 20px;
-    }
+  // &[data-label="ritual"] {
+  //   background-position: 86% 50%;
+  //   background-size: 141%;
+  //
+  //   &::after {
+  //     display: none;
+  //   }
+  // }
+
+  // &[data-label="experiment"] {
+  //   background-position: 112% 33%;
+  //   background-size: 158%;
+  // }
+}
+
+.quest-container--maniac {
+  background-image: url("../img/photos/bg_maniac@1x.jpg");
+  background-position: 99% 23.5%;
+  background-size: 136%;
+}
+
+.quest-container--experiment {
+  background-image: url("../img/photos/bg_experiment@1x.jpg");
+  background-position: 112% 33%;
+  background-size: 158%;
+}
+
+.quest-container--ritual {
+  background-image: url("../img/photos/bg_ritual@1x.jpg");
+  background-position: 86% 50%;
+  background-size: 141%;
+}
+
+.quest-container--secrets {
+  background-image: url("../img/photos/bg_secrets-mansion@1x.jpg");
+  background-position: 74% 40%;
+
+  .quest {
+    padding-top: 100px;
+  }
+  .quest__subtitle {
+    padding-left: 0;
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+  .quest-container--maniac {
+    background-image: url("../img/photos/bg_maniac@2x.jpg");
+    // background-size: 1338px auto;
   }
 
-  &[data-label="ritual"] {
-    background-position: 86% 50%;
-    background-size: 141%;
-
-    &::after {
-      display: none;
-    }
+  .quest-container--experiment {
+    background-image: url("../img/photos/bg_experiment@2x.jpg");
   }
 
-  &[data-label="experiment"] {
-    background-position: 112% 33%;
-    background-size: 158%;
+  .quest-container--ritual {
+    background-image: url("../img/photos/bg_ritual@2x.jpg");
+  }
+
+  .quest-container--secrets {
+    background-image: url("../img/photos/bg_secrets-mansion@2x.jpg");
   }
 }
 
@@ -68,6 +117,7 @@
     height: auto;
     padding: 0 16px;
 
+    background-size: cover;
     // background-size: 260%;
     // background-position: 48% -188px;
     background-position: 48% -133px;
@@ -92,29 +142,29 @@
       background: linear-gradient(177.83deg, rgba(99, 60, 15, 0) 23.22%, rgba(99, 60, 15, 0) 37.46%, #24150E 89.63%, #1A140D 106.79%);
       opacity: 0.8;
     }
+  }
 
-    &[data-label] {
-      background-size: cover;
+  .quest-container--maniac {
+    background-position: 48% -133px;
+  }
+
+  .quest-container--experiment {
+    background-position-x: 68%;
+
+    .quest {
+      padding-top: 270px;
     }
+  }
 
-    &[data-label="experiment"] {
-      background-position-x: 68%;
+  .quest-container--ritual {
+    background-position: 48% -180px;
+  }
 
-      .quest {
-        padding-top: 270px;
-      }
-    }
+  .quest-container--secrets {
+    background-position-x: 40%;
 
-    &[data-label="ritual"] {
-      background-position: 48% -180px;
-    }
-
-    &[data-label="secrets"] {
-      background-position-x: 40%;
-
-      .quest {
-        padding-top: 220px;
-      }
+    .quest {
+      padding-top: 220px;
     }
   }
 }

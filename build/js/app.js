@@ -393,9 +393,9 @@ var ALL_QUESTS = {
   var PATH_TO_IMAGE = 'img/photos/';
   var EXTENSION_IMAGE = '.jpg';
 
-  var currentQuest;
-
+  var preloader = document.querySelector('.js-preloader');
   var image = document.querySelector('.js-container');
+  var currentQuest;
 
   if (image) {
     var quest = image.getAttribute('data-label');
@@ -416,5 +416,12 @@ var ALL_QUESTS = {
     level.textContent = currentQuest.complexity;
 
     image.style.backgroundImage = 'url(' + PATH_TO_IMAGE + currentQuest.image + EXTENSION_IMAGE + ')';
+    // image.style.backgroundSize = 'cover';
+
+    window.addEventListener('load', function () {
+      if (preloader) {
+        preloader.style.display = 'none';
+      }
+    });
   }
 }());

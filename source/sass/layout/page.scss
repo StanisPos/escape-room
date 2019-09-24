@@ -31,10 +31,18 @@
   }
 
   &::before {
-    background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('../img/photos/bg_maniac.jpg');
+    background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('../img/photos/bg_maniac@1x.jpg');
     filter: blur(70px);
     background-position: 99% 25%;
     background-size: 136%;
+  }
+}
+
+@media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+  .wrapper--blurred {
+    &::before {
+      background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('../img/photos/bg_maniac@2x.jpg');
+    }
   }
 }
 
